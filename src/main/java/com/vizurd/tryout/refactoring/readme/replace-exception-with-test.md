@@ -1,6 +1,6 @@
 replace-exception-with-test:java
 
-###
+---
 
 1. Create a conditional for an edge case and move it before the try/catch block.
 
@@ -16,7 +16,7 @@ replace-exception-with-test:java
 
 
 
-###
+---
 
 ```
 class ResourcePool {
@@ -39,7 +39,7 @@ class ResourcePool {
 }
 ```
 
-###
+---
 
 ```
 class ResourcePool {
@@ -61,7 +61,7 @@ class ResourcePool {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

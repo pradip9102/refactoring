@@ -1,6 +1,6 @@
 remove-control-flag:java
 
-###
+---
 
 1. Find the value assignment to the control flag that causes the exit from the loop or current iteration.
 
@@ -10,7 +10,7 @@ remove-control-flag:java
 
 
 
-###
+---
 
 ```
 void checkSecurity(String[] people) {
@@ -30,7 +30,7 @@ void checkSecurity(String[] people) {
 }
 ```
 
-###
+---
 
 ```
 void checkSecurity(String[] people) {
@@ -47,7 +47,7 @@ void checkSecurity(String[] people) {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

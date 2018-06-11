@@ -1,6 +1,6 @@
 change-bidirectional-association-to-unidirectional:java
 
-###
+---
 
 1. Make sure that one of the following is true for your classes:
     - Association is not used at all
@@ -13,7 +13,7 @@ change-bidirectional-association-to-unidirectional:java
 
 4. Delete the now-unused field.
 
-###
+---
 
 ```
 class Order {
@@ -59,7 +59,7 @@ class Customer {
 }
 ```
 
-###
+---
 
 ```
 class Order {
@@ -95,7 +95,7 @@ class Customer {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

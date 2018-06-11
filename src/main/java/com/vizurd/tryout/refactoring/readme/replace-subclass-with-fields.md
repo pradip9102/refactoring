@@ -1,6 +1,6 @@
 replace-subclass-with-fields:java
 
-###
+---
 
 1. Apply <a href="/replace-constructor-with-factory-method">Replace Constructor with Factory Method</a> to the subclasses.
 
@@ -20,7 +20,7 @@ replace-subclass-with-fields:java
 
 
 
-###
+---
 
 ```
 abstract class Person {
@@ -50,7 +50,7 @@ Person kent = new Male();
 System.out.print("Person's gender is: " + kent.getCode());
 ```
 
-###
+---
 
 ```
 class Person {
@@ -81,7 +81,7 @@ Person kent = Person.createMale();
 System.out.print("Person's gender is: " + kent.getCode());
 ```
 
-###
+---
 
 ###### Set step 1
 

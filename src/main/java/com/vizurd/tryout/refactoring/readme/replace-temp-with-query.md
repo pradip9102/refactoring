@@ -1,6 +1,6 @@
 replace-temp-with-query:java
 
-###
+---
 
 1. Make sure that a value is assigned to the variable once and only once within the method.
 
@@ -10,7 +10,7 @@ replace-temp-with-query:java
 
 
 
-###
+---
 
 ```
 class Product {
@@ -29,7 +29,7 @@ class Product {
 }
 ```
 
-###
+---
 
 ```
 class Product {
@@ -51,7 +51,7 @@ class Product {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

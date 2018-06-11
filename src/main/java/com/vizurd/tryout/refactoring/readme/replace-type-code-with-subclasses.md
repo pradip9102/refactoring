@@ -1,6 +1,6 @@
 replace-type-code-with-subclasses:java
 
-###
+---
 
 1. Use <a href="/self-encapsulate-field">Self Encapsulate Field</a> to create a getter for the field that contains type code.
 
@@ -17,7 +17,7 @@ replace-type-code-with-subclasses:java
 
 
 
-###
+---
 
 ```
 class Employee {
@@ -50,7 +50,7 @@ class Employee {
 }
 ```
 
-###
+---
 
 ```
 abstract class Employee {
@@ -107,7 +107,7 @@ class Manager extends Employee {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

@@ -1,6 +1,6 @@
 replace-type-code-with-class:java
 
-###
+---
 
 1. Create a new class and give it a new name that corresponds to the purpose of the coded type. Here we will call it *type class* .
 
@@ -16,7 +16,7 @@ replace-type-code-with-class:java
 
 
 
-###
+---
 
 ```
 class Person {
@@ -46,7 +46,7 @@ if (parent.getBloodGroup() == Person.AB) {
 child.setBloodGroup(parent.getBloodGroup());
 ```
 
-###
+---
 
 ```
 class Person {
@@ -95,7 +95,7 @@ if (parent.getBloodGroup() == BloodGroup.AB()) {
 child.setBloodGroup(parent.getBloodGroup());
 ```
 
-###
+---
 
 ###### Set step 1
 

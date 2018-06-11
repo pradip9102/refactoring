@@ -1,6 +1,6 @@
 replace-method-with-method-object:java
 
-###
+---
 
 1. Create a new class. Name it based on the purpose of the method that you are refactoring.
 
@@ -22,7 +22,7 @@ replace-method-with-method-object:java
 
 
 
-###
+---
 
 ```
 class Account {
@@ -41,7 +41,7 @@ class Account {
 }
 ```
 
-###
+---
 
 ```
 class Account {
@@ -82,7 +82,7 @@ class Gamma {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

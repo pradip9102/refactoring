@@ -1,6 +1,6 @@
 change-unidirectional-association-to-bidirectional:java
 
-###
+---
 
 1. Add a field for holding the reverse association.
 
@@ -13,7 +13,7 @@ change-unidirectional-association-to-bidirectional:java
 5. If the old methods for controlling the association were in the non-dominant class, implement a control algorithm in the dominant class and delegate execution to them from the non-dominant class.
 
 
-###
+---
 
 ```
 class Order {
@@ -33,7 +33,7 @@ class Customer {
 }
 ```
 
-###
+---
 
 ```
 class Order {
@@ -70,7 +70,7 @@ class Customer {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

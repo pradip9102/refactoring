@@ -1,6 +1,6 @@
 change-reference-to-value:java
 
-###
+---
 
 1. Make the object unchangeable. The object should not have any setters or other methods that change its state and data (<a href="/remove-setting-method">Remove Setting Method</a> may help here). The only place where data should be assigned to the fields of a value object is a constructor.
 
@@ -9,7 +9,7 @@ change-reference-to-value:java
 3. Check whether you can delete the factory method and make the object constructor public.
 
 
-###
+---
 
 ```
 class Customer {
@@ -46,7 +46,7 @@ Customer john = Customer.get("John Smith");
 john.setBirthDate(new Date(1985, 1, 1));
 ```
 
-###
+---
 
 ```
 class Customer {
@@ -79,7 +79,7 @@ class Customer {
 Customer john = new Customer("John Smith", new Date(1985, 1, 1));
 ```
 
-###
+---
 
 ###### Set step 1
 

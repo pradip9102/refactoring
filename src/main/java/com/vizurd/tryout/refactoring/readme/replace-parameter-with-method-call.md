@@ -1,6 +1,6 @@
 replace-parameter-with-method-call:java
 
-###
+---
 
 1. Make sure that the value-getting code does not use parameters from the current method, since they will be unavailable from inside another method. If so, moving the code is not possible.
 
@@ -12,7 +12,7 @@ replace-parameter-with-method-call:java
 
 
 
-###
+---
 
 ```
 class Order {
@@ -40,7 +40,7 @@ class Order {
 }
 ```
 
-###
+---
 
 ```
 class Order {
@@ -70,7 +70,7 @@ class Order {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

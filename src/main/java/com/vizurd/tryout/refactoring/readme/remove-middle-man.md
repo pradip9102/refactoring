@@ -1,6 +1,6 @@
 remove-middle-man:java
 
-###
+---
 
 1. Create a getter for accessing the *delegate-class*  object from the *server-class*  object.
 
@@ -8,7 +8,7 @@ remove-middle-man:java
 
 
 
-###
+---
 
 ```
 class Person {
@@ -40,7 +40,7 @@ class Department {
 manager = john.getManager();
 ```
 
-###
+---
 
 ```
 class Person {
@@ -72,7 +72,7 @@ class Department {
 manager = john.getDepartment().getManager();
 ```
 
-###
+---
 
 ###### Set step 1
 

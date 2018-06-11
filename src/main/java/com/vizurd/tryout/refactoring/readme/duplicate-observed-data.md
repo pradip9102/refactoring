@@ -1,6 +1,6 @@
 duplicate-observed-data:java
 
-###
+---
 
 1. Create a domain class.
 
@@ -14,7 +14,7 @@ duplicate-observed-data:java
 
 
 
-###
+---
 
 ```
 class IntervalWindow extends Frame {
@@ -91,7 +91,7 @@ class IntervalWindow extends Frame {
 }
 ```
 
-###
+---
 
 ```
 class IntervalWindow extends Frame implements Observer {
@@ -232,7 +232,7 @@ class Interval extends Observable {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

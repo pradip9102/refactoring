@@ -1,6 +1,6 @@
 extract-class:java
 
-###
+---
 
 1. Create a new class to contain the relevant functionality.
 
@@ -12,7 +12,7 @@ extract-class:java
 
 
 
-###
+---
 
 ```
 class Person {
@@ -41,7 +41,7 @@ class Person {
 }
 ```
 
-###
+---
 
 ```
 class Person {
@@ -81,7 +81,7 @@ class TelephoneNumber {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

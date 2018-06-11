@@ -1,6 +1,6 @@
 extract-interface:java
 
-###
+---
 
 1. Create an empty interface.
 
@@ -12,7 +12,7 @@ extract-interface:java
 
 
 
-###
+---
 
 ```
 class TimeSheet {
@@ -39,7 +39,7 @@ class Employee {
 }
 ```
 
-###
+---
 
 ```
 class TimeSheet {
@@ -71,7 +71,7 @@ class Employee implements Billable {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

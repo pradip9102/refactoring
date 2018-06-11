@@ -1,6 +1,6 @@
 extract-superclass:java
 
-###
+---
 
 1. Create an abstract superclass.
 
@@ -10,7 +10,7 @@ extract-superclass:java
 
 
 
-###
+---
 
 ```
 class Employee {
@@ -65,7 +65,7 @@ class Department {
 }
 ```
 
-###
+---
 
 ```
 abstract class Party {
@@ -134,7 +134,7 @@ class Department extends Party {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

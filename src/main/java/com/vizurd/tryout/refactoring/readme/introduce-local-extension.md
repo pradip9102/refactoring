@@ -1,6 +1,6 @@
 introduce-local-extension:java
 
-###
+---
 
 
 1. Create a new extension class and make it the inheritor of the utility class.
@@ -22,7 +22,7 @@ introduce-local-extension:java
 
 
 
-###
+---
 
 ```
 class Account {
@@ -43,7 +43,7 @@ class Account {
 }
 ```
 
-###
+---
 
 ```
 class Account {
@@ -70,7 +70,7 @@ class MfDateSub extends Date {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

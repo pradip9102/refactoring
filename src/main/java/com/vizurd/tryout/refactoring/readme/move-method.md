@@ -1,6 +1,6 @@
 move-method:java
 
-###
+---
 
 1. Check all features used by the old method in its class. It may be a good idea to move them as well.
 
@@ -12,7 +12,7 @@ move-method:java
 
 
 
-###
+---
 
 ```
 class Account {
@@ -46,7 +46,7 @@ class AccountType {
 }
 ```
 
-###
+---
 
 ```
 class Account {
@@ -80,7 +80,7 @@ class AccountType {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

@@ -1,6 +1,6 @@
 replace-constructor-with-factory-method:java
 
-###
+---
 
 1. Create a factory method. Place a call to the current constructor in it.
 
@@ -12,7 +12,7 @@ replace-constructor-with-factory-method:java
 
 
 
-###
+---
 
 ```
 class Employee {
@@ -30,7 +30,7 @@ class Employee {
 Employee eng = new Employee(Employee.ENGINEER);
 ```
 
-###
+---
 
 ```
 class Employee {
@@ -69,7 +69,7 @@ class Manager extends Employee {
 Employee eng = Employee.create(Employee.ENGINEER);
 ```
 
-###
+---
 
 ###### Set step 1
 

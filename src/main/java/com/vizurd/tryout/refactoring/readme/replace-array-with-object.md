@@ -1,6 +1,6 @@
 replace-array-with-object:java
 
-###
+---
 
 1. Create the new class that will contain the data from the array. Place the array itself in the class as a public field.
 
@@ -16,7 +16,7 @@ replace-array-with-object:java
 
 
 
-###
+---
 
 ```
 class Tournament {
@@ -34,7 +34,7 @@ class Tournament {
 }
 ```
 
-###
+---
 
 ```
 class Tournament {
@@ -70,7 +70,7 @@ class Performance {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

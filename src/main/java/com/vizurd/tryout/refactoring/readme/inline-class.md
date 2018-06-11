@@ -1,6 +1,6 @@
 inline-class:java
 
-###
+---
 
 1. In the recipient class, create the public fields and methods present in the donor class. Methods should refer to the equivalent methods of the donor class.
 
@@ -12,7 +12,7 @@ inline-class:java
 
 
 
-###
+---
 
 ```
 class Person {
@@ -56,7 +56,7 @@ Person martin = new Person();
 martin.getOfficeTelephone().setAreaCode("781");
 ```
 
-###
+---
 
 ```
 class Person {
@@ -90,7 +90,7 @@ Person martin = new Person();
 martin.setAreaCode("781");
 ```
 
-###
+---
 
 ###### Set step 1
 

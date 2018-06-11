@@ -1,6 +1,6 @@
 replace-nested-conditional-with-guard-clauses:java
 
-###
+---
 
 1. Isolate all guard clauses that lead to calling an exception or immediate return of a value from the method. Place these conditions at the beginning of the method.
 
@@ -8,7 +8,7 @@ replace-nested-conditional-with-guard-clauses:java
 
 
 
-###
+---
 
 ```
 class Payout {
@@ -36,7 +36,7 @@ class Payout {
 }
 ```
 
-###
+---
 
 ```
 class Payout {
@@ -56,7 +56,7 @@ class Payout {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

@@ -1,6 +1,6 @@
 extract-variable:java
 
-###
+---
 
 1. Create a local variable and give it the necessary value.
 
@@ -8,7 +8,7 @@ extract-variable:java
 
 
 
-###
+---
 
 ```
 double price() {
@@ -19,7 +19,7 @@ double price() {
 }
 ```
 
-###
+---
 
 ```
 double price() {
@@ -30,7 +30,7 @@ double price() {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

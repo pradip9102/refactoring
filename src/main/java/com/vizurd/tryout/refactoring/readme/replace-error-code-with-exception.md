@@ -1,6 +1,6 @@
 replace-error-code-with-exception:java
 
-###
+---
 
 1. Find all calls to a method that returns error codes and, instead of checking for an error code, wrap it in `try`/`catch` blocks.
 
@@ -10,7 +10,7 @@ replace-error-code-with-exception:java
 
 
 
-###
+---
 
 ```
 class Account {
@@ -37,7 +37,7 @@ else {
 }
 ```
 
-###
+---
 
 ```
 class Account {
@@ -62,7 +62,7 @@ try {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

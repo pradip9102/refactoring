@@ -1,6 +1,6 @@
 decompose-conditional:java
 
-###
+---
 
 1. Extract the conditional to a separate method via <a href="/extract-method">Extract Method</a>.
 
@@ -8,7 +8,7 @@ decompose-conditional:java
 
 
 
-###
+---
 
 ```
 class Stadium {
@@ -30,7 +30,7 @@ class Stadium {
 }
 ```
 
-###
+---
 
 ```
 class Stadium {
@@ -62,7 +62,7 @@ class Stadium {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

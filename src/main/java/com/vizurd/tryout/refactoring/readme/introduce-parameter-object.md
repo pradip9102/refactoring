@@ -1,6 +1,6 @@
 introduce-parameter-object:java
 
-###
+---
 
 1. Create a new class that will represent your group of parameters. Make the class immutable.
 
@@ -12,7 +12,7 @@ introduce-parameter-object:java
 
 
 
-###
+---
 
 ```
 class Account {
@@ -52,7 +52,7 @@ class Transaction {
 double flow = account.getFlowBetween(startDate, endDate);
 ```
 
-###
+---
 
 ```
 class Account {
@@ -111,7 +111,7 @@ class DateRange {
 double flow = account.getFlowBetween(new DateRange(startDate, endDate));
 ```
 
-###
+---
 
 ###### Set step 1
 

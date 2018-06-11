@@ -1,6 +1,6 @@
 hide-delegate:java
 
-###
+---
 
 1. For each *delegate class*  method that is called in the code, create a method in the *server class*  that delegates calls to the *delegate class* .
 
@@ -11,7 +11,7 @@ hide-delegate:java
 
 
 
-###
+---
 
 ```
 class Person {
@@ -43,7 +43,7 @@ class Department {
 manager = john.getDepartment().getManager();
 ```
 
-###
+---
 
 ```
 class Person {
@@ -75,7 +75,7 @@ class Department {
 manager = john.getManager();
 ```
 
-###
+---
 
 ###### Set step 1
 

@@ -1,6 +1,6 @@
 self-encapsulate-field:java
 
-###
+---
 
 1. Create a getter (and optional setter) for the field.
 
@@ -8,7 +8,7 @@ self-encapsulate-field:java
 
 
 
-###
+---
 
 ```
 class IntRange {
@@ -27,7 +27,7 @@ class IntRange {
 }
 ```
 
-###
+---
 
 ```
 class IntRange {
@@ -58,7 +58,7 @@ class IntRange {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

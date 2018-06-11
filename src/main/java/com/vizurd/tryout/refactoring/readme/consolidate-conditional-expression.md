@@ -1,6 +1,6 @@
 consolidate-conditional-expression:java
 
-###
+---
 
 1. Consolidate the conditionals in a single expression by using `AND` and `OR`.
 
@@ -8,7 +8,7 @@ consolidate-conditional-expression:java
 
 
 
-###
+---
 
 ```
 class Payout {
@@ -43,7 +43,7 @@ class Payout {
 }
 ```
 
-###
+---
 
 ```
 class Payout {
@@ -70,7 +70,7 @@ class Payout {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

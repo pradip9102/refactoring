@@ -1,6 +1,6 @@
 add-parameter:java
 
-###
+---
 
 1. See whether the method is defined in a superclass or subclass. If the method is present in them, you will need to repeat all the steps in these classes as well.
 
@@ -11,7 +11,7 @@ add-parameter:java
 4. Delete the old method. Deletion is not possible if the old method is part of the public interface. If that is the case, mark the old method as deprecated.
 
 
-###
+---
 
 ```
 class Calendar {
@@ -35,7 +35,7 @@ Date today = new Date();
 appointments = calendar.findAppointments(today);
 ```
 
-###
+---
 
 ```
 class Calendar {
@@ -61,7 +61,7 @@ Date today = new Date();
 appointments = calendar.findAppointments(today, null);
 ```
 
-###
+---
 
 ###### Set step 1
 

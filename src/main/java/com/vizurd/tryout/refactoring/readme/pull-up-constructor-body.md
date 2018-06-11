@@ -1,6 +1,6 @@
 pull-up-constructor-body:java
 
-###
+---
 
 1. Create a constructor in a superclass.
 
@@ -10,7 +10,7 @@ pull-up-constructor-body:java
 
 
 
-###
+---
 
 ```
 class Employee {
@@ -30,7 +30,7 @@ class Manager extends Employee {
 }
 ```
 
-###
+---
 
 ```
 class Employee {
@@ -53,7 +53,7 @@ class Manager extends Employee {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

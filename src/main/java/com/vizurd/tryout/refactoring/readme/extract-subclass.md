@@ -1,6 +1,6 @@
 extract-subclass:java
 
-###
+---
 
 1. Create a new subclass from the class of interest.
 
@@ -14,7 +14,7 @@ extract-subclass:java
 
 
 
-###
+---
 
 ```
 class JobItem {
@@ -60,7 +60,7 @@ JobItem j2 = new JobItem(15, 10, false, null);
 int total = j1.getTotalPrice() + j2.getTotalPrice();
 ```
 
-###
+---
 
 ```
 abstract class JobItem {
@@ -122,7 +122,7 @@ JobItem j2 = new PartsItem(15, 10);
 int total = j1.getTotalPrice() + j2.getTotalPrice();
 ```
 
-###
+---
 
 ###### Set step 1
 

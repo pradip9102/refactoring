@@ -1,6 +1,6 @@
 replace-delegation-with-inheritance:java
 
-###
+---
 
 1. Make the class a subclass of the delegate class.
 
@@ -14,7 +14,7 @@ replace-delegation-with-inheritance:java
 
 
 
-###
+---
 
 ```
 class Person {
@@ -49,7 +49,7 @@ class Employee {
 }
 ```
 
-###
+---
 
 ```
 class Person {
@@ -73,7 +73,7 @@ class Employee extends Person {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

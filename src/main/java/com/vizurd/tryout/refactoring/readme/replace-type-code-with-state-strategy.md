@@ -1,6 +1,6 @@
 replace-type-code-with-state-strategy:java
 
-###
+---
 
 1. Use <a href="/self-encapsulate-field">Self Encapsulate Field</a> to create a getter for the field that contains type code.
 
@@ -18,7 +18,7 @@ replace-type-code-with-state-strategy:java
 
 
 
-###
+---
 
 ```
 class Employee {
@@ -51,7 +51,7 @@ class Employee {
 }
 ```
 
-###
+---
 
 ```
 class Employee {
@@ -123,7 +123,7 @@ class Manager extends EmployeeType {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

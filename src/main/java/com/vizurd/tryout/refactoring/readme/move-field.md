@@ -1,6 +1,6 @@
 move-field:java
 
-###
+---
 
 1. If the field is public, encapsulate it.
 
@@ -14,7 +14,7 @@ move-field:java
 
 
 
-###
+---
 
 ```
 class Account {
@@ -32,7 +32,7 @@ class AccountType {
 }
 ```
 
-###
+---
 
 ```
 class Account {
@@ -69,7 +69,7 @@ class AccountType {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

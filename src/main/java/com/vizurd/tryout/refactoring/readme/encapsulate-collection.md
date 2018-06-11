@@ -1,6 +1,6 @@
 encapsulate-collection:java
 
-###
+---
 
 1. Create methods for adding and deleting collection elements.
 
@@ -16,7 +16,7 @@ encapsulate-collection:java
 
 
 
-###
+---
 
 ```
 class Course {
@@ -64,7 +64,7 @@ while (iter.hasNext()) {
 System.out.print("Advanced courses: " + count);
 ```
 
-###
+---
 
 ```
 class Course {
@@ -123,7 +123,7 @@ Assert.equals(3, kent.numberOfCourses());
 System.out.print("Advanced courses: " + kent.numberOfAdvancedCourses());
 ```
 
-###
+---
 
 ###### Set step 1
 

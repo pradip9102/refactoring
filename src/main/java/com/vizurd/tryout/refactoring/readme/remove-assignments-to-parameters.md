@@ -1,6 +1,6 @@
 remove-assignments-to-parameters:java
 
-###
+---
 
 1. Create a local variable and assign the initial value of your parameter.
 
@@ -8,7 +8,7 @@ remove-assignments-to-parameters:java
 
 
 
-###
+---
 
 ```
 int discount(int inputVal, int quantity, int yearToDate) {
@@ -25,7 +25,7 @@ int discount(int inputVal, int quantity, int yearToDate) {
 }
 ```
 
-###
+---
 
 ```
 int discount(final int inputVal, final int quantity, final int yearToDate) {
@@ -43,7 +43,7 @@ int discount(final int inputVal, final int quantity, final int yearToDate) {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

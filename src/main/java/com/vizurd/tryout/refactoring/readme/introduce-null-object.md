@@ -1,6 +1,6 @@
 introduce-null-object:java
 
-###
+---
 
 1. From the class in question, create a subclass that will perform the role of null object.
 
@@ -15,7 +15,7 @@ introduce-null-object:java
 
 
 
-###
+---
 
 ```
 class Company {
@@ -74,7 +74,7 @@ else {
 }
 ```
 
-###
+---
 
 ```
 class Company {
@@ -151,7 +151,7 @@ BillingPlan plan = customer.getPlan();
 int weeksDelinquent = customer.getHistory().getWeeksDelinquentInLastYear();
 ```
 
-###
+---
 
 ###### Set step 1
 

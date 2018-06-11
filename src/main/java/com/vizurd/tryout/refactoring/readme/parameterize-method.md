@@ -1,6 +1,6 @@
 parameterize-method:java
 
-###
+---
 
 1. Create a new method with a parameter and move code that is shared by all methods to it, by using <a href="/extract-method">extract method</a>.
 
@@ -10,7 +10,7 @@ parameterize-method:java
 
 
 
-###
+---
 
 ```
 class Employee {
@@ -38,7 +38,7 @@ if (employee.yearsOfExperience > 5) {
 }
 ```
 
-###
+---
 
 ```
 class Employee {
@@ -63,7 +63,7 @@ if (employee.yearsOfExperience > 5) {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

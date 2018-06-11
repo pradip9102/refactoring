@@ -1,6 +1,6 @@
 separate-query-from-modifier:java
 
-###
+---
 
 1. Create a new *query method*  to return what the original method did.
 
@@ -12,7 +12,7 @@ separate-query-from-modifier:java
 
 
 
-###
+---
 
 ```
 class Guard {
@@ -37,7 +37,7 @@ class Guard {
 }
 ```
 
-###
+---
 
 ```
 class Guard {
@@ -66,7 +66,7 @@ class Guard {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

@@ -1,6 +1,6 @@
 rename-method:java
 
-###
+---
 
 1. See whether the method is defined in a superclass or subclass. If so, you must repeat all steps in these classes too.
 
@@ -12,7 +12,7 @@ rename-method:java
 
 
 
-###
+---
 
 ```
 class Person {
@@ -26,7 +26,7 @@ class Person {
 phone = employee.getTelephoneNumber();
 ```
 
-###
+---
 
 ```
 class Person {
@@ -40,7 +40,7 @@ class Person {
 phone = employee.getOfficeTelephoneNumber();
 ```
 
-###
+---
 
 ###### Set step 1
 

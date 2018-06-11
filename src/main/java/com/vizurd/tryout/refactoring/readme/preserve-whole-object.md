@@ -1,6 +1,6 @@
 preserve-whole-object:java
 
-###
+---
 
 1. Create a parameter in the method for the object from which you can get the necessary values.
 
@@ -10,7 +10,7 @@ preserve-whole-object:java
 
 
 
-###
+---
 
 ```
 class Room {
@@ -30,7 +30,7 @@ class HeatingPlan {
 }
 ```
 
-###
+---
 
 ```
 class Room {
@@ -48,7 +48,7 @@ class HeatingPlan {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

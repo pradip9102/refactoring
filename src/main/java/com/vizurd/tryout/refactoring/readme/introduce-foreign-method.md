@@ -1,6 +1,6 @@
 introduce-foreign-method:java
 
-###
+---
 
 1. Create a new method in the client class.
 
@@ -12,7 +12,7 @@ introduce-foreign-method:java
 
 
 
-###
+---
 
 ```
 class Account {
@@ -26,7 +26,7 @@ class Account {
 }
 ```
 
-###
+---
 
 ```
 class Account {
@@ -47,7 +47,7 @@ class Account {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

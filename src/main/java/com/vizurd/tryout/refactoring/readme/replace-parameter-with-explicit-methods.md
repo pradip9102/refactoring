@@ -1,6 +1,6 @@
 replace-parameter-with-explicit-methods:java
 
-###
+---
 
 1. For each variant of the method, create a separate method. Run these methods based on the value of a parameter in the main method.
 
@@ -10,7 +10,7 @@ replace-parameter-with-explicit-methods:java
 
 
 
-###
+---
 
 ```
 class Order {
@@ -41,7 +41,7 @@ if (order.items.size() > 5) {
 }
 ```
 
-###
+---
 
 ```
 class Order {
@@ -63,7 +63,7 @@ if (order.items.size() > 5) {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

@@ -1,6 +1,6 @@
 replace-data-value-with-object:java
 
-###
+---
 
 1. Create a new class and copy your field and a getter for accessing the field to the class.
 
@@ -12,7 +12,7 @@ replace-data-value-with-object:java
 
 
 
-###
+---
 
 ```
 class Order {
@@ -44,7 +44,7 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 }
 ```
 
-###
+---
 
 ```
 class Order {
@@ -87,7 +87,7 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

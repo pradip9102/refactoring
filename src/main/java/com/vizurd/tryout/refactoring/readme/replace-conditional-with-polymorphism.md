@@ -1,6 +1,6 @@
 replace-conditional-with-polymorphism:java
 
-###
+---
 
 1. If the conditional is in a method that performs other actions as well, perform <a href="/extract-method">Extract Method</a>.
 
@@ -12,7 +12,7 @@ replace-conditional-with-polymorphism:java
 
 
 
-###
+---
 
 ```
 class Employee {
@@ -75,7 +75,7 @@ class Manager extends EmployeeType {
 }
 ```
 
-###
+---
 
 ```
 class Employee {
@@ -140,7 +140,7 @@ class Manager extends EmployeeType {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

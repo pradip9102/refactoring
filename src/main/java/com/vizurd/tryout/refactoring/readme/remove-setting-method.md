@@ -1,6 +1,6 @@
 remove-setting-method:java
 
-###
+---
 
 1. The value of a field should be changeable only in the constructor. If the constructor does not contain a parameter for setting the value, add one.
 
@@ -10,7 +10,7 @@ remove-setting-method:java
 
 
 
-###
+---
 
 ```
 class Account {
@@ -26,7 +26,7 @@ class Account {
 }
 ```
 
-###
+---
 
 ```
 class Account {
@@ -50,7 +50,7 @@ class InterestAccount extends Account {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

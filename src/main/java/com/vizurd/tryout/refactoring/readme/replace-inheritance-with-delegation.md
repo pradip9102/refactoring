@@ -1,6 +1,6 @@
 replace-inheritance-with-delegation:java
 
-###
+---
 
 1. Create a field in the subclass for holding the superclass. During the initial stage, place the current object in it.
 
@@ -12,7 +12,7 @@ replace-inheritance-with-delegation:java
 
 
 
-###
+---
 
 ```
 class Engine {
@@ -57,7 +57,7 @@ class Car extends Engine {
 }
 ```
 
-###
+---
 
 ```
 class Engine {
@@ -106,7 +106,7 @@ class Car {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

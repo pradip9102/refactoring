@@ -1,6 +1,6 @@
 split-temporary-variable:java
 
-###
+---
 
 1. Find the place in your code where the variable is first filled with a value. In this place, rename the variable and give it a name that corresponds to the value assigned.
 
@@ -10,7 +10,7 @@ split-temporary-variable:java
 
 
 
-###
+---
 
 ```
 public double getDistanceTravelled(int time) {
@@ -29,7 +29,7 @@ public double getDistanceTravelled(int time) {
 }
 ```
 
-###
+---
 
 ```
 public double getDistanceTravelled(int time) {
@@ -48,7 +48,7 @@ public double getDistanceTravelled(int time) {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

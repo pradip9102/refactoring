@@ -1,6 +1,6 @@
 extract-method:java
 
-###
+---
 
 1. Create a new method and name it in a way that makes its purpose self-evident.
 
@@ -12,7 +12,7 @@ extract-method:java
 
 
 
-###
+---
 
 ```
 void printOwing() {
@@ -36,7 +36,7 @@ void printOwing() {
 }
 ```
 
-###
+---
 
 ```
 void printOwing() {
@@ -67,7 +67,7 @@ double getOutstanding() {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

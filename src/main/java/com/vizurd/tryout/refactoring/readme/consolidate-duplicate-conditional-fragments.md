@@ -1,6 +1,6 @@
 consolidate-duplicate-conditional-fragments:java
 
-###
+---
 
 1. If the duplicated code is at the beginning of the conditional branches, move the code to a place before the conditional.
 
@@ -12,7 +12,7 @@ consolidate-duplicate-conditional-fragments:java
 
 
 
-###
+---
 
 ```
 double sendEmailPromotion() {
@@ -30,7 +30,7 @@ double sendEmailPromotion() {
 }
 ```
 
-###
+---
 
 ```
 double sendEmailPromotion() {
@@ -46,7 +46,7 @@ double sendEmailPromotion() {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

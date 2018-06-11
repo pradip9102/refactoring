@@ -1,6 +1,6 @@
 form-template-method:java
 
-###
+---
 
 1. Split algorithms in the subclasses into their constituent parts described in separate methods. <a href="/extract-method">Extract Method</a> can help with this.
 
@@ -14,7 +14,7 @@ form-template-method:java
 
 
 
-###
+---
 
 ```
 class Article {
@@ -42,7 +42,7 @@ class Article {
 }
 ```
 
-###
+---
 
 ```
 class Article {
@@ -112,7 +112,7 @@ class ArticleHtml extends ArticleView {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 

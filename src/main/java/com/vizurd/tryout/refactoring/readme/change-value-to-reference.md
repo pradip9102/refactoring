@@ -1,6 +1,6 @@
 change-value-to-reference:java
 
-###
+---
 
 1. Use <a href="/replace-constructor-with-factory-method">Replace Constructor with Factory Method</a> on the class from which the references are to be generated.
 
@@ -11,7 +11,7 @@ change-value-to-reference:java
 4. Change the factory method so that it returns a reference. If objects are created in advance, decide how to handle errors when a non-existent object is requested.
 
 
-###
+---
 
 ```
 class Customer {
@@ -52,7 +52,7 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 }
 ```
 
-###
+---
 
 ```
 class Customer {
@@ -108,7 +108,7 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 }
 ```
 
-###
+---
 
 ###### Set step 1
 
