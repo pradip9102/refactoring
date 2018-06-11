@@ -2,13 +2,13 @@ remove-setting-method:java
 
 ###
 
-1.en. The value of a field should be changeable only in the constructor. If the constructor does not contain a parameter for setting the value, add one.
+1. The value of a field should be changeable only in the constructor. If the constructor does not contain a parameter for setting the value, add one.
 
 
-2.en. If the code in the setter is too complicated, it makes sense to make it into a separate initialization method.
+2. If the code in the setter is too complicated, it makes sense to make it into a separate initialization method.
 
 
-3.en. If subclasses initialize private fields of the parent class, then replace it with a call to the constructor of the parent class.
+3. If subclasses initialize private fields of the parent class, then replace it with a call to the constructor of the parent class.
 
 
 

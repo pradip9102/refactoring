@@ -2,16 +2,16 @@ replace-conditional-with-polymorphism:java
 
 ###
 
-1.en. If the conditional is in a method that performs other actions as well, perform <a href="/extract-method">Extract Method</a>.
+1. If the conditional is in a method that performs other actions as well, perform <a href="/extract-method">Extract Method</a>.
 
 
-2.en. For each hierarchy subclass, redefine the method that contains the conditional and copy the code of the corresponding conditional branch to that location.
+2. For each hierarchy subclass, redefine the method that contains the conditional and copy the code of the corresponding conditional branch to that location.
 
 
-3.en. Delete this branch from the conditional.
+3. Delete this branch from the conditional.
 
 
-4.en. Repeat replacement until the conditional is empty. Then delete the conditional and declare the method abstract.
+4. Repeat replacement until the conditional is empty. Then delete the conditional and declare the method abstract.
 
 
 
@@ -156,11 +156,11 @@ Set step 1
 Select body of "payAmount"
 
 
-#|en| See that big conditional inside the <code>payAmount()</code> method? Let's try to get rid of it.
+#|en| See that big conditional inside the `payAmount()` method? Let's try to get rid of it.
 
 
 
-#|en| First extract the implementation of <code>payAmount</code> to a new method in a type class.
+#|en| First extract the implementation of `payAmount` to a new method in a type class.
 
 
 Go to the end of "EmployeeType"
@@ -188,7 +188,7 @@ Select "monthlySalary" in "EmployeeType"
 +Select "bonus" in "EmployeeType"
 
 
-#|en| We need datа from the <code>Employee</code> object, so in the method we create the parameter to which the main <code>Employee</code> object will be passed.
+#|en| We need datа from the `Employee` object, so in the method we create the parameter to which the main `Employee` object will be passed.
 
 
 Go to "payAmount(|||) {" in "EmployeeType"
@@ -210,13 +210,13 @@ Replace "employee.bonus"
 Select body of "payAmount"
 
 
-#|en| After these actions, we can set up delegation from the <code>Employee</code> class.
+#|en| After these actions, we can set up delegation from the `Employee` class.
 
 
 Print "    return type.payAmount(this);"
 
 
-#|en| Then start moving code to subclasses. Create <code>payAmount</code> methods in each of the subclasses and move payroll calculations there for the relevant employee types.
+#|en| Then start moving code to subclasses. Create `payAmount` methods in each of the subclasses and move payroll calculations there for the relevant employee types.
 
 
 Go to the end of "class Engineer"
@@ -259,7 +259,7 @@ Set step 7
 Select name of "payAmount" in "EmployeeType"
 
 
-#|en| Now that the methods have been created, you can make the <code>payAmount</code> method in <code>EmployeeType</code>  abstract.
+#|en| Now that the methods have been created, you can make the `payAmount` method in `EmployeeType`  abstract.
 
 
 Select:

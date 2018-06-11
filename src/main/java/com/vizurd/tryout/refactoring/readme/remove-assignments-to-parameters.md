@@ -2,10 +2,10 @@ remove-assignments-to-parameters:java
 
 ###
 
-1.en. Create a local variable and assign the initial value of your parameter.
+1. Create a local variable and assign the initial value of your parameter.
 
 
-2.en. In all method code that follows this line, replace the parameter with your new local variable.
+2. In all method code that follows this line, replace the parameter with your new local variable.
 
 
 
@@ -50,13 +50,13 @@ int discount(final int inputVal, final int quantity, final int yearToDate) {
 Set step 1
 
 
-#|en| Let's look at <i>Remove Assignments to Parameters</i> using a small discount calculation method as an example.
+#|en| Let's look at *Remove Assignments to Parameters*  using a small discount calculation method as an example.
 
 
 Select "inputVal" in parameters of "discount"
 
 
-#|en|+ Take a look at the <code>inputVal</code> parameter.
+#|en|+ Take a look at the `inputVal` parameter.
 
 
 Select 3nd "inputVal"
@@ -99,7 +99,7 @@ Select 4th "inputVal"
 Print "result"
 
 
-#|en| And finally, to explicitly say that no assignments can be made to the parameters, we add the <code>final</code> keyword to each of them.
+#|en| And finally, to explicitly say that no assignments can be made to the parameters, we add the `final` keyword to each of them.
 
 
 Select "||||||int" in parameters of "discount"

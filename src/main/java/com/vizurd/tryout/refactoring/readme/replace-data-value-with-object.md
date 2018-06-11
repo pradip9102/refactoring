@@ -2,16 +2,16 @@ replace-data-value-with-object:java
 
 ###
 
-1.en. Create a new class and copy your field and a getter for accessing the field to the class.
+1. Create a new class and copy your field and a getter for accessing the field to the class.
 
 
-2.en. Create a constructor that accepts the original value of the field.
+2. Create a constructor that accepts the original value of the field.
 
 
-3.en. In the original class, change the field type to the new class.
+3. In the original class, change the field type to the new class.
 
 
-4.en. Change the access methods so that they delegate to the new class.
+4. Change the access methods so that they delegate to the new class.
 
 
 
@@ -96,13 +96,13 @@ private static int numberOfOrdersFor(Collection orders, String customer) {
 Set step 1
 
 
-#|en| Let's look at the <i>Replace Data Value with Object</i> refactoring, using an order class as an example.
+#|en| Let's look at the *Replace Data Value with Object*  refactoring, using an order class as an example.
 
 
 Select "private String |||customer|||"
 
 
-#|en| In this example, the customer in the order class is stored as a string. Alternatively, we could create a <code>Customer</code> class and move the other customer data and behaviors to this class.
+#|en| In this example, the customer in the order class is stored as a string. Alternatively, we could create a `Customer` class and move the other customer data and behaviors to this class.
 
 
 Go to after "Order"
@@ -152,7 +152,7 @@ Set step 3
 Select "private String customer"
 
 
-#|en| Now we can change the type of the <code>Customer</code> field. We should also change the associated methods so that they work with instances of the <code>Customer</code> class.
+#|en| Now we can change the type of the `Customer` field. We should also change the associated methods so that they work with instances of the `Customer` class.
 
 
 
@@ -177,7 +177,7 @@ Select name of "public Order"
 + Select name of "setCustomer"
 
 
-#|en| Then change the constructor and access setter so that they fill the customer field with a new <code>Customer</code> object.
+#|en| Then change the constructor and access setter so that they fill the customer field with a new `Customer` object.
 
 
 Select "= |||customer|||" in "public Order"
@@ -192,7 +192,7 @@ Select name of "setCustomer"
 
 
 
-#|en| Value objects should be made immutable to avoid certain unpleasant errors related to the fact that objects are always passed via references. By the way, later we will still need to convert <code>Customer</code> to a reference object, but that's out of current refactoring scope.
+#|en| Value objects should be made immutable to avoid certain unpleasant errors related to the fact that objects are always passed via references. By the way, later we will still need to convert `Customer` to a reference object, but that's out of current refactoring scope.
 
 
 
@@ -203,7 +203,7 @@ Select name of "setCustomer"
 Go to name of "Order"
 
 
-#|en| All we have left now is to look at <code>Order</code> methods which work with <code>Customer</code> and make a few small changes in them.
+#|en| All we have left now is to look at `Order` methods which work with `Customer` and make a few small changes in them.
 
 
 Select name of "getCustomer"
@@ -237,11 +237,11 @@ Replace "customerName"
 
 
 
-#|en| Before we finish, note that here and in many other cases, one more step is necessary. You may need to add a credit score, address, etc. to the <code>Customer</code>. You cannot do this yet, since <code>Customer</code> is used as a value object. That is, each order has its own instance of the <code>Customer</code> class.
+#|en| Before we finish, note that here and in many other cases, one more step is necessary. You may need to add a credit score, address, etc. to the `Customer`. You cannot do this yet, since `Customer` is used as a value object. That is, each order has its own instance of the `Customer` class.
 
 
 
-#|en| To create the necessary attributes in the <code>Customer</code> class, use the <a href="/change-value-to-reference">Change Value to Reference</a> refactoring technique on it. After that refactoring, all orders for the same customer will refer to the same instance of the <code>Customer</code> class.
+#|en| To create the necessary attributes in the `Customer` class, use the <a href="/change-value-to-reference">Change Value to Reference</a> refactoring technique on it. After that refactoring, all orders for the same customer will refer to the same instance of the `Customer` class.
 
 
 Set final step

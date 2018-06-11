@@ -2,16 +2,16 @@ extract-class:java
 
 ###
 
-1.en. Create a new class to contain the relevant functionality.
+1. Create a new class to contain the relevant functionality.
 
 
-2.en. Create a relationship between the old class and the new one.
+2. Create a relationship between the old class and the new one.
 
 
-3.en. Use <a href="/move-field">move field</a> and <a href="/move-method">move method</a> for each field that method that you have decided to move to a new class.
+3. Use <a href="/move-field">move field</a> and <a href="/move-method">move method</a> for each field that method that you have decided to move to a new class.
 
 
-4.en. Decide whether to make the new class accessible from outside the object of the old class.
+4. Decide whether to make the new class accessible from outside the object of the old class.
 
 
 
@@ -90,7 +90,7 @@ class TelephoneNumber {
 Set step 1
 
 
-#|en| Let's look at <i>Extract Class</i> using the example of a simple class that describes a person.
+#|en| Let's look at *Extract Class*  using the example of a simple class that describes a person.
 
 
 Select:
@@ -127,7 +127,7 @@ Set step 2
 Select name of "Person"
 
 
-#|en| Easy as pie! Now we create a reference from the <code>Person</code> class to the phone number class.
+#|en| Easy as pie! Now we create a reference from the `Person` class to the phone number class.
 
 
 Go to "private String officeNumber;|||"
@@ -145,7 +145,7 @@ Select "private String |||officeAreaCode|||"
 + Select name of "setOfficeAreaCode"
 
 
-#|en| Everything is ready to start moving fields and methods. We use <a href="/move-field">Move Field</a> to move the <code>officeAreaCode</code> field to the <code>TelephoneNumber</code> class.
+#|en| Everything is ready to start moving fields and methods. We use <a href="/move-field">Move Field</a> to move the `officeAreaCode` field to the `TelephoneNumber` class.
 
 
 Go to the start of "TelephoneNumber"
@@ -173,7 +173,7 @@ Select name of "getOfficeAreaCode"
 + Select name of "setOfficeAreaCode"
 
 
-#|en| Now we should change the methods, which used the moved field so that they access it through a <code>TelephoneNumber</code> object.
+#|en| Now we should change the methods, which used the moved field so that they access it through a `TelephoneNumber` object.
 
 
 Select body of "getOfficeAreaCode"
@@ -215,7 +215,7 @@ Remove selected
 Select "private String |||officeNumber|||"
 
 
-#|en| The <code>areaCode</code> is all done. Similarly, we move the <code>officeNumber</code> field…
+#|en| The `areaCode` is all done. Similarly, we move the `officeNumber` field…
 
 
 Go to "private String areaCode;|||"
@@ -242,7 +242,7 @@ Print:
 Select name of "getTelephoneNumber"
 
 
-#|en| …and the method for getting the formatted phone number <code>getTelephoneNumber()</code>.
+#|en| …and the method for getting the formatted phone number `getTelephoneNumber()`.
 
 
 Go to the end of "TelephoneNumber"
@@ -258,7 +258,7 @@ Print:
 Select "private String |||officeNumber|||"
 
 
-#|en| After that, we can delegate all phone functionality to the <code>TelephoneNumber</code> class.
+#|en| After that, we can delegate all phone functionality to the `TelephoneNumber` class.
 
 
 Select body of "getTelephoneNumber"
@@ -336,7 +336,7 @@ Select name of "getOfficeTelephone"
 
 
 
-#|en| The following options are possible: <ul><li>Any object can change any part of the phone number. In this case the phone number becomes a reference and you should look at <a href="/change-value-to-reference">Change Value to Reference</a>. Access to the phone number is implemented through an instance of <code>Person</code>.</li><li>We do not want anyone to be able to change a phone number except through the methods of an instance of the <code>Person</code> class. The phone number can be made read-only or access to it can be limited to an appropriate method.</li><li>We can also clone an instance of the <code>TelephoneNumber</code> class before providing access to it. But this can cause confusion because people will think that they can change this value. In addition, clients may have problems with references if the phone number is frequently passed .</li></ul>
+#|en| The following options are possible: <ul><li>Any object can change any part of the phone number. In this case the phone number becomes a reference and you should look at <a href="/change-value-to-reference">Change Value to Reference</a>. Access to the phone number is implemented through an instance of `Person`.</li><li>We do not want anyone to be able to change a phone number except through the methods of an instance of the `Person` class. The phone number can be made read-only or access to it can be limited to an appropriate method.</li><li>We can also clone an instance of the `TelephoneNumber` class before providing access to it. But this can cause confusion because people will think that they can change this value. In addition, clients may have problems with references if the phone number is frequently passed .</li></ul>
 
 
 

@@ -2,19 +2,19 @@ replace-exception-with-test:java
 
 ###
 
-1.en. Create a conditional for an edge case and move it before the try/catch block.
+1. Create a conditional for an edge case and move it before the try/catch block.
 
 
 
-2.en. Move code from the <code>catch</code> section inside this conditional.
+2. Move code from the `catch` section inside this conditional.
 
 
 
-3.en. In the <code>catch</code> section, place the code for throwing a usual unnamed exception and run all the tests.
+3. In the `catch` section, place the code for throwing a usual unnamed exception and run all the tests.
 
 
 
-4.en. If no exceptions were thrown during the tests, get rid of the <code>try</code>/<code>catch</code> operator.
+4. If no exceptions were thrown during the tests, get rid of the `try`/`catch` operator.
 
 
 
@@ -103,7 +103,7 @@ Select "result = new Resource();"
 Go to "Resource result;|||"
 
 
-#|en| So let's try to get rid of the exception. First, at the beginning of the method, create a conditional whose condition coincides with the condition for throwing an exception. Place all the remaining code in <code>else</code>.
+#|en| So let's try to get rid of the exception. First, at the beginning of the method, create a conditional whose condition coincides with the condition for throwing an exception. Place all the remaining code in `else`.
 
 
 Print:
@@ -153,7 +153,7 @@ Select:
 ```
 
 
-#|en| Then copy the code from the <code>catch</code> section to inside the guard clause.
+#|en| Then copy the code from the `catch` section to inside the guard clause.
 
 
 Go to "empty()) {|||"
@@ -171,7 +171,7 @@ Set step 3
 Go to "catch (EmptyStackException e) {|||"
 
 
-#|en| This code should never reach the <code>catch</code> section. But to be 100% sure, insert a check inside the section and run all the tests.
+#|en| This code should never reach the `catch` section. But to be 100% sure, insert a check inside the section and run all the tests.
 
 
 Print:
@@ -188,7 +188,7 @@ Print:
 Set step 4
 
 
-#|en| Now we can remove the <code>try</code> / <code>catch</code> section without worrying about possible errors.
+#|en| Now we can remove the `try` / `catch` section without worrying about possible errors.
 
 
 Select:

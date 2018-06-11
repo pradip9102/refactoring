@@ -2,10 +2,10 @@ decompose-conditional:java
 
 ###
 
-1.en. Extract the conditional to a separate method via <a href="/extract-method">Extract Method</a>.
+1. Extract the conditional to a separate method via <a href="/extract-method">Extract Method</a>.
 
 
-2.en. Repeat the process for the <code>then</code> and <code>else</code> blocks.
+2. Repeat the process for the `then` and `else` blocks.
 
 
 
@@ -69,7 +69,7 @@ class Stadium {
 Set step 1
 
 
-#|en| Let's look at <i>Decompose Conditional</i> using a simple class, that calculates the cost of a stadium ticket.
+#|en| Let's look at *Decompose Conditional*  using a simple class, that calculates the cost of a stadium ticket.
 
 
 Select name of "getTicketPrice"
@@ -135,7 +135,7 @@ Set step 2
 Select "charge = quantity * winterRate + winterServiceCharge;"
 
 
-#|en| Now we turn to the body of the conditional. First we extract everything inside <code>then</code> to a new method.
+#|en| Now we turn to the body of the conditional. First we extract everything inside `then` to a new method.
 
 
 Go to the end of "Stadium"
@@ -156,7 +156,7 @@ Replace "charge = winterCharge(quantity);"
 Select "charge = quantity * summerRate;"
 
 
-#|en| Then we turn our attention to <code>else</code>.
+#|en| Then we turn our attention to `else`.
 
 
 

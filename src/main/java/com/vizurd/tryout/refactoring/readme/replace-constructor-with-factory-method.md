@@ -2,16 +2,13 @@ replace-constructor-with-factory-method:java
 
 ###
 
-1.en. Create a factory method. Place a call to the current constructor in it.
+1. Create a factory method. Place a call to the current constructor in it.
 
+2. Replace all constructor calls with calls to the factory method.
 
-2.en. Replace all constructor calls with calls to the factory method.
+3. Declare the constructor private.
 
-
-3.en. Declare the constructor private.
-
-
-4.en. Investigate the constructor code and try to isolate the code not directly related to constructing an object of the current class, moving such code to the factory method.
+4. Investigate the constructor code and try to isolate the code not directly related to constructing an object of the current class, moving such code to the factory method.
 
 
 
@@ -116,7 +113,7 @@ class Manager extends Employee {
 Select "new Employee"
 
 
-#|en| We would have to rewrite it, since we cannot return anything from the <code>Employee</code> constructor other than <code>Employee</code> objects (and we need <code>Engineer</code>).
+#|en| We would have to rewrite it, since we cannot return anything from the `Employee` constructor other than `Employee` objects (and we need `Engineer`).
 
 
 
@@ -130,7 +127,7 @@ Select "new Employee"
 Go to before "public Employee"
 
 
-#|en| The <code>Employee</code> class is the best place to store the factory method because it will probably survive any changes in the subclasses.
+#|en| The `Employee` class is the best place to store the factory method because it will probably survive any changes in the subclasses.
 
 
 Print:

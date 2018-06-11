@@ -2,13 +2,13 @@ replace-parameter-with-explicit-methods:java
 
 ###
 
-1.en. For each variant of the method, create a separate method. Run these methods based on the value of a parameter in the main method.
+1. For each variant of the method, create a separate method. Run these methods based on the value of a parameter in the main method.
 
 
-2.en. Find all places where the original method is called. In these places, place a call for one of the new parameter-dependent variants.
+2. Find all places where the original method is called. In these places, place a call for one of the new parameter-dependent variants.
 
 
-3.en. When no calls to the original method remain, delete it.
+3. When no calls to the original method remain, delete it.
 
 
 

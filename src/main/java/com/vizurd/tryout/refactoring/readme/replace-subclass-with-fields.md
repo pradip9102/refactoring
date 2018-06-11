@@ -2,28 +2,28 @@ replace-subclass-with-fields:java
 
 ###
 
-1.en. Apply <a href="/replace-constructor-with-factory-method">Replace Constructor with Factory Method</a> to the subclasses.
+1. Apply <a href="/replace-constructor-with-factory-method">Replace Constructor with Factory Method</a> to the subclasses.
 
 
-2.en. Replace subclass constructor calls with superclass factory method calls.
+2. Replace subclass constructor calls with superclass factory method calls.
 
 
-3.en. In the superclass, declare fields for storing the values of each of the subclass methods that return constant values.
+3. In the superclass, declare fields for storing the values of each of the subclass methods that return constant values.
 
 
-4.en. Create a protected superclass constructor for initializing the new fields.
+4. Create a protected superclass constructor for initializing the new fields.
 
 
-5.en. Create or modify the existing subclass constructors so that they call the new superclass constructor.
+5. Create or modify the existing subclass constructors so that they call the new superclass constructor.
 
 
-6.en. Implement each constant method in the parent class so that it returns the value of the corresponding field. Then remove the method from the subclass.
+6. Implement each constant method in the parent class so that it returns the value of the corresponding field. Then remove the method from the subclass.
 
 
-7.en. If the subclass constructor has additional functionality, use <a href="/inline-method">Inline Method</a> to incorporate the constructor into the superclass factory method.
+7. If the subclass constructor has additional functionality, use <a href="/inline-method">Inline Method</a> to incorporate the constructor into the superclass factory method.
 
 
-8.en. Delete the subclass.
+8. Delete the subclass.
 
 
 
@@ -94,7 +94,7 @@ System.out.print("Person's gender is: " + kent.getCode());
 Set step 1
 
 
-#|en| Let's look at <i>Replace Subclass With Fields</i>, using the example of the same person class and its gender subclasses.
+#|en| Let's look at *Replace Subclass With Fields* , using the example of the same person class and its gender subclasses.
 
 
 Select "return true"
@@ -299,14 +299,14 @@ Set step 8
 Select whole "Male"
 
 
-#|en| The <code>Male</code> class should now be removed.
+#|en| The `Male` class should now be removed.
 
 
 Remove selected
 
 
 #C|en| Compile and test to make sure nothing has been broken by mistake.
-#S Looking good! Let's do the same with the <code>Female</code> class.
+#S Looking good! Let's do the same with the `Female` class.
 
 
 

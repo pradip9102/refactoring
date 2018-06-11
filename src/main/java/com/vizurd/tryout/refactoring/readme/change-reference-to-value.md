@@ -2,11 +2,11 @@ change-reference-to-value:java
 
 ###
 
-1.en. Make the object unchangeable. The object should not have any setters or other methods that change its state and data (<a href="/remove-setting-method">Remove Setting Method</a> may help here). The only place where data should be assigned to the fields of a value object is a constructor.
+1. Make the object unchangeable. The object should not have any setters or other methods that change its state and data (<a href="/remove-setting-method">Remove Setting Method</a> may help here). The only place where data should be assigned to the fields of a value object is a constructor.
 
-2.en. Create a comparison method for comparing two value objects.
+2. Create a comparison method for comparing two value objects.
 
-3.en. Check whether you can delete the factory method and make the object constructor public.
+3. Check whether you can delete the factory method and make the object constructor public.
 
 
 
@@ -84,12 +84,12 @@ Customer john = new Customer("John Smith", new Date(1985, 1, 1));
 
 Set step 1
 
-#|en| Let's look at <i>Change Reference to Value</i> using a customer class as an example.
+#|en| Let's look at *Change Reference to Value*  using a customer class as an example.
 
 Select "private final String |||name|||"
 + Select "private Date |||birthDate|||"
 
-#|en| This class contains a customer's name and date of birth. This class gives rise to reference objects, meaning that only one instance of the <code>Customer</code> class is created for one real customer.
+#|en| This class contains a customer's name and date of birth. This class gives rise to reference objects, meaning that only one instance of the `Customer` class is created for one real customer.
 
 Select "Customer.get("John Smith")"
 
@@ -97,7 +97,7 @@ Select "Customer.get("John Smith")"
 
 Select visibility of "private Customer"
 
-#|en| The <code>Customer</code> class keeps a registry of its instances. We cannot simply access the constructor (because it is private).
+#|en| The `Customer` class keeps a registry of its instances. We cannot simply access the constructor (because it is private).
 
 Select name of "get"
 
@@ -105,7 +105,7 @@ Select name of "get"
 
 #|en| Now let's say that we have multiple orders referring to the same client. Suddenly, the code of one of the orders changes the value of the client's date of birth. Since both orders refer to the same client object, the new date of birth will be available from the other order as well.
 
-#|en| Would this be made impossible if each order had own instance of the <code>Customer</code> class? Probably not. That is why the main requirement of this refactoring is making the class immutable. In some cases, this is simply not possible, and the refactoring should not be executed.
+#|en| Would this be made impossible if each order had own instance of the `Customer` class? Probably not. That is why the main requirement of this refactoring is making the class immutable. In some cases, this is simply not possible, and the refactoring should not be executed.
 
 Select whole "setBirthDate"
 
@@ -140,7 +140,7 @@ Set step 2
 
 Go to before "getname"
 
-#|en| There's one more problem. Values with identical data should be equal when compared. To do this in Java, define special <code>equals</code> and <code>hash</code> methods in the classes being compared.
+#|en| There's one more problem. Values with identical data should be equal when compared. To do this in Java, define special `equals` and `hash` methods in the classes being compared.
 
 #|en| This is how it will look in our case.
 
@@ -159,7 +159,7 @@ Print:
   }
 ```
 
-#|en| Now the comparison <code>new Customer("John").equals(new Customer("John"))</code> will return <code>TRUE</code>.
+#|en| Now the comparison `new Customer("John").equals(new Customer("John"))` will return `TRUE`.
 
 Set step 3
 

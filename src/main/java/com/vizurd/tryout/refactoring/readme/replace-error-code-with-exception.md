@@ -2,13 +2,13 @@ replace-error-code-with-exception:java
 
 ###
 
-1.en. Find all calls to a method that returns error codes and, instead of checking for an error code, wrap it in <code>try</code>/<code>catch</code> blocks.
+1. Find all calls to a method that returns error codes and, instead of checking for an error code, wrap it in `try`/`catch` blocks.
 
 
-2.en. Inside the method, instead of returning an error code, throw an exception.
+2. Inside the method, instead of returning an error code, throw an exception.
 
 
-3.en. Change the method signature so that it contains information about the exception being thrown (<code>@throws</code> section).
+3. Change the method signature so that it contains information about the exception being thrown (`@throws` section).
 
 
 
@@ -76,7 +76,7 @@ Set step 1
 Go to "if (amount > balance) {|||"
 
 
-#|en|<+ If a customer attempts to withdraw more money than his or her current balance allows, an error code will be returned (<code>-1</code>)…
+#|en|<+ If a customer attempts to withdraw more money than his or her current balance allows, an error code will be returned (`-1`)…
 
 
 Select "account.withdraw(amount) == -1"
@@ -102,7 +102,7 @@ class BalanceException extends Exception {}
 ```
 
 
-#|en| Then, wrap our method body with the <code>try</code>/<code>catch</code> block.
+#|en| Then, wrap our method body with the `try`/`catch` block.
 
 
 Select:
@@ -164,7 +164,7 @@ Select:
 ```
 
 
-#|en| This code can be simplified a bit if we remove <code>else</code>.
+#|en| This code can be simplified a bit if we remove `else`.
 
 
 Remove selected
@@ -183,7 +183,7 @@ Select name of "Account"
 
 
 
-#|en| In such cases, it is better to create a new method and place the code of the old one inside it, including exceptions. Replace the code of the old method with <code>try</code>/<code>catch</code> blocks that return error codes. After this, the code will remain functional and we could replace error code handlers, one by one, with calls to the new method and <code>try</code>/<code>catch</code> blocks.
+#|en| In such cases, it is better to create a new method and place the code of the old one inside it, including exceptions. Replace the code of the old method with `try`/`catch` blocks that return error codes. After this, the code will remain functional and we could replace error code handlers, one by one, with calls to the new method and `try`/`catch` blocks.
 
 
 Set step 3

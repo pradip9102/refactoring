@@ -2,10 +2,10 @@ remove-middle-man:java
 
 ###
 
-1.en. Create a getter for accessing the <i>delegate-class</i> object from the <i>server-class</i> object.
+1. Create a getter for accessing the *delegate-class*  object from the *server-class*  object.
 
 
-2.en. Replace calls to delegating methods in the <i>server-class</i> with direct calls for methods in the <i>delegate-class</i>.
+2. Replace calls to delegating methods in the *server-class*  with direct calls for methods in the *delegate-class* .
 
 
 
@@ -79,19 +79,19 @@ manager = john.getDepartment().getManager();
 Set step 1
 
 
-#|en| Let's look at <i>Remove Middle Man</i>, using the example of classes that represent an employee and the employee's department (the reverse of the situation in the <i>Hide Delegate</i> example).
+#|en| Let's look at *Remove Middle Man* , using the example of classes that represent an employee and the employee's department (the reverse of the situation in the *Hide Delegate*  example).
 
 
 Select "manager = john.getManager();"
 
 
-#|en| To learn who a person's manager is, the client makes a query in the <code>Person</code> class itself.
+#|en| To learn who a person's manager is, the client makes a query in the `Person` class itself.
 
 
 Select body of "getManager"
 
 
-#|en| This is a simple structure that encapsulates an instance of the <code>Department</code> class. But if there are many such methods, the <code>Person</code> class will have too many simple delegates. In this case, we should get rid of the middle men.
+#|en| This is a simple structure that encapsulates an instance of the `Department` class. But if there are many such methods, the `Person` class will have too many simple delegates. In this case, we should get rid of the middle men.
 
 
 Go to before "setDepartment"
@@ -110,7 +110,7 @@ Print:
 Set step 2
 
 
-#|en| Then, review each delegate method of <code>Person</code> and find the code that uses it. Modify the code so that it first gets the delegate class (<code>Department</code>), and then directly calls the necessary method through the delegate method.
+#|en| Then, review each delegate method of `Person` and find the code that uses it. Modify the code so that it first gets the delegate class (`Department`), and then directly calls the necessary method through the delegate method.
 
 
 Select name "getManager"
@@ -134,7 +134,7 @@ Print "getDepartment().getManager()"
 Select whole "getmanager"
 
 
-#|en| After all replacements are done, the <code>getManager()</code> delegate method can be removed from the <code>Person</code> class.
+#|en| After all replacements are done, the `getManager()` delegate method can be removed from the `Person` class.
 
 
 Remove selected

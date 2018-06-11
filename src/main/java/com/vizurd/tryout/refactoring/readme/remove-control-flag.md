@@ -2,13 +2,13 @@ remove-control-flag:java
 
 ###
 
-1.en. Find the value assignment to the control flag that causes the exit from the loop or current iteration.
+1. Find the value assignment to the control flag that causes the exit from the loop or current iteration.
 
 
-2.en. Replace it with <code>break</code> if exiting a loop, <code>continue</code> if exiting an iteration, or <code>return</code> if needing to return a value from the function.
+2. Replace it with `break` if exiting a loop, `continue` if exiting an iteration, or `return` if needing to return a value from the function.
 
 
-3.en. Remove the remaining code and checks associated with the control flag.
+3. Remove the remaining code and checks associated with the control flag.
 
 
 
@@ -61,7 +61,7 @@ Set step 1
 Select "|||found||| = false"
 
 
-#|en| In this function, the variable <code>found</code> is a control flag. It is initialized by one value…
+#|en| In this function, the variable `found` is a control flag. It is initialized by one value…
 
 
 Select "|||found||| = true"
@@ -79,13 +79,13 @@ Select "(!found)"
 Select "found = true"
 
 
-#|en| This refactoring starts with us looking for any assignments to the control variable that affect the execution flow of the program. In our case, this is assignments of the <code>true</code> value.
+#|en| This refactoring starts with us looking for any assignments to the control variable that affect the execution flow of the program. In our case, this is assignments of the `true` value.
 
 
 Set step 2
 
 
-#|en| According to the logic of this method, we can simply replace assignments to control flags with <code>break</code> operator.
+#|en| According to the logic of this method, we can simply replace assignments to control flags with `break` operator.
 
 
 Print "break"

@@ -2,16 +2,16 @@ replace-inheritance-with-delegation:java
 
 ###
 
-1.en. Create a field in the subclass for holding the superclass. During the initial stage, place the current object in it.
+1. Create a field in the subclass for holding the superclass. During the initial stage, place the current object in it.
 
 
-2.en. Change the subclass methods so that they use the superclass object instead of <code>this</code>.
+2. Change the subclass methods so that they use the superclass object instead of `this`.
 
 
-3.en. Remove the inheritance declaration from the subclass.
+3. Remove the inheritance declaration from the subclass.
 
 
-4.en. Change the initialization code of the field in which the former superclass is stored by creating a new object.
+4. Change the initialization code of the field in which the former superclass is stored by creating a new object.
 
 
 
@@ -115,7 +115,7 @@ class Car {
 Set step 1
 
 
-#|en| Let's try out one more refactoring using a <code>Car</code> class that is inherited from the <code>Engine</code> as our example.
+#|en| Let's try out one more refactoring using a `Car` class that is inherited from the `Engine` as our example.
 
 
 Select "getCV()" in "Car"
@@ -127,7 +127,7 @@ Select "getCV()" in "Car"
 Go to the start of "Car"
 
 
-#|en| So it would have been more efficient to delegate to the <code>Engine</code> class for getting the necessary properties or methods.
+#|en| So it would have been more efficient to delegate to the `Engine` class for getting the necessary properties or methods.
 
 
 
@@ -173,7 +173,7 @@ Set step 3
 Select " extends Engine"
 
 
-#|en| Now we can remove the inheritance declaration from the <code>Car</code> class.
+#|en| Now we can remove the inheritance declaration from the `Car` class.
 
 
 Remove selected

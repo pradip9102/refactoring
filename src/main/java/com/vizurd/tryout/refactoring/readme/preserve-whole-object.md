@@ -2,13 +2,13 @@ preserve-whole-object:java
 
 ###
 
-1.en. Create a parameter in the method for the object from which you can get the necessary values.
+1. Create a parameter in the method for the object from which you can get the necessary values.
 
 
-2.en. Now start removing the old parameters from the method one by one, replacing them with calls to the relevant methods of the parameter object. Test the program after each replacement of a parameter.
+2. Now start removing the old parameters from the method one by one, replacing them with calls to the relevant methods of the parameter object. Test the program after each replacement of a parameter.
 
 
-3.en. Delete the getter code from the parameter object that had preceded the method call.
+3. Delete the getter code from the parameter object that had preceded the method call.
 
 
 
@@ -78,7 +78,7 @@ Select "low, high" in "withinPlan"
 Go to parameters of "withinRange"
 
 
-#|en| So for the first step, we add a parameter to the <code>withinRange</code> method.
+#|en| So for the first step, we add a parameter to the `withinRange` method.
 
 
 Print "Room room, "
@@ -146,7 +146,7 @@ Select:
 Set step 3
 
 
-#|en| And finally, let's remove the unused variables from <code>withinPlan</code>.
+#|en| And finally, let's remove the unused variables from `withinPlan`.
 
 
 Remove selected

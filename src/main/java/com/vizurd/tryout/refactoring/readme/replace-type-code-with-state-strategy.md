@@ -2,25 +2,25 @@ replace-type-code-with-state-strategy:java
 
 ###
 
-1.en. Use <a href="/self-encapsulate-field">Self Encapsulate Field</a> to create a getter for the field that contains type code.
+1. Use <a href="/self-encapsulate-field">Self Encapsulate Field</a> to create a getter for the field that contains type code.
 
 
-2.en. Create a new class that will play the role of <i>state</i> (or <i>strategy</i>). Create an abstract getter of the coded field in it.
+2. Create a new class that will play the role of *state*  (or *strategy* ). Create an abstract getter of the coded field in it.
 
 
-3.en. Create state subclasses for each value of the coded type.
+3. Create state subclasses for each value of the coded type.
 
 
-4.en. In the abstract state class, create a static factory method that accepts the value of the coded type as a parameter. Depending on this parameter, the factory method will create objects of various states. For this, in its code create a large conditional; it will be the only one when refactoring is complete.
+4. In the abstract state class, create a static factory method that accepts the value of the coded type as a parameter. Depending on this parameter, the factory method will create objects of various states. For this, in its code create a large conditional; it will be the only one when refactoring is complete.
 
 
-5.en. In the original class, change the type of the coded field to the state class. In the field's setter, call the factory state method for getting new state objects.
+5. In the original class, change the type of the coded field to the state class. In the field's setter, call the factory state method for getting new state objects.
 
 
-6.en. Move the fields and methods from the superclass to the corresponding state subclasses.
+6. Move the fields and methods from the superclass to the corresponding state subclasses.
 
 
-7.en. When everything movable has been moved, use <a href="/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a> in order to get rid of conditionals that use type code once and for all.
+7. When everything movable has been moved, use <a href="/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a> in order to get rid of conditionals that use type code once and for all.
 
 
 
@@ -135,7 +135,7 @@ class Manager extends EmployeeType {
 Set step 1
 
 
-#|en| Let's look at <i>Replace Type Code with State/Strategy</i> in the context of the payroll class considered earlier. We have several types of employees; these types are used to calculate the salary amount for each particular employee.
+#|en| Let's look at *Replace Type Code with State/Strategy*  in the context of the payroll class considered earlier. We have several types of employees; these types are used to calculate the salary amount for each particular employee.
 
 
 Select "public int |||type|||"
@@ -246,7 +246,7 @@ Print:
 Select "switch (code)"
 
 
-#|en| As you can see, here we are introducing a large <code>switch</code> operator. That's not great news, but once we are done with refactoring, this operator will be the only one in the code and will be run only when a type is changed.
+#|en| As you can see, here we are introducing a large `switch` operator. That's not great news, but once we are done with refactoring, this operator will be the only one in the code and will be run only when a type is changed.
 
 
 
@@ -259,7 +259,7 @@ Set step 5
 Select "private |||int||| type"
 
 
-#|en| Now we need to connect the created subclasses to <code>Employee</code> by modifying the access methods for the type code and constructor.
+#|en| Now we need to connect the created subclasses to `Employee` by modifying the access methods for the type code and constructor.
 
 
 Print "EmployeeType"
@@ -316,7 +316,7 @@ Select:
 ```
 
 
-#|en| We complete this step by moving all type code constants from <code>Employee</code> to <code>EmployeeType</code>.
+#|en| We complete this step by moving all type code constants from `Employee` to `EmployeeType`.
 
 
 Remove selected
@@ -370,7 +370,7 @@ Set step 6
 Select body of "payAmount"
 
 
-#|en| First extract the implementation of <code>payAmount</code> to a new method in a type class.
+#|en| First extract the implementation of `payAmount` to a new method in a type class.
 
 
 Go to the end of "EmployeeType"
@@ -398,7 +398,7 @@ Select "monthlySalary" in "EmployeeType"
 +Select "bonus" in "EmployeeType"
 
 
-#|en| We need datа from the <code>Employee</code> object, so in the method we create the parameter to which the main <code>Employee</code> object will be passed.
+#|en| We need datа from the `Employee` object, so in the method we create the parameter to which the main `Employee` object will be passed.
 
 
 Go to "payAmount(|||) {" in "EmployeeType"
@@ -420,13 +420,13 @@ Replace "employee.bonus"
 Select body of "payAmount"
 
 
-#|en| After these actions, we can set up delegation from the <code>Employee</code> class.
+#|en| After these actions, we can set up delegation from the `Employee` class.
 
 
 Print "    return type.payAmount(this);"
 
 
-#|en| Then start moving code to subclasses. Create <code>payAmount</code> methods in each of the subclasses and move payroll calculations there for the relevant employee types.
+#|en| Then start moving code to subclasses. Create `payAmount` methods in each of the subclasses and move payroll calculations there for the relevant employee types.
 
 
 Go to the end of "class Engineer"
@@ -469,7 +469,7 @@ Set step 7
 Select name of "payAmount" in "EmployeeType"
 
 
-#|en| Now that the methods have been created, you can make the <code>payAmount</code> method in <code>EmployeeType</code>  abstract.
+#|en| Now that the methods have been created, you can make the `payAmount` method in `EmployeeType`  abstract.
 
 
 Select:

@@ -2,22 +2,22 @@ encapsulate-collection:java
 
 ###
 
-1.en. Create methods for adding and deleting collection elements.
+1. Create methods for adding and deleting collection elements.
 
 
-2.en. Assign an empty collection to the field as the initial value.
+2. Assign an empty collection to the field as the initial value.
 
 
-3.en. Find the setter calls for the collection field. Change the setter so that it uses element add/remove operations.
+3. Find the setter calls for the collection field. Change the setter so that it uses element add/remove operations.
 
 
-4.en. Find all calls of the collection getter after which the collection is changed. Change the code so that it uses your new methods for adding and deleting elements from the collection.
+4. Find all calls of the collection getter after which the collection is changed. Change the code so that it uses your new methods for adding and deleting elements from the collection.
 
 
-5.en. Change the getter so that it returns a read-only representation of the collection.
+5. Change the getter so that it returns a read-only representation of the collection.
 
 
-6.en. Inspect the client code that uses the collection for code that would look better inside of the collection class itself.
+6. Inspect the client code that uses the collection for code that would look better inside of the collection class itself.
 
 
 
@@ -134,7 +134,7 @@ System.out.print("Advanced courses: " + kent.numberOfAdvancedCourses());
 Set step 1
 
 
-#|en| Let's look at <i>Encapsulate Collection</i>, using a catalog of training courses as our example.
+#|en| Let's look at *Encapsulate Collection* , using a catalog of training courses as our example.
 
 
 Select name of "Course"
@@ -187,7 +187,7 @@ Set step 3
 Select name of "setCourses"
 
 
-#|en| Now look at the uses of the <code>setCourses</code> setter. If there are many clients and the setter is used intensively, replace the method body so that it uses add/remove operations.
+#|en| Now look at the uses of the `setCourses` setter. If there are many clients and the setter is used intensively, replace the method body so that it uses add/remove operations.
 
 
 Select "kent.setCourses(s)"
@@ -199,7 +199,7 @@ Select "kent.setCourses(s)"
 Select body of "setCourses"
 
 
-#|en| If this is the case, change the setter body so that it uses collection's <code>add</code> method.
+#|en| If this is the case, change the setter body so that it uses collection's `add` method.
 
 
 Print:
@@ -226,7 +226,7 @@ Replace "initializeCourses"
 
 
 
-#|en| If there are no additional behaviors or checks during initialization, we can make the code even simpler by getting rid of the loop and using collection's <code>addAll</code> method.
+#|en| If there are no additional behaviors or checks during initialization, we can make the code even simpler by getting rid of the loop and using collection's `addAll` method.
 
 
 
@@ -333,7 +333,7 @@ private Set |||courses|||
 ```
 
 
-#|en| At this point, we can consider the collection fully encapsulated. Nobody can change its elements other than by using the <code>Person</code> class' method.
+#|en| At this point, we can consider the collection fully encapsulated. Nobody can change its elements other than by using the `Person` class' method.
 
 
 Set step 6
@@ -352,11 +352,11 @@ while (iter.hasNext()) {
 ```
 
 
-#|en| Now that we have a proper interface for the <code>Person</code> class, we can start moving the relevant code to this class. Here is an example of the code.
+#|en| Now that we have a proper interface for the `Person` class, we can start moving the relevant code to this class. Here is an example of the code.
 
 
 
-#|en| Apply <a href="/extract-method">Extract Method</a> to the code to move it to <code>Person</code>.
+#|en| Apply <a href="/extract-method">Extract Method</a> to the code to move it to `Person`.
 
 
 Go to the end of "class Person"

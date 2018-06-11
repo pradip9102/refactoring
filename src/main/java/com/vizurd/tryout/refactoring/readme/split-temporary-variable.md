@@ -2,13 +2,13 @@ split-temporary-variable:java
 
 ###
 
-1.en. Find the place in your code where the variable is first filled with a value. In this place, rename the variable and give it a name that corresponds to the value assigned.
+1. Find the place in your code where the variable is first filled with a value. In this place, rename the variable and give it a name that corresponds to the value assigned.
 
 
-2.en. Use the new name instead of the old one in places where this value of the variable is used.
+2. Use the new name instead of the old one in places where this value of the variable is used.
 
 
-3.en. Repeat as needed for places where the variable is assigned a different value.
+3. Repeat as needed for places where the variable is assigned a different value.
 
 
 
@@ -56,13 +56,13 @@ public double getDistanceTravelled(int time) {
 Set step 1
 
 
-#|en| Let's look at <i>Split Temporary Variable</i> using a small method, which calculates the movement of a ball in space as a function of time and the forces acting on it.
+#|en| Let's look at *Split Temporary Variable*  using a small method, which calculates the movement of a ball in space as a function of time and the forces acting on it.
 
 
 Select "|||acc||| ="
 
 
-#|en|^ Notably for our example, the <code>acc</code> variable is set in it twice.
+#|en|^ Notably for our example, the `acc` variable is set in it twice.
 
 
 
@@ -88,7 +88,7 @@ Print "primaryAcceleration"
 Go to "|||double primaryAcceleration"
 
 
-#|en| In addition, we declare it as <code>final</code> in order to guarantee that a value is assigned to it only once.
+#|en| In addition, we declare it as `final` in order to guarantee that a value is assigned to it only once.
 
 
 Print "final "

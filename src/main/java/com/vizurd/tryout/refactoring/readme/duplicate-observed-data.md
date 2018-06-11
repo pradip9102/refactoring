@@ -2,19 +2,19 @@ duplicate-observed-data:java
 
 ###
 
-1.en. Create a domain class.
+1. Create a domain class.
 
 
-2.en. Use the Observer pattern. Make the user interface class an observer of the domain class.
+2. Use the Observer pattern. Make the user interface class an observer of the domain class.
 
 
-3.en. Hide direct access to the fields of the user interface.
+3. Hide direct access to the fields of the user interface.
 
 
-4.en. Use setters to set the values of the fields in response to the user's activity in the interface.
+4. Use setters to set the values of the fields in response to the user's activity in the interface.
 
 
-5.en. Move the necessary fields from the GUI class to the domain class. Change the access methods in the interface class so that they refer to the fields of the domain class.
+5. Move the necessary fields from the GUI class to the domain class. Change the access methods in the interface class so that they refer to the fields of the domain class.
 
 
 
@@ -244,7 +244,7 @@ Set step 1
 Select name of "class IntervalWindow"
 
 
-#|en| Let's look at <i>Duplicate Observed Data</i> using the class that creates a window for editing numeric intervals.
+#|en| Let's look at *Duplicate Observed Data*  using the class that creates a window for editing numeric intervals.
 
 
 Select 1st "lengthField"
@@ -258,7 +258,7 @@ Select 1st "lengthField"
 Select name of "focusLost"
 
 
-#|en|V+ Recalculations of new values occur when the element loses focus. When a change occurs in <code>Start</code> or <code>End</code> text fields, <code>length</code> is calculated. When <code>length</code> changes, <code>End</code> is calculated.
+#|en|V+ Recalculations of new values occur when the element loses focus. When a change occurs in `Start` or `End` text fields, `length` is calculated. When `length` changes, `End` is calculated.
 
 
 Select name of "StartField_FocusLost"
@@ -273,7 +273,7 @@ Select name of "calculateLength"
 + Select name of "calculateEnd"
 
 
-#|en| These methods call calculation of the new length (<code>calculateLength</code>) or new end value (<code>calculateEnd</code>) depending on what has changed in the window.
+#|en| These methods call calculation of the new length (`calculateLength`) or new end value (`calculateEnd`) depending on what has changed in the window.
 
 
 Go to the end of file
@@ -313,7 +313,7 @@ Set step 2
 Select name of "public IntervalWindow"
 
 
-#|en| Then we create the code for initializing this reference field and make the window class an observer of the domain class. We should place all this code in the <code>IntervalWindow</code> constructor.
+#|en| Then we create the code for initializing this reference field and make the window class an observer of the domain class. We should place all this code in the `IntervalWindow` constructor.
 
 
 Go to the end of "public IntervalWindow"
@@ -330,7 +330,7 @@ Print:
 Select "|||update|||(subject, null);"
 
 
-#|en|^ Here, the call to the <code>update</code> function guarantees that the window object (GUI) will be filled with data from the domain object. But we need some other things in order for this to work.
+#|en|^ Here, the call to the `update` function guarantees that the window object (GUI) will be filled with data from the domain object. But we need some other things in order for this to work.
 
 
 Go to:
@@ -339,7 +339,7 @@ class IntervalWindow extends Frame|||
 ```
 
 
-#|en| First, declare the <code>IntervalWindow</code> class as the one, which implements <code>Observer</code> interface.
+#|en| First, declare the `IntervalWindow` class as the one, which implements `Observer` interface.
 
 
 Print:
@@ -348,7 +348,7 @@ Print:
 ```
 
 
-#|en| Second, create the <code>update()</code> method to provide the actual implementation.
+#|en| Second, create the `update()` method to provide the actual implementation.
 
 
 Go to the end of "class IntervalWindow"
@@ -391,7 +391,7 @@ Print:
 ```
 
 
-#|en| Then we can replace all references to <code>endField</code> with calls to the relevant methods.
+#|en| Then we can replace all references to `endField` with calls to the relevant methods.
 
 
 Select "endField.getText" in "class SymFocus"
@@ -411,7 +411,7 @@ Set step 4
 Select name of "EndField_FocusLost"
 
 
-#|en| In our case, unlike ordinary self-encapsulation, the user can independently change the value of the <code>End</code> field in the window. So we make sure that this change is saved if it is made.
+#|en| In our case, unlike ordinary self-encapsulation, the user can independently change the value of the `End` field in the window. So we make sure that this change is saved if it is made.
 
 
 Go to start of "EndField_FocusLost"
@@ -425,7 +425,7 @@ Print:
 Select "setEnd(|||endField.getText()|||);"
 
 
-#|en| Note that in this call we are accessing the field directly. This is because after continuing the refactoring, <code>getEnd()</code> will be getting its value from the domain object, not the field. And in this particular case, we need the value of the field in the window (GUI).
+#|en| Note that in this call we are accessing the field directly. This is because after continuing the refactoring, `getEnd()` will be getting its value from the domain object, not the field. And in this particular case, we need the value of the field in the window (GUI).
 
 
 
@@ -437,7 +437,7 @@ Set step 5
 Select name of "Interval"
 
 
-#|en| Excellent! Once the <code>End</code> field is fully encapsulated, we can add the relevant field to the domain class.
+#|en| Excellent! Once the `End` field is fully encapsulated, we can add the relevant field to the domain class.
 
 
 Go to start of "class Interval"
@@ -490,7 +490,7 @@ Select:
 + Select "void |||update|||"
 
 
-#|en| …which leads us to calling the <code>update()</code> method in the window class. It does not have anything in it yet, so let's add the necessary code to make everything work.
+#|en| …which leads us to calling the `update()` method in the window class. It does not have anything in it yet, so let's add the necessary code to make everything work.
 
 
 Go to the start of "update"
@@ -518,7 +518,7 @@ Select 1st "lengthField"
 + Select 1st "startField"
 
 
-#|en| Now we do the same thing with the remaining fields, <code>Start</code> and <code>Length</code>
+#|en| Now we do the same thing with the remaining fields, `Start` and `Length`
 
 
 Go to the end of "class IntervalWindow"
@@ -689,7 +689,7 @@ Select name of "calculateEnd"
 + Select name of "calculateLength"
 
 
-#|en| At this point, it would be a good time to move the <code>calculateEnd()</code> and <code>calculateLength()</code> methods to the interval class.
+#|en| At this point, it would be a good time to move the `calculateEnd()` and `calculateLength()` methods to the interval class.
 
 
 Select body of "setEnd"
@@ -697,7 +697,7 @@ Select body of "setEnd"
 + Select body of "setLength"
 
 
-#|en| But to do this, you must first configure the setters of the fields of the <code>IntervalWindow</code> class to fill values in the <code>Interval</code> class.
+#|en| But to do this, you must first configure the setters of the fields of the `IntervalWindow` class to fill values in the `Interval` class.
 
 
 Select body of "setEnd"
@@ -726,7 +726,7 @@ Replace:
 ```
 
 
-#|en| We removed the value assignment in the GUI interface field because the value will still be set when the setter of the interval class is called (remember about implementation of Observer in the <code>update</code> method).
+#|en| We removed the value assignment in the GUI interface field because the value will still be set when the setter of the interval class is called (remember about implementation of Observer in the `update` method).
 
 
 Select body of "getEnd"
@@ -766,7 +766,7 @@ Select name of "calculateEnd"
 + Select name of "calculateLength"
 
 
-#|en| Now we can start moving <code>calculateEnd()</code> and <code>calculateLength()</code> to the interval class.
+#|en| Now we can start moving `calculateEnd()` and `calculateLength()` to the interval class.
 
 
 Select:
@@ -777,7 +777,7 @@ Select:
 + Select whole "calculateLength"
 
 
-#|en| Let's start by moving <code>calculateLength</code>.
+#|en| Let's start by moving `calculateLength`.
 
 
 Remove selected

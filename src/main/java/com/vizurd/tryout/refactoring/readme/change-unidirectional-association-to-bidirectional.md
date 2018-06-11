@@ -2,15 +2,15 @@ change-unidirectional-association-to-bidirectional:java
 
 ###
 
-1.en. Add a field for holding the reverse association.
+1. Add a field for holding the reverse association.
 
-2.en. Decide which class will be the "dominant" one.
+2. Decide which class will be the "dominant" one.
 
-3.en. Create a utility method for setting up an association in the non-dominant class.
+3. Create a utility method for setting up an association in the non-dominant class.
 
-4.en. If old methods for controlling the unidirectional association were in the "dominant" class, complement them with calls to utility methods from the associated object.
+4. If old methods for controlling the unidirectional association were in the "dominant" class, complement them with calls to utility methods from the associated object.
 
-5.en. If the old methods for controlling the association were in the non-dominant class, implement a control algorithm in the dominant class and delegate execution to them from the non-dominant class.
+5. If the old methods for controlling the association were in the non-dominant class, implement a control algorithm in the dominant class and delegate execution to them from the non-dominant class.
 
 
 
@@ -75,7 +75,7 @@ class Customer {
 
 Set step 1
 
-#|en| Let's consider <i>Replace Unidirectional Association with Bidirectional</i> using the example of two classes: <code>Customer</code> and <code>Order</code>.
+#|en| Let's consider *Replace Unidirectional Association with Bidirectional*  using the example of two classes: `Customer` and `Order`.
 
 Select:
 ```
@@ -88,7 +88,7 @@ Select name of "Customer"
 
 #|en| However, the customer class does not have references to order objects. Thus, if you need to get an order object from the method of a customer object, you will have to usу some roundabout ways that are slow and inconvenient.
 
-#|en| Let's start refactoring by adding order fields to the <code>Customer</code> class. Since a customer can have multiple orders, we should make the field a collection.
+#|en| Let's start refactoring by adding order fields to the `Customer` class. Since a customer can have multiple orders, we should make the field a collection.
 
 Go to the end of "Customer"
 
@@ -127,7 +127,7 @@ Set step 4
 
 Select name of "setCustomer"
 
-#|en| Now we can change the field's setter in the <code>Order</code> class so that it would add the current order object to the list of customer orders.
+#|en| Now we can change the field's setter in the `Order` class so that it would add the current order object to the list of customer orders.
 
 Go to the start of "setCustomer"
 
@@ -158,7 +158,7 @@ Go to:
     // Remove order from old customer.|||
 ```
 
-#|en|< The exact code in the controlling modifier varies with the multiplicity of the association. If <code>Customer</code> cannot be <code>null</code>, you can get by without checking it for <code>null</code> but in that case you should check the argument for <code>null</code>.
+#|en|< The exact code in the controlling modifier varies with the multiplicity of the association. If `Customer` cannot be `null`, you can get by without checking it for `null` but in that case you should check the argument for `null`.
 
 Go to:
 ```

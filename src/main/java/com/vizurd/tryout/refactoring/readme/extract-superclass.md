@@ -2,13 +2,13 @@ extract-superclass:java
 
 ###
 
-1.en. Create an abstract superclass.
+1. Create an abstract superclass.
 
 
-2.en. Use <a href="/pull-up-field">Pull Up Field</a>, <a href="/pull-up-method">Pull Up Method</a>, and <a href="/pull-up-constructor-body">Pull Up Constructor Body</a> to move the common functionality to a superclass. Start with the fields, since in addition to the common fields you will need to move the fields that are used in the common methods.
+2. Use <a href="/pull-up-field">Pull Up Field</a>, <a href="/pull-up-method">Pull Up Method</a>, and <a href="/pull-up-constructor-body">Pull Up Constructor Body</a> to move the common functionality to a superclass. Start with the fields, since in addition to the common fields you will need to move the fields that are used in the common methods.
 
 
-3.en. Look for places in the client code where use of subclasses can be replaced with your new class (such as in type declarations).
+3. Look for places in the client code where use of subclasses can be replaced with your new class (such as in type declarations).
 
 
 
@@ -145,7 +145,7 @@ Select name of "Employee"
 + Select name of "Department"
 
 
-#|en| Let's look at <i>Extract Superclass</i> using the example of employees and their department.
+#|en| Let's look at *Extract Superclass*  using the example of employees and their department.
 
 
 Select "private String name"
@@ -305,7 +305,7 @@ Select name of "getAnnualCost"
 + Select name of "getTotalAnnualCost"
 
 
-#|en| The <code>getTotalAnnualCost</code> and <code>getAnnualCost</code> methods have the same purpose, so they should have the same name. Use <a href="/rename-method">Rename Method</a> to give them the same name.
+#|en| The `getTotalAnnualCost` and `getAnnualCost` methods have the same purpose, so they should have the same name. Use <a href="/rename-method">Rename Method</a> to give them the same name.
 
 
 Select name of "getTotalAnnualCost"
@@ -344,7 +344,7 @@ Select name of "Party"
 Select "|||Employee||| each = (|||Employee|||" in "Department"
 
 
-#|en| One of the clients of the classes is the <code>Department</code> class itself, which contains a collection of employee classes. The <code>getAnnualCost</code> method uses only the annual budget calculation method, which is now declared in <code>Party</code>.
+#|en| One of the clients of the classes is the `Department` class itself, which contains a collection of employee classes. The `getAnnualCost` method uses only the annual budget calculation method, which is now declared in `Party`.
 
 
 Print "Party"
@@ -352,7 +352,7 @@ Print "Party"
 Select name of "Department"
 
 
-#|en| This behavior offers a new opportunity. We can consider using the <a href="https://refactoring.guru/design-patterns/composite">Composite</a> pattern on <code>Department</code> and <code>Employee</code>.
+#|en| This behavior offers a new opportunity. We can consider using the <a href="https://refactoring.guru/design-patterns/composite">Composite</a> pattern on `Department` and `Employee`.
 
 
 
@@ -362,7 +362,7 @@ Select name of "Department"
 Select "Vector" in "Department"
 
 
-#|en| Be that as it may, if the Composite pattern were necessary, we would get it by changing the type of the <code>staff</code> field.
+#|en| Be that as it may, if the Composite pattern were necessary, we would get it by changing the type of the `staff` field.
 
 
 Select "|||staff||| =" in "Department"
@@ -380,7 +380,7 @@ Select name of "getStaff" in "Department"
 +Select name of "addStaff" in "Department"
 
 
-#|en| And appropriately edit the <code>getStaff</code> and <code>addStaff</code> methods.
+#|en| And appropriately edit the `getStaff` and `addStaff` methods.
 
 
 Select name of "getStaff" in "Department"
@@ -404,7 +404,7 @@ Wait 500ms
 Select body of "getHeadCount"
 
 
-#|en| To complete the Composite pattern, the <code>getHeadCount</code> method should be made recursive.
+#|en| To complete the Composite pattern, the `getHeadCount` method should be made recursive.
 
 
 Print:
@@ -419,7 +419,7 @@ Print:
 ```
 
 
-#|en| But for this approach to work, we must create an equivalent method in <code>Employee</code> that simply returns <code>1</code>.
+#|en| But for this approach to work, we must create an equivalent method in `Employee` that simply returns `1`.
 
 
 Go to the end of "Employee"

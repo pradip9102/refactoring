@@ -2,10 +2,10 @@ consolidate-conditional-expression:java
 
 ###
 
-1.en. Consolidate the conditionals in a single expression by using <code>AND</code> and <code>OR</code>.
+1. Consolidate the conditionals in a single expression by using `AND` and `OR`.
 
 
-2.en. Perform <a href="/extract-method">Extract Method</a> on the operator conditions and give the method a name that reflects the expression's purpose.
+2. Perform <a href="/extract-method">Extract Method</a> on the operator conditions and give the method a name that reflects the expression's purpose.
 
 
 
@@ -77,7 +77,7 @@ class Payout {
 Set step 1
 
 
-#|en| Let's look at <i>Consolidate Conditional Expression</i>, using the method for calculating workman's injury compensation.
+#|en| Let's look at *Consolidate Conditional Expression* , using the method for calculating workman's injury compensation.
 
 
 Select "if" in "disabilityAmount"
@@ -88,7 +88,7 @@ Select "if" in "disabilityAmount"
 
 
 
-#|en| We can merge these checks into a single expression using the <code>OR</code> operator.
+#|en| We can merge these checks into a single expression using the `OR` operator.
 
 
 Go to:
@@ -151,7 +151,7 @@ Replace "isNotEligibleForDisability()"
 Select "if" in "vacationAmount"
 
 
-#|en| The previous example demonstrated the <code>OR</code> operation but the same thing can be done using <code>AND</code>.
+#|en| The previous example demonstrated the `OR` operation but the same thing can be done using `AND`.
 
 
 

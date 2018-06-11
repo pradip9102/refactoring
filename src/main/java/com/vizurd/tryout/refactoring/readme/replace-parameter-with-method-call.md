@@ -2,16 +2,16 @@ replace-parameter-with-method-call:java
 
 ###
 
-1.en. Make sure that the value-getting code does not use parameters from the current method, since they will be unavailable from inside another method. If so, moving the code is not possible.
+1. Make sure that the value-getting code does not use parameters from the current method, since they will be unavailable from inside another method. If so, moving the code is not possible.
 
 
-2.en. If the relevant code is more complicated than a single method or function call, use <a href="/extract-method">Extract Method</a> to isolate this code in a new method and make the call simple.
+2. If the relevant code is more complicated than a single method or function call, use <a href="/extract-method">Extract Method</a> to isolate this code in a new method and make the call simple.
 
 
-3.en. In the code of the main method, replace all references to the parameter being replaced with calls to the method that gets the value.
+3. In the code of the main method, replace all references to the parameter being replaced with calls to the method that gets the value.
 
 
-4.en. Use <a href="/remove-parameter">Remove Parameter</a> to eliminate the now-unused parameter.
+4. Use <a href="/remove-parameter">Remove Parameter</a> to eliminate the now-unused parameter.
 
 
 
@@ -86,13 +86,13 @@ Select name of "getPrice"
 +Select name of "discountedPrice"
 
 
-#|en|^ The method for getting the discount (<code>discountedPrice</code>) is currently nearly impossible to use separately from the method for getting the price (<code>getPrice</code>), since you must get the values of all parameters prior to it.
+#|en|^ The method for getting the discount (`discountedPrice`) is currently nearly impossible to use separately from the method for getting the price (`getPrice`), since you must get the values of all parameters prior to it.
 
 
 Select parameters of "discountedPrice"
 
 
-#|en| But what if we eliminate all parameters in <code>discountedPrice</code>? Let's try.
+#|en| But what if we eliminate all parameters in `discountedPrice`? Let's try.
 
 
 Select:
@@ -110,7 +110,7 @@ Select:
 Set step 2
 
 
-#|en| To start, we extract <code>discountLevel</code> to its own method.
+#|en| To start, we extract `discountLevel` to its own method.
 
 
 Go to after "discountedPrice"
@@ -204,7 +204,7 @@ Print:
 Select "basePrice" in body of "discountedPrice"
 
 
-#|en| Now use this method in <code>discountedPrice</code>.
+#|en| Now use this method in `discountedPrice`.
 
 
 Print "getBasePrice()"

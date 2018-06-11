@@ -2,19 +2,19 @@ form-template-method:java
 
 ###
 
-1.en. Split algorithms in the subclasses into their constituent parts described in separate methods. <a href="/extract-method">Extract Method</a> can help with this.
+1. Split algorithms in the subclasses into their constituent parts described in separate methods. <a href="/extract-method">Extract Method</a> can help with this.
 
 
-2.en. The resulting methods that are identical for all subclasses can be moved to a superclass via <a href="/pull-up-method">Pull Up Method</a>.
+2. The resulting methods that are identical for all subclasses can be moved to a superclass via <a href="/pull-up-method">Pull Up Method</a>.
 
 
-3.en. The non-similar methods can be given consistent names via <a href="/rename-method">Rename Method</a>.
+3. The non-similar methods can be given consistent names via <a href="/rename-method">Rename Method</a>.
 
 
-4.en. Move the signatures of non-similar methods to a superclass as abstract ones by using <a href="/pull-up-method">Pull Up Method</a>. Leave their implementations in the subclasses.
+4. Move the signatures of non-similar methods to a superclass as abstract ones by using <a href="/pull-up-method">Pull Up Method</a>. Leave their implementations in the subclasses.
 
 
-5.en. And finally, pull up the main method of the algorithm to the superclass. Now it should work with the method steps described in the superclass, both real and abstract.
+5. And finally, pull up the main method of the algorithm to the superclass. Now it should work with the method steps described in the superclass, both real and abstract.
 
 
 
@@ -184,7 +184,7 @@ Select body of "markdownView"
 + Select body of "htmlView"
 
 
-#|en| Now the bodies of the original methods can be replaced with calls to the <code>ArticleView</code> methods.
+#|en| Now the bodies of the original methods can be replaced with calls to the `ArticleView` methods.
 
 
 Select body of "markdownView"
@@ -208,13 +208,13 @@ Wait 500ms
 Select name of "ArticleView"
 
 
-#|en| Then from <code>ArticleView</code> we can extract two subclasses, <code>ArticleMarkdown</code> and <code>ArticleHtml</code>, by moving the corresponding methods to them.
+#|en| Then from `ArticleView` we can extract two subclasses, `ArticleMarkdown` and `ArticleHtml`, by moving the corresponding methods to them.
 
 
 Go to after "ArticleView"
 
 
-#|en| Let's create a <code>ArticleMarkdown</code> class.
+#|en| Let's create a `ArticleMarkdown` class.
 
 
 Print:
@@ -265,7 +265,7 @@ Wait 500ms
 Go to after "ArticleMarkdown"
 
 
-#|en| Now let's create a <code>ArticleHtml</code> class.
+#|en| Now let's create a `ArticleHtml` class.
 
 
 Print:
@@ -341,13 +341,13 @@ Select name of "ArticleHtml"
 
 
 
-#|en| First split the <code>view</code> methods in both steps to their constituent steps. Defining the steps is rather easy in our case – these are parts of the printed article.
+#|en| First split the `view` methods in both steps to their constituent steps. Defining the steps is rather easy in our case – these are parts of the printed article.
 
 
 Select name of "ArticleMarkdown"
 
 
-#|en| Start with the <code>ArticleMarkdown</code> class.
+#|en| Start with the `ArticleMarkdown` class.
 
 
 Go to end of "ArticleMarkdown"
@@ -372,7 +372,7 @@ Print:
 Select body of "view" in "ArticleMarkdown"
 
 
-#|en| Now we can replace parts of the <code>view</code> method with calls to the new methods.
+#|en| Now we can replace parts of the `view` method with calls to the new methods.
 
 
 Print:
@@ -383,7 +383,7 @@ Print:
 Select name of "ArticleHtml"
 
 
-#|en| Do all of this for the <code>ArticleHtml</code> class.
+#|en| Do all of this for the `ArticleHtml` class.
 
 
 Go to end of "ArticleHtml"
@@ -408,7 +408,7 @@ Print:
 Select body of "view" in "ArticleHtml"
 
 
-#|en| Now we can replace parts of the <code>view</code> method with calls to the new methods.
+#|en| Now we can replace parts of the `view` method with calls to the new methods.
 
 
 Print:
@@ -461,7 +461,7 @@ Select whole of "view" in "ArticleMarkdown"
 Set step 5
 
 
-#|en| Now we can freely extract the identical <code>view</code> methods to the superclass.
+#|en| Now we can freely extract the identical `view` methods to the superclass.
 
 
 Remove selected

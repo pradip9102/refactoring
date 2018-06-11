@@ -2,27 +2,27 @@ replace-method-with-method-object:java
 
 ###
 
-1.en. Create a new class. Name it based on the purpose of the method that you are refactoring.
+1. Create a new class. Name it based on the purpose of the method that you are refactoring.
 
 
 
-2.en. In the new class, create a private field for storing a reference to an instance of the class in which the method was previously located.
+2. In the new class, create a private field for storing a reference to an instance of the class in which the method was previously located.
 
 
 
-3.en. In addition, create a private field for each local variable and parameter of the method.
+3. In addition, create a private field for each local variable and parameter of the method.
 
 
 
-4.en. Create a constructor that accepts all parameters of the original method and initializes the relevant private fields.
+4. Create a constructor that accepts all parameters of the original method and initializes the relevant private fields.
 
 
 
-5.en. Declare the main method and copy the code of the original method to it, replacing the local variables with private fields.
+5. Declare the main method and copy the code of the original method to it, replacing the local variables with private fields.
 
 
 
-6.en. Replace the body of the original method in the original class by creating a method object and calling its main method.
+6. Replace the body of the original method in the original class by creating a method object and calling its main method.
 
 
 
@@ -123,7 +123,7 @@ class Gamma {
 Set step 2
 
 
-#|en| First, create an immutable field for storing the source object, in the <code>Gamma</code> class.
+#|en| First, create an immutable field for storing the source object, in the `Gamma` class.
 
 
 Go to the end of "Gamma"
@@ -230,7 +230,7 @@ Remove selected
 Select "delta()" in "compute"
 
 
-#|en| Modify any calls to the <code>Account</code> methods so that they are run via the <code>account</code> field.
+#|en| Modify any calls to the `Account` methods so that they are run via the `account` field.
 
 
 Print "account.delta()"
@@ -261,7 +261,7 @@ Select:
 ```
 
 
-#|en| The benefit of this refactoring is that you can now easily apply <a href="/extract-method">Extract Method</a> to the <code>compute()</code> method without worrying about passing correct arguments between sub-methods.
+#|en| The benefit of this refactoring is that you can now easily apply <a href="/extract-method">Extract Method</a> to the `compute()` method without worrying about passing correct arguments between sub-methods.
 
 
 Go to the end of "Gamma"

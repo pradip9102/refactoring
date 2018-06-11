@@ -2,10 +2,10 @@ self-encapsulate-field:java
 
 ###
 
-1.en. Create a getter (and optional setter) for the field.
+1. Create a getter (and optional setter) for the field.
 
 
-2.en. Find all direct invocations of the field and replace them with getter and setter calls.
+2. Find all direct invocations of the field and replace them with getter and setter calls.
 
 
 
@@ -65,7 +65,7 @@ class IntRange {
 Set step 1
 
 
-#|en| Let's look at <i>Self-Encapsulation</i> using the example of a range class.<br/><br/>Self-encapsulation differs from regular encapsulation by requiring even its own class to access fields through getters and setters.
+#|en| Let's look at *Self-Encapsulation*  using the example of a range class.<br/><br/>Self-encapsulation differs from regular encapsulation by requiring even its own class to access fields through getters and setters.
 
 
 Go to before "includes"

@@ -2,13 +2,13 @@ add-parameter:java
 
 ###
 
-1.en. See whether the method is defined in a superclass or subclass. If the method is present in them, you will need to repeat all the steps in these classes as well.
+1. See whether the method is defined in a superclass or subclass. If the method is present in them, you will need to repeat all the steps in these classes as well.
 
-2.en. The following step is critical for keeping your program functional during the refactoring process. Create a new method by copying the old one and add the necessary parameter to it. Replace the code for the old method with a call to the new method. You can plug in any value to the new parameter (such as <code>null</code> for objects or a zero for numbers).
+2. The following step is critical for keeping your program functional during the refactoring process. Create a new method by copying the old one and add the necessary parameter to it. Replace the code for the old method with a call to the new method. You can plug in any value to the new parameter (such as `null` for objects or a zero for numbers).
 
-3.en. Find all references to the old method and replace them with references to the new method.
+3. Find all references to the old method and replace them with references to the new method.
 
-4.en. Delete the old method. Deletion is not possible if the old method is part of the public interface. If that is the case, mark the old method as deprecated.
+4. Delete the old method. Deletion is not possible if the old method is part of the public interface. If that is the case, mark the old method as deprecated.
 
 
 
@@ -66,7 +66,7 @@ appointments = calendar.findAppointments(today, null);
 
 Set step 1
 
-#|en| Let's say we have a <code>Calendar</code> class that stores records about planned meetings.
+#|en| Let's say we have a `Calendar` class that stores records about planned meetings.
 
 Select name of "findAppointments"
 
@@ -126,7 +126,7 @@ Select name of "findAppointments"
 
 Select "calendar.findAppointments(today);"
 
-#|en| Here is one of them. Since we have nothing to pass to the new parameter, we use the <code>null</code> value.
+#|en| Here is one of them. Since we have nothing to pass to the new parameter, we use the `null` value.
 
 Go to "calendar.findAppointments(today|||);"
 

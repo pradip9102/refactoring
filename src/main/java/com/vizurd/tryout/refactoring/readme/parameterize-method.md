@@ -2,13 +2,13 @@ parameterize-method:java
 
 ###
 
-1.en. Create a new method with a parameter and move code that is shared by all methods to it, by using <a href="/extract-method">extract method</a>.
+1. Create a new method with a parameter and move code that is shared by all methods to it, by using <a href="/extract-method">extract method</a>.
 
 
-2.en. In the code of the new method, replace the special/differing value with a parameter.
+2. In the code of the new method, replace the special/differing value with a parameter.
 
 
-3.en. For each old method, find the places where it is called, replacing these calls with calls to the new method that include a parameter. Then delete the old method.
+3. For each old method, find the places where it is called, replacing these calls with calls to the new method that include a parameter. Then delete the old method.
 
 
 

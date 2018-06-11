@@ -2,16 +2,16 @@ extract-method:java
 
 ###
 
-1.en. Create a new method and name it in a way that makes its purpose self-evident.
+1. Create a new method and name it in a way that makes its purpose self-evident.
 
 
-2.en. Copy the relevant code fragment to your new method. Delete the fragment from its old location and put a call for the new method there instead.
+2. Copy the relevant code fragment to your new method. Delete the fragment from its old location and put a call for the new method there instead.
 
 
-3.en. In the new method, create parameters for passing values from the original method.
+3. In the new method, create parameters for passing values from the original method.
 
 
-4.en. Pass the results and other changed data back to the original method.
+4. Pass the results and other changed data back to the original method.
 
 
 
@@ -76,7 +76,7 @@ double getOutstanding() {
 Set step 1
 
 
-#|en| Let's take a look at <i>Extract Method</i> using this function as an example.
+#|en| Let's take a look at *Extract Method*  using this function as an example.
 
 
 Select in "printOwing":
@@ -182,18 +182,18 @@ Remove selected
 Print "  printDetails();"
 
 
-#F Ошибка! Переменная <code>outstanding</code> в методе <code>printDetails()</code> не определена.
+#F Ошибка! Переменная `outstanding` в методе `printDetails()` не определена.
 
 #C|en| Let's launch the compiler.
-#F Error! The variable <code>outstanding</code> in method <code>printDetails()</code> is not defined.
+#F Error! The variable `outstanding` in method `printDetails()` is not defined.
 
 
-#F Помилка! Змінна <code>outstanding</code> в методі <code>printDetails()</code> не визначена.
+#F Помилка! Змінна `outstanding` в методі `printDetails()` не визначена.
 
 Select in "printDetails" text "outstanding"
 
 
-#|en| Ah… Yes, we really did move the <code>outstanding</code> variable out of the original method but no value is assigned to it in the new method.
+#|en| Ah… Yes, we really did move the `outstanding` variable out of the original method but no value is assigned to it in the new method.
 
 
 
@@ -288,7 +288,7 @@ Select in "getOutstanding":
 
 
 
-#|en| If a value is assigned to the parameter, you can get rid of this by using <i>Remove Assignments to Parameters</i> refactoring.
+#|en| If a value is assigned to the parameter, you can get rid of this by using *Remove Assignments to Parameters*  refactoring.
 
 
 Select in "getOutstanding":
@@ -306,7 +306,7 @@ Select in "getOutstanding":
 ```
 
 
-#|en|<= Here, the problem is caused by the <code>outstanding</code> variable, which is then used in the <code>printDetails()</code> call.
+#|en|<= Here, the problem is caused by the `outstanding` variable, which is then used in the `printDetails()` call.
 
 
 

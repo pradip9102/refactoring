@@ -2,10 +2,10 @@ replace-nested-conditional-with-guard-clauses:java
 
 ###
 
-1.en. Isolate all guard clauses that lead to calling an exception or immediate return of a value from the method. Place these conditions at the beginning of the method.
+1. Isolate all guard clauses that lead to calling an exception or immediate return of a value from the method. Place these conditions at the beginning of the method.
 
 
-2.en. After rearrangement is complete and all tests are successfully completed, see whether you can use <a href="/consolidate-conditional-expression">Consolidate Conditional Expression</a> for guard clauses that lead to the same exceptions or returned values.
+2. After rearrangement is complete and all tests are successfully completed, see whether you can use <a href="/consolidate-conditional-expression">Consolidate Conditional Expression</a> for guard clauses that lead to the same exceptions or returned values.
 
 
 
@@ -216,7 +216,7 @@ Select:
 ```
 
 
-#|en| After these changes, you can get rid of the <code>result</code> variable entirely.
+#|en| After these changes, you can get rid of the `result` variable entirely.
 
 
 Remove selected
@@ -244,7 +244,7 @@ Remove selected
 
 
 
-#|en| If, during execution, method did everything, it could, it's better to exit as soon as possible. Otherwise, going over an empty <code>else</code> block only throws up roadblocks to performance and readability.
+#|en| If, during execution, method did everything, it could, it's better to exit as soon as possible. Otherwise, going over an empty `else` block only throws up roadblocks to performance and readability.
 
 
 

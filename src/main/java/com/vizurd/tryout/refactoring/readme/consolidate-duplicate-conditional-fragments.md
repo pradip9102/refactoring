@@ -2,16 +2,16 @@ consolidate-duplicate-conditional-fragments:java
 
 ###
 
-1.en. If the duplicated code is at the beginning of the conditional branches, move the code to a place before the conditional.
+1. If the duplicated code is at the beginning of the conditional branches, move the code to a place before the conditional.
 
 
-2.en. If the code is executed at the end of the branches, place it after the conditional.
+2. If the code is executed at the end of the branches, place it after the conditional.
 
 
-3.en. If the duplicate code is randomly situated inside the branches, first try to move the code to the beginning or end of the branch, depending on whether it changes the result of the subsequent code.
+3. If the duplicate code is randomly situated inside the branches, first try to move the code to the beginning or end of the branch, depending on whether it changes the result of the subsequent code.
 
 
-4.en. If appropriate and the duplicate code is longer than one line, try using <a href="/extract-method">Extract Method</a>.
+4. If appropriate and the duplicate code is longer than one line, try using <a href="/extract-method">Extract Method</a>.
 
 
 
@@ -62,7 +62,7 @@ Select "sendEmail();"
 
 
 
-#|en| Let's move this code outside the conditional. We start with <code>sendEmail()</code>.
+#|en| Let's move this code outside the conditional. We start with `sendEmail()`.
 
 
 Select:
@@ -97,7 +97,7 @@ Select:
 ```
 
 
-#|en| Now let's try to move <code>validateEmailAddress()</code>. These calls are in different places, so it is worth thinking about whether to move them at all. In our case, validation can be performed anywhere but preferably closer to the beginning of the method. So let's move it there.
+#|en| Now let's try to move `validateEmailAddress()`. These calls are in different places, so it is worth thinking about whether to move them at all. In our case, validation can be performed anywhere but preferably closer to the beginning of the method. So let's move it there.
 
 
 Remove selected

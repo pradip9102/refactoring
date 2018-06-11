@@ -2,16 +2,16 @@ move-method:java
 
 ###
 
-1.en. Check all features used by the old method in its class. It may be a good idea to move them as well.
+1. Check all features used by the old method in its class. It may be a good idea to move them as well.
 
 
-2.en. Check whether the method has been declared in superclasses and subclasses. If not, declare a new method in the recipient class and move the code of the old method to it.
+2. Check whether the method has been declared in superclasses and subclasses. If not, declare a new method in the recipient class and move the code of the old method to it.
 
 
-3.en. Replace the body of the old method with delegation to the new method.
+3. Replace the body of the old method with delegation to the new method.
 
 
-4.en. Check whether you can get rid of the old method entirely.
+4. Check whether you can get rid of the old method entirely.
 
 
 
@@ -89,7 +89,7 @@ class AccountType {
 Set step 1
 
 
-#|en| Let's look at <i>Move Method</i> using a bank account class as an example.
+#|en| Let's look at *Move Method*  using a bank account class as an example.
 
 
 Select "private AccountType |||type|||"
@@ -105,25 +105,25 @@ Select "private AccountType |||type|||"
 Select name of "overdraftCharge"
 
 
-#|en| First, we need to decide whether to move only <code>overdraftCharge()</code> method or, perhaps, some other related code, fields or methods. 
+#|en| First, we need to decide whether to move only `overdraftCharge()` method or, perhaps, some other related code, fields or methods. 
 
 
 Select "private AccountType |||type|||"
 
 
-#|en| The <code>type</code> field stores the account type. There is no reason to move it anywhere else.
+#|en| The `type` field stores the account type. There is no reason to move it anywhere else.
 
 
 Select "private int |||daysOverdrawn|||"
 
 
-#|en| Moving the <code>daysOverdrawn</code> field would not make sense either, since its value will be different in every other account.
+#|en| Moving the `daysOverdrawn` field would not make sense either, since its value will be different in every other account.
 
 
 Select name of "overdraftCharge"
 
 
-#|en| So, it looks like we going to move only the <code>overdraftCharge()</code> method.
+#|en| So, it looks like we going to move only the `overdraftCharge()` method.
 
 
 Set step 2
@@ -131,7 +131,7 @@ Set step 2
 Select whole "overdraftCharge"
 
 
-#|en| Awesome, let's copy the <code>overdraftCharge()</code> method to the <code>AccountType</code> class.
+#|en| Awesome, let's copy the `overdraftCharge()` method to the `AccountType` class.
 
 
 Go to the end of "AccountType"
@@ -162,7 +162,7 @@ Select name of "overdraftCharge" in "AccountType"
 Select "type." in "overdraftCharge" of "AccountType"
 
 
-#|en| First remove the <code>type</code> field from the method, since the method is inside the class that implements the account type and, therefore, all methods could be called from it directly.
+#|en| First remove the `type` field from the method, since the method is inside the class that implements the account type and, therefore, all methods could be called from it directly.
 
 
 Remove selected
@@ -171,7 +171,7 @@ Select "daysOverdrawn" in "overdraftCharge" of "AccountType"
 
 
 
-#|en| Now we should go through the fields and methods  that left in <code>Account</code> class but still needed inside the method we move. In our case, this is the <code>daysOverdrawn</code> field.
+#|en| Now we should go through the fields and methods  that left in `Account` class but still needed inside the method we move. In our case, this is the `daysOverdrawn` field.
 
 
 
@@ -202,7 +202,7 @@ Set step 3
 Select body of "overdraftCharge" in "Account"
 
 
-#|en| Now we can replace the body of the original method in <code>Account</code> class with simple delegation.
+#|en| Now we can replace the body of the original method in `Account` class with simple delegation.
 
 
 Print:
@@ -220,13 +220,13 @@ Set step 4
 Select name of "overdraftCharge" in "Account"
 
 
-#|en| The code works fine, so we can continue and remove the <code>overdraftCharge()</code> method from the original class entirely.
+#|en| The code works fine, so we can continue and remove the `overdraftCharge()` method from the original class entirely.
 
 
 Select "overdraftCharge()" in "bankCharge"
 
 
-#|en| But first, find all places where it is called and readdress these to the method in the <code>AccountType</code> class.
+#|en| But first, find all places where it is called and readdress these to the method in the `AccountType` class.
 
 
 Print:
@@ -241,7 +241,7 @@ type.overdraftCharge(daysOverdrawn)
 Select whole "overdraftCharge" in "Account"
 
 
-#|en| After redirecting all method calls to the new class, we can entirely remove the method declaration in the <code>Account</code> class.
+#|en| After redirecting all method calls to the new class, we can entirely remove the method declaration in the `Account` class.
 
 
 Remove selected
@@ -257,7 +257,7 @@ Select name in "Account"
 
 
 
-#|en| Let's look at one nuance. In this case, the method referred to a single field, which allowed us to pass its value to the parameter. If the method had called any other method of the <code>Account</code> class, we would not be able to do this. In such situations, you must pass the entire object in the parameters and retrieve everything you need from it. Let's see how it's done.
+#|en| Let's look at one nuance. In this case, the method referred to a single field, which allowed us to pass its value to the parameter. If the method had called any other method of the `Account` class, we would not be able to do this. In such situations, you must pass the entire object in the parameters and retrieve everything you need from it. Let's see how it's done.
 
 
 Select parameters in "overdraftCharge"
@@ -285,7 +285,7 @@ account.getDaysOverdrawn()
 Select "overdraftCharge(|||daysOverdrawn|||)"
 
 
-#|en| And third, you must add passing of the current instance of the <code>Account</code> class to all method calls.
+#|en| And third, you must add passing of the current instance of the `Account` class to all method calls.
 
 
 Print "this"

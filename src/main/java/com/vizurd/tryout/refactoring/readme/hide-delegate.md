@@ -2,13 +2,13 @@ hide-delegate:java
 
 ###
 
-1.en. For each <i>delegate class</i> method that is called in the code, create a method in the <i>server class</i> that delegates calls to the <i>delegate class</i>.
+1. For each *delegate class*  method that is called in the code, create a method in the *server class*  that delegates calls to the *delegate class* .
 
 
-2.en. Change the client code so that it calls the methods of the <i>server-class</i>.
+2. Change the client code so that it calls the methods of the *server-class* .
 
 
-3.en. If after all these changes you no longer need direct access to the <i>delegate class</i>, you can proceed to remove access to the <i>delegate class</i> from the <i>server class</i>. 
+3. If after all these changes you no longer need direct access to the *delegate class* , you can proceed to remove access to the *delegate class*  from the *server class* . 
 
 
 
@@ -82,7 +82,7 @@ manager = john.getManager();
 Set step 1
 
 
-#|en| Let's look at <i>Hide Delegate</i> using the classes representing an employee and the employee's department as an example.
+#|en| Let's look at *Hide Delegate*  using the classes representing an employee and the employee's department as an example.
 
 
 Select "manager = john.getDepartment().getManager();"
@@ -92,7 +92,7 @@ Select "manager = john.getDepartment().getManager();"
 
 
 
-#|en| That way, along with the manager value, client code gets full access to the <code>Department</code> object and its other fields. If that doesn't look very safe to you… you're right.
+#|en| That way, along with the manager value, client code gets full access to the `Department` object and its other fields. If that doesn't look very safe to you… you're right.
 
 
 Set step 2
@@ -100,7 +100,7 @@ Set step 2
 Go to the end of "Person"
 
 
-#|en| This association can be reduced by hiding the <code>Department</code> class from the client, by creating a simple delegate method in <code>Person</code>.
+#|en| This association can be reduced by hiding the `Department` class from the client, by creating a simple delegate method in `Person`.
 
 
 Print:
@@ -124,7 +124,7 @@ Print "john.getManager();"
 Select whole "getDepartment"
 
 
-#|en| Once all necessary methods have been delegated, we can remove the method in the <code>Person</code> class that provided access to the <code>Department</code> instance.
+#|en| Once all necessary methods have been delegated, we can remove the method in the `Person` class that provided access to the `Department` instance.
 
 
 Remove selected

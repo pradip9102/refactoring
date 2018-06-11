@@ -2,16 +2,16 @@ separate-query-from-modifier:java
 
 ###
 
-1.en. Create a new <i>query method</i> to return what the original method did.
+1. Create a new *query method*  to return what the original method did.
 
 
-2.en. Change the original method so that it returns only the result of calling the new <i>query method</i>.
+2. Change the original method so that it returns only the result of calling the new *query method* .
 
 
-3.en. Replace all references to the original method with a call to the <i>query method</i> but immediately before this line, insert a call to the original method.
+3. Replace all references to the original method with a call to the *query method*  but immediately before this line, insert a call to the original method.
 
 
-4.en. Get rid of the value-returning code in the original method, which now has become a proper <i>modifier method</i>.
+4. Get rid of the value-returning code in the original method, which now has become a proper *modifier method* .
 
 
 
@@ -77,7 +77,7 @@ Set step 1
 Select name of "findCriminalAndAlert"
 
 
-#|en| Let's look at <i>Separate Query from Modifier</i> refactoring using a security system class as our example. The class has a method that tells us the name of a violator and sends a warning.
+#|en| Let's look at *Separate Query from Modifier*  refactoring using a security system class as our example. The class has a method that tells us the name of a violator and sends a warning.
 
 
 
@@ -94,7 +94,7 @@ Select "return "Don""
 Select "found" in "checkSecurity"
 
 
-#|en| An example of such use can be found in the <code>checkSecurity</code> method.
+#|en| An example of such use can be found in the `checkSecurity` method.
 
 
 Select "sendAlert()" in "findCriminalAndAlert"
@@ -134,7 +134,7 @@ Set step 2
 Select "return" in "findCriminalAndAlert"
 
 
-#|en| Then, one by one, replace all cases of <code>return</code> in the original method with calls for the new query.
+#|en| Then, one by one, replace all cases of `return` in the original method with calls for the new query.
 
 
 Select "return |||"Don"|||" in "findCriminalAndAlert"

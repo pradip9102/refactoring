@@ -2,16 +2,16 @@ rename-method:java
 
 ###
 
-1.en. See whether the method is defined in a superclass or subclass. If so, you must repeat all steps in these classes too.
+1. See whether the method is defined in a superclass or subclass. If so, you must repeat all steps in these classes too.
 
 
-2.en. The next method is important for maintaining the functionality of the program during the refactoring process. Create a new method with a new name. Copy the code of the old method to it. Delete all the code in the old method and, instead of it, insert a call for the new method.
+2. The next method is important for maintaining the functionality of the program during the refactoring process. Create a new method with a new name. Copy the code of the old method to it. Delete all the code in the old method and, instead of it, insert a call for the new method.
 
 
-3.en. Find all references to the old method and replace them with references to the new one.
+3. Find all references to the old method and replace them with references to the new one.
 
 
-4.en. Delete the old method. This step is not possible if the old method is part of the public interface. In that case, mark the old method as <code>deprecated</code>.
+4. Delete the old method. This step is not possible if the old method is part of the public interface. In that case, mark the old method as `deprecated`.
 
 
 
@@ -57,7 +57,7 @@ Select name of "getTelephoneNumber"
 Set step 2
 
 
-#|en| Let's change it's name to <code>getOfficeTelephoneNumber</code>, a more descriptive name.
+#|en| Let's change it's name to `getOfficeTelephoneNumber`, a more descriptive name.
 
 
 Go to the end of "Person"

@@ -2,16 +2,16 @@ inline-class:java
 
 ###
 
-1.en. In the recipient class, create the public fields and methods present in the donor class. Methods should refer to the equivalent methods of the donor class.
+1. In the recipient class, create the public fields and methods present in the donor class. Methods should refer to the equivalent methods of the donor class.
 
 
-2.en. Replace all references to the donor class with references to the fields and methods of the recipient class.
+2. Replace all references to the donor class with references to the fields and methods of the recipient class.
 
 
-3.en. Use <a href="/move-field">move field</a> and <a href="/move-method">move field</a> for moving functionality from the original class to the recipient class. Continue doing so until nothing remains in the original class.
+3. Use <a href="/move-field">move field</a> and <a href="/move-method">move field</a> for moving functionality from the original class to the recipient class. Continue doing so until nothing remains in the original class.
 
 
-4.en. Delete the original class.
+4. Delete the original class.
 
 
 
@@ -99,19 +99,19 @@ martin.setAreaCode("781");
 Set step 1
 
 
-#|en| Let's look at <i>Inline Class</i> using the person class and its phone number as an example.
+#|en| Let's look at *Inline Class*  using the person class and its phone number as an example.
 
 
 Select name of "TelephoneNumber"
 
 
-#|en| We want to include the <code>TelephoneNumber</code> class back in the <code>Person</code> class, since it become unnecessary complex for our needs.
+#|en| We want to include the `TelephoneNumber` class back in the `Person` class, since it become unnecessary complex for our needs.
 
 
 Go to the end of "Person"
 
 
-#|en| We start by declaring all visible methods of the phone number class in the <code>Person</code> class.
+#|en| We start by declaring all visible methods of the phone number class in the `Person` class.
 
 
 Print:
@@ -145,7 +145,7 @@ Set step 2
 Select "martin.getOfficeTelephone().setAreaCode("781")"
 
 
-#|en| Now find all cases where the phone number class is used in client code and replace it with calls to the delegate methods in <code>Person</code>.
+#|en| Now find all cases where the phone number class is used in client code and replace it with calls to the delegate methods in `Person`.
 
 
 Print "martin.setAreaCode("781")"
@@ -153,7 +153,7 @@ Print "martin.setAreaCode("781")"
 Set step 3
 
 
-#|en| We can then proceed to <a href="/move-method">Move Method</a> and <a href="/move-field">Move Field</a> for moving all fields and methods to the <code>Person</code> class. These changes can be done one by one or, if there are not too many, all at once.
+#|en| We can then proceed to <a href="/move-method">Move Method</a> and <a href="/move-field">Move Field</a> for moving all fields and methods to the `Person` class. These changes can be done one by one or, if there are not too many, all at once.
 
 
 Select:
@@ -287,7 +287,7 @@ Set step 4
 Select whole "TelephoneNumber"
 
 
-#|en| At this point, we need only to remove the <code>TelephoneNumber</code> class from the program.
+#|en| At this point, we need only to remove the `TelephoneNumber` class from the program.
 
 
 Select:
@@ -298,7 +298,7 @@ Select:
 + Select whole "getOfficeTelephone"
 
 
-#|en| Start by removing its field and getter in the <code>Person</code> class.
+#|en| Start by removing its field and getter in the `Person` class.
 
 
 Remove selected
@@ -306,7 +306,7 @@ Remove selected
 Select whole "TelephoneNumber"
 
 
-#|en| Voila! Nothing is holding us back now from removing the class itself. Thank you for the good times, <code>TelephoneNumber</code>, they were good indeed!
+#|en| Voila! Nothing is holding us back now from removing the class itself. Thank you for the good times, `TelephoneNumber`, they were good indeed!
 
 
 Remove selected

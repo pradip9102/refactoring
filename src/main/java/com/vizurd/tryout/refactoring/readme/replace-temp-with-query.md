@@ -2,13 +2,13 @@ replace-temp-with-query:java
 
 ###
 
-1.en. Make sure that a value is assigned to the variable once and only once within the method.
+1. Make sure that a value is assigned to the variable once and only once within the method.
 
 
-2.en. Use <b>extract method</b> to move the expression in question to the new method.
+2. Use <b>extract method</b> to move the expression in question to the new method.
 
 
-3.en. Replace the variable with a query to your new method.
+3. Replace the variable with a query to your new method.
 
 
 
@@ -59,14 +59,14 @@ class Product {
 Set step 1
 
 
-#|en| Let's look at <i>Replace Temp with Query</i> using a simple method as an example.
+#|en| Let's look at *Replace Temp with Query*  using a simple method as an example.
 
 
 Select "int |||basePrice|||"
 +Select "double |||discountFactor|||"
 
 
-#|en| Replace the variables <code>basePrice</code> and <code>discountFactor</code> one by one with calls to the respective methods.
+#|en| Replace the variables `basePrice` and `discountFactor` one by one with calls to the respective methods.
 
 
 
@@ -74,7 +74,7 @@ Select "int |||basePrice|||"
 
 
 
-#|en| That is already apparent here, but to be safe, we can declare these variables with the keyword <code>final</code>. In this case, the compiler will flag all places where attempts are made to re-assign values to variables.
+#|en| That is already apparent here, but to be safe, we can declare these variables with the keyword `final`. In this case, the compiler will flag all places where attempts are made to re-assign values to variables.
 
 
 Go to "|||int basePrice"
@@ -97,7 +97,7 @@ Set step 2
 Select "basePrice = quantity * itemPrice"
 
 
-#|en| For the second step, we create a <code>basePrice()</code> method and move the expression forming the <code>basePrice</code> variable to it.
+#|en| For the second step, we create a `basePrice()` method and move the expression forming the `basePrice` variable to it.
 
 
 Go to the end of "Product"
@@ -165,7 +165,7 @@ Remove selected
 Select "double |||discountFactor|||"
 
 
-#|en| The first variable is done. We can repeat all this to extract <code>discountFactor</code>.
+#|en| The first variable is done. We can repeat all this to extract `discountFactor`.
 
 
 Go to the end of "Product"
@@ -213,11 +213,11 @@ Select:
 Remove selected
 
 
-#|en| Note how difficult it would have been to extract <code>discountFactor</code> if we had not first replaced <code>basePrice</code> with a method call.
+#|en| Note how difficult it would have been to extract `discountFactor` if we had not first replaced `basePrice` with a method call.
 
 
 
-#|en| Ultimately the <code>getPrice()</code> method comes to look as follows.
+#|en| Ultimately the `getPrice()` method comes to look as follows.
 
 
 Select:

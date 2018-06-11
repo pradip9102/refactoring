@@ -2,22 +2,22 @@ replace-array-with-object:java
 
 ###
 
-1.en. Create the new class that will contain the data from the array. Place the array itself in the class as a public field.
+1. Create the new class that will contain the data from the array. Place the array itself in the class as a public field.
 
 
-2.en. Create a field for storing the object of this class in the original class.
+2. Create a field for storing the object of this class in the original class.
 
 
-3.en. In the new class, create access methods one by one for all elements of the array.
+3. In the new class, create access methods one by one for all elements of the array.
 
 
-4.en. When access methods have been created for all elements, make the array private.
+4. When access methods have been created for all elements, make the array private.
 
 
-5.en. For each element of the array, create a private field in the class and then change the access methods so that they use this field instead of the array.
+5. For each element of the array, create a private field in the class and then change the access methods so that they use this field instead of the array.
 
 
-6.en. When this is done, delete the array.
+6. When this is done, delete the array.
 
 
 
@@ -81,7 +81,7 @@ class Performance {
 Set step 1
 
 
-#|en| Let's look at <i>Replace Array with Object</i>, using a class that stores the name of an athletic team, number of wins and losses as our example.
+#|en| Let's look at *Replace Array with Object* , using a class that stores the name of an athletic team, number of wins and losses as our example.
 
 
 Go to the end of file
@@ -162,7 +162,7 @@ Select "row.data[0] = "Liverpool""
 + Select "String name = row.data[0]"
 
 
-#|en| Now we need to replace the code of assignment values to array elements with appropriate setters of the <code>Performance</code> class.
+#|en| Now we need to replace the code of assignment values to array elements with appropriate setters of the `Performance` class.
 
 
 Select "row.data[0] = "Liverpool""

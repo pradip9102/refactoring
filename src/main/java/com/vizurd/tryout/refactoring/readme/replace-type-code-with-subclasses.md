@@ -2,22 +2,22 @@ replace-type-code-with-subclasses:java
 
 ###
 
-1.en. Use <a href="/self-encapsulate-field">Self Encapsulate Field</a> to create a getter for the field that contains type code.
+1. Use <a href="/self-encapsulate-field">Self Encapsulate Field</a> to create a getter for the field that contains type code.
 
 
-2.en. Make the superclass constructor private. Create a static factory method with the same parameters as the superclass constructor.
+2. Make the superclass constructor private. Create a static factory method with the same parameters as the superclass constructor.
 
 
-3.en. Create a unique subclass for each value of the coded type. In it, redefine the getter of the coded type so that it returns the corresponding value of the coded type.
+3. Create a unique subclass for each value of the coded type. In it, redefine the getter of the coded type so that it returns the corresponding value of the coded type.
 
 
-4.en. Delete the field with type code from the superclass. Make its getter abstract.
+4. Delete the field with type code from the superclass. Make its getter abstract.
 
 
-5.en. Now that you have subclasses, you can start to move the fields and methods from the superclass to corresponding subclasses
+5. Now that you have subclasses, you can start to move the fields and methods from the superclass to corresponding subclasses
 
 
-6.en. When everything movable has been moved, use <a href="/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a> in order to get rid of conditionals that use type code once and for all.
+6. When everything movable has been moved, use <a href="/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a> in order to get rid of conditionals that use type code once and for all.
 
 
 
@@ -117,7 +117,7 @@ class Manager extends Employee {
 Set step 1
 
 
-#|en| Let's look at <i>Replace Type Code With Subclasses</i>, using an payroll class as our example. We have several types of employees, which affects their salary values.
+#|en| Let's look at *Replace Type Code With Subclasses* , using an payroll class as our example. We have several types of employees, which affects their salary values.
 
 
 Select "public int |||type|||"
@@ -150,7 +150,7 @@ Set step 2
 Select parameters of "public Employee"
 
 
-#|en| Since the <code>Employee</code> constructor uses type code as a parameter, we should replace it with a factory method.
+#|en| Since the `Employee` constructor uses type code as a parameter, we should replace it with a factory method.
 
 
 Go to before "public Employee"
@@ -174,7 +174,7 @@ Set step 3
 Select 1st "ENGINEER"
 
 
-#|en| Now we can start converting <code>Engineer</code> to a subclass. First create the subclass itself…
+#|en| Now we can start converting `Engineer` to a subclass. First create the subclass itself…
 
 
 Go to the end of file
@@ -285,7 +285,7 @@ Select:
 Set step 4
 
 
-#|en| Then we can eliminate the field with type code in <code>Employee</code>…
+#|en| Then we can eliminate the field with type code in `Employee`…
 
 
 Remove selected
@@ -299,7 +299,7 @@ Go to:
 ```
 
 
-#|en| …and make <code>getType</code> an abstract method.
+#|en| …and make `getType` an abstract method.
 
 
 Print "abstract "
@@ -316,7 +316,7 @@ Replace ";"
 Go to before "Employee"
 
 
-#|en| This will make the <code>Employee</code> class abstract as well.
+#|en| This will make the `Employee` class abstract as well.
 
 
 Print "abstract "
@@ -329,7 +329,7 @@ Select:
 ```
 
 
-#|en| After all these changes, we can no longer create <code>Employee</code> objects as the default implementation. So it is important to remember to get rid of the type field only after creating all subclasses.
+#|en| After all these changes, we can no longer create `Employee` objects as the default implementation. So it is important to remember to get rid of the type field only after creating all subclasses.
 
 
 Replace:
@@ -344,7 +344,7 @@ Remove selected
 Select "switch (type) {" in "create"
 
 
-#|en| Note that we ended up creating another big <code>switch</code> operator. Generally speaking this <a href="/smells/switch-statements">gives off a bad whiff</a> but once refactoring is done, it will be the only operator remaining in the code.
+#|en| Note that we ended up creating another big `switch` operator. Generally speaking this <a href="/smells/switch-statements">gives off a bad whiff</a> but once refactoring is done, it will be the only operator remaining in the code.
 
 
 Set step 5
@@ -362,7 +362,7 @@ Select:
 
 
 
-#|en| In our case, we will create <code>payAmount</code> methods in each of the subclasses and move payroll calculations there for the relevant types of employees.
+#|en| In our case, we will create `payAmount` methods in each of the subclasses and move payroll calculations there for the relevant types of employees.
 
 
 Select:

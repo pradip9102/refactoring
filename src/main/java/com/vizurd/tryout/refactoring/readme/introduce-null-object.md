@@ -2,19 +2,19 @@ introduce-null-object:java
 
 ###
 
-1.en. From the class in question, create a subclass that will perform the role of null object.
+1. From the class in question, create a subclass that will perform the role of null object.
 
 
-2.en. In both classes, create the method <code>isNull()</code>, which will return <code>true</code> for a null object and <code>false</code> for a real class.
+2. In both classes, create the method `isNull()`, which will return `true` for a null object and `false` for a real class.
 
 
-3.en. Find all places where the code may return <code>null</code> instead of a real object. Change the code so that it returns a null object.
+3. Find all places where the code may return `null` instead of a real object. Change the code so that it returns a null object.
 
 
-4.en. Find all places where the variables of the real class are compared with <code>null</code>. Replace these checks with a call for <code>isNull()</code>.
+4. Find all places where the variables of the real class are compared with `null`. Replace these checks with a call for `isNull()`.
 
 
-5.en. <ul><li>If methods of the original class are performed in these conditionals for values not equal to <code>null</code>, redefine these methods in the null class and put the code from the <code>else</code> part of the conditional code there. Then you can delete the conditional entirely, since differing behavior will be controlled through polymorphism.</li><li>If things are more complicated and redefining the methods is "not in the cards", see whether you can simply move the operations that should be performed for values equal to <code>null</code> to new methods of the Null object. Call these methods instead of the old code in <code>else</code> as default operations.</li></ul>
+5. <ul><li>If methods of the original class are performed in these conditionals for values not equal to `null`, redefine these methods in the null class and put the code from the `else` part of the conditional code there. Then you can delete the conditional entirely, since differing behavior will be controlled through polymorphism.</li><li>If things are more complicated and redefining the methods is "not in the cards", see whether you can simply move the operations that should be performed for values equal to `null` to new methods of the Null object. Call these methods instead of the old code in `else` as default operations.</li></ul>
 
 
 
@@ -168,7 +168,7 @@ Select name of "Company"
 Select name of "Customer"
 
 
-#|en| Every business has customers (<code>Customer</code>).
+#|en| Every business has customers (`Customer`).
 
 
 Select "getName" in "Customer"
@@ -192,11 +192,11 @@ Select "if (customer == null)"
 
 
 
-#|en| The code may contain many such repetitive <code>null</code> verifications, which indicates the need to introduce a null-object.
+#|en| The code may contain many such repetitive `null` verifications, which indicates the need to introduce a null-object.
 
 
 
-#|en| First create a <code>null</code>-object class for <code>customer</code> and modify the <code>Customer</code> class so that it supports a query for <code>null</code> verification.
+#|en| First create a `null`-object class for `customer` and modify the `Customer` class so that it supports a query for `null` verification.
 
 
 Set step 2
@@ -242,7 +242,7 @@ Set step 3
 Select "return customer"
 
 
-#|en| Now we should handle all code that returns <code>Customer</code> objects. We should add the checks, which will return our <code>null</code> object instead of <code>null</code> value.
+#|en| Now we should handle all code that returns `Customer` objects. We should add the checks, which will return our `null` object instead of `null` value.
 
 
 Print "return (customer == null) ? Customer.newNull() : customer"
@@ -253,13 +253,13 @@ Set step 4
 Select "if (|||customer == null|||)"
 
 
-#|en| Then, in the remaining code, replace all checks of the type <code>Customer == null</code> with calls of <code>Customer.isNull()</code>.
+#|en| Then, in the remaining code, replace all checks of the type `Customer == null` with calls of `Customer.isNull()`.
 
 
 Print "customer.isNull()"
 
 
-#|en| This is the most complex part of the refactoring. For each source of <code>null</code> that you are replacing, you must find all <code>null</code> checks and change them. If an object is passed back and forth between methods, doing so consistently can be difficult.
+#|en| This is the most complex part of the refactoring. For each source of `null` that you are replacing, you must find all `null` checks and change them. If an object is passed back and forth between methods, doing so consistently can be difficult.
 
 
 
@@ -270,7 +270,7 @@ Print "customer.isNull()"
 Set step 5
 
 
-#|en| We do not yet gain any benefit from using <code>isNull</code> instead of plain <code>== null</code>  checks. The benefit will be visible when the code, which used to work in null cases will be moved straight to the null-object class.
+#|en| We do not yet gain any benefit from using `isNull` instead of plain `== null`  checks. The benefit will be visible when the code, which used to work in null cases will be moved straight to the null-object class.
 
 
 Select "customerName = "N/A""
@@ -303,7 +303,7 @@ else {
 ```
 
 
-#|en| Then remove the check for <code>null</code> from the corresponding part of the client code.
+#|en| Then remove the check for `null` from the corresponding part of the client code.
 
 
 Print:
@@ -408,7 +408,7 @@ Select "customer.getHistory()"
 
 
 
-#|en| We can return the null-object of the payment history from the null-object of customers, fully ridding the client code of checks for <code>null</code>.
+#|en| We can return the null-object of the payment history from the null-object of customers, fully ridding the client code of checks for `null`.
 
 
 Go to the end of "NullCustomer"

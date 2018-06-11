@@ -2,19 +2,19 @@ move-field:java
 
 ###
 
-1.en. If the field is public, encapsulate it.
+1. If the field is public, encapsulate it.
 
 
-2.en. Create a field copy and methods for accessing the field in the target class.
+2. Create a field copy and methods for accessing the field in the target class.
 
 
-3.en. Decide how you will refer to the target class. It is quite possible that you already have a field or method that returns an appropriate class instance, but if not, you will need to create one of these.
+3. Decide how you will refer to the target class. It is quite possible that you already have a field or method that returns an appropriate class instance, but if not, you will need to create one of these.
 
 
-4.en. Replace all references to the old class with the relevant calls to methods in the target class.
+4. Replace all references to the old class with the relevant calls to methods in the target class.
 
 
-5.en. Delete the field in the original class.
+5. Delete the field in the original class.
 
 
 
@@ -79,19 +79,19 @@ class AccountType {
 Set step 1
 
 
-#|en| Let's look at <i>Move Field</i> using a bank account class as our example.
+#|en| Let's look at *Move Field*  using a bank account class as our example.
 
 
 Select "double |||interestRate|||"
 
 
-#|en| We want to move the <code>interestRate</code> field to the <code>AccountType</code> class.
+#|en| We want to move the `interestRate` field to the `AccountType` class.
 
 
 Select name of "interestForAmount_days"
 
 
-#|en| Several methods refer to this field. One of them is the <code>interestForAmount_days()</code> method.
+#|en| Several methods refer to this field. One of them is the `interestForAmount_days()` method.
 
 
 Set step 2
@@ -125,7 +125,7 @@ Set step 3
 Select "AccountType |||type|||" in "Account"
 
 
-#|en| In our example, the <code>Account</code> class contains a field for accessing the account type object. For this reason, we can access the moved field through it.
+#|en| In our example, the `Account` class contains a field for accessing the account type object. For this reason, we can access the moved field through it.
 
 
 Set step 4

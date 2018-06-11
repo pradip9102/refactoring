@@ -2,10 +2,10 @@ extract-variable:java
 
 ###
 
-1.en. Create a local variable and give it the necessary value.
+1. Create a local variable and give it the necessary value.
 
 
-2.en. Replace the original expression with your new variable.
+2. Replace the original expression with your new variable.
 
 
 
@@ -37,7 +37,7 @@ double price() {
 Set step 1
 
 
-#|en| Let's look at <i>Extract Variable</i> using this simple method as an example.
+#|en| Let's look at *Extract Variable*  using this simple method as an example.
 
 
 
@@ -51,7 +51,7 @@ Set step 1
 Select "quantity * itemPrice"
 
 
-#|en| First define the <code>basePrice</code> as the number of products in the order, multiplied by the unit cost…
+#|en| First define the `basePrice` as the number of products in the order, multiplied by the unit cost…
 
 
 Set step 2
@@ -94,7 +94,7 @@ Math.max(0, quantity - 500) * itemPrice * 0.05
 ```
 
 
-#|en| Define the <code>quantityDiscount</code> and move calculation to a new variable.
+#|en| Define the `quantityDiscount` and move calculation to a new variable.
 
 
 Go to "quantity * itemPrice;|||"
@@ -124,7 +124,7 @@ Math.min(basePrice * 0.1, 100.0)
 ```
 
 
-#|en| The final part of calculation is <code>shipping</code>. We use a separate variable here as well.
+#|en| The final part of calculation is `shipping`. We use a separate variable here as well.
 
 
 Go to "itemPrice * 0.05;|||"

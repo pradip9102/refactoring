@@ -2,22 +2,22 @@ replace-type-code-with-class:java
 
 ###
 
-1.en. Create a new class and give it a new name that corresponds to the purpose of the coded type. Here we will call it <i>type class</i>.
+1. Create a new class and give it a new name that corresponds to the purpose of the coded type. Here we will call it *type class* .
 
 
-2.en. Copy the field containing type code to the <i>type class</i> and make it private. Then create a getter for the field. A value will be set for this field only from the constructor.
+2. Copy the field containing type code to the *type class*  and make it private. Then create a getter for the field. A value will be set for this field only from the constructor.
 
 
-3.en. For each value of the coded type, create a static method in the <i>type class</I>.
+3. For each value of the coded type, create a static method in the *type class* .
 
 
-4.en. In the original class, replace the type of the coded field with <i>type class</i>. Create a new object of this type in the constructor as well as in the field setter. Change the field getter so that it calls the <i>type class</i> getter.
+4. In the original class, replace the type of the coded field with *type class* . Create a new object of this type in the constructor as well as in the field setter. Change the field getter so that it calls the *type class*  getter.
 
 
-5.en. Replace any mentions of values of the coded type with calls of the relevant <i>type class</i> static methods.
+5. Replace any mentions of values of the coded type with calls of the relevant *type class*  static methods.
 
 
-6.en. Remove the coded type constants from the original class and make the <i>type class</i> constructor private.
+6. Remove the coded type constants from the original class and make the *type class*  constructor private.
 
 
 
@@ -106,7 +106,7 @@ child.setBloodGroup(parent.getBloodGroup());
 Set step 1
 
 
-#|en| Let's look at <i>Replace Type Code With Class</i>, using the example of a person class that contains blood type fields.
+#|en| Let's look at *Replace Type Code With Class* , using the example of a person class that contains blood type fields.
 
 
 Select:
@@ -124,7 +124,7 @@ Select:
 Go to after "Person"
 
 
-#|en| We start refactoring by creating a new <code>BloodGroup</code> class, which will be responsible for blood types.
+#|en| We start refactoring by creating a new `BloodGroup` class, which will be responsible for blood types.
 
 
 Type:
@@ -138,7 +138,7 @@ class BloodGroup {
 Set step 2
 
 
-#|en| We place the blood type field from the <code>Person</code> class, its getter and the constructor, which initialize the field value.
+#|en| We place the blood type field from the `Person` class, its getter and the constructor, which initialize the field value.
 
 
 Go to the end of "BloodGroup"
@@ -159,7 +159,7 @@ Type:
 Set step 3
 
 
-#|en| Now let's create static methods for each of the type code values from the original class. These methods should return instances of the <code>BloodGroup</code> class.
+#|en| Now let's create static methods for each of the type code values from the original class. These methods should return instances of the `BloodGroup` class.
 
 
 Go to the end of "class BloodGroup"
@@ -196,7 +196,7 @@ Select:
 ```
 
 
-#|en| In the original class, change the type of the coded field to <code>BloodGroup</code>.
+#|en| In the original class, change the type of the coded field to `BloodGroup`.
 
 
 
@@ -231,7 +231,7 @@ return bloodGroup|||;
 ```
 
 
-#|en| Then change the field getter so that it calls the getter of the <code>BloodGroup</code> class.
+#|en| Then change the field getter so that it calls the getter of the `BloodGroup` class.
 
 
 Print ".getCode()"
@@ -247,11 +247,11 @@ Select:
 ```
 
 
-#|en| It is now time to replace all type code values with calls to the corresponding static methods of the <i>type class</i>.
+#|en| It is now time to replace all type code values with calls to the corresponding static methods of the *type class* .
 
 
 
-#|en| First replace the values of all constants with calls to the corresponding methods of the <code>BloodGroup</code> class.
+#|en| First replace the values of all constants with calls to the corresponding methods of the `BloodGroup` class.
 
 
 Select "public static final int O = |||0|||;"
@@ -271,13 +271,13 @@ Select "public static final int AB = |||3|||;"
 Replace "BloodGroup.AB().getCode()"
 
 
-#|en|^ In effect, all uses of constants are now delegated to the methods of <code>BloodGroup</code>.
+#|en|^ In effect, all uses of constants are now delegated to the methods of `BloodGroup`.
 
 
 Select "new Person(|||Person.O|||);"
 
 
-#|en| We will go one step further and get rid of direct references to constants of the <code>Person</code> class in the remaining code. We can use calls to the methods of the <code>BloodGroup</code> class instead.
+#|en| We will go one step further and get rid of direct references to constants of the `Person` class in the remaining code. We can use calls to the methods of the `BloodGroup` class instead.
 
 
 Type "BloodGroup.O().getCode()"
@@ -309,7 +309,7 @@ Select:
 ```
 
 
-#|en| In the end, it is better to avoid using any numeric codes for <code>BloodGroup</code> and use objects instead. Let's try to do so in the <code>Person</code> class.
+#|en| In the end, it is better to avoid using any numeric codes for `BloodGroup` and use objects instead. Let's try to do so in the `Person` class.
 
 
 Select:
@@ -387,7 +387,7 @@ Select:
 ```
 
 
-#|en| You can remove unused constants from the <code>Person</code> class.
+#|en| You can remove unused constants from the `Person` class.
 
 
 Remove selected
@@ -395,7 +395,7 @@ Remove selected
 Select "|||public||| BloodGroup" in "BloodGroup"
 
 
-#|en| And finally, you should make the <code>BloodGroup</code> constructor private.
+#|en| And finally, you should make the `BloodGroup` constructor private.
 
 
 Replace "private"

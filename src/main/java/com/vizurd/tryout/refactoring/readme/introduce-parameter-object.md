@@ -2,16 +2,16 @@ introduce-parameter-object:java
 
 ###
 
-1.en. Create a new class that will represent your group of parameters. Make the class immutable.
+1. Create a new class that will represent your group of parameters. Make the class immutable.
 
 
-2.en. In the method that you want to refactor, use <a href="/add-parameter">Add Parameter</a>, which is where your parameter object will be passed. In all method calls, pass the object created from old method parameters to this parameter.
+2. In the method that you want to refactor, use <a href="/add-parameter">Add Parameter</a>, which is where your parameter object will be passed. In all method calls, pass the object created from old method parameters to this parameter.
 
 
-3.en. Now start deleting old parameters from the method one by one, replacing them in the code with fields of the parameter object. Test the program after each parameter replacement.
+3. Now start deleting old parameters from the method one by one, replacing them in the code with fields of the parameter object. Test the program after each parameter replacement.
 
 
-4.en. When done, see whether there is any point in moving a part of the method (or sometimes even the whole method) to a parameter object class. If so, use <a href="/move-method">Move Method</a> or <a href="/extract-method">Extract Method</a>.
+4. When done, see whether there is any point in moving a part of the method (or sometimes even the whole method) to a parameter object class. If so, use <a href="/move-method">Move Method</a> or <a href="/extract-method">Extract Method</a>.
 
 
 
@@ -209,7 +209,7 @@ Select "|||startDate, endDate|||,"
 Select "Date start" in parameters of "getFlowBetween"
 
 
-#|en| First take care of the <code>start</code> parameter.
+#|en| First take care of the `start` parameter.
 
 
 Select "start" in body of "getFlowBetween"
@@ -270,7 +270,7 @@ Set step 4
 Select "each.getDate().compareTo(range.getStart()) >= 0 && each.getDate().compareTo(range.getEnd()) <= 0"
 
 
-#|en| In our case, we can move a check to see if a date is within a range. This gets rid of this code inside <code>getFlowBetween</code>.
+#|en| In our case, we can move a check to see if a date is within a range. This gets rid of this code inside `getFlowBetween`.
 
 
 Go to the end of "DateRange"

@@ -2,13 +2,16 @@ change-bidirectional-association-to-unidirectional:java
 
 ###
 
-1.en. Make sure that one of the following is true for your classes:<ul><li>Association is not used at all,</li><li>Another way of getting the associated object is available (such as by querying a database), or</li><li>The association object can be passed as an argument to the methods that use it.</li></ul>
+1. Make sure that one of the following is true for your classes:
+    - Association is not used at all
+    - Another way of getting the associated object is available (such as by querying a database)
+    - The association object can be passed as an argument to the methods that use it.
 
-2.en. Depending on your situation, instead of using a field containing an association with the relevant object, you may want to use a parameter or method call for obtaining the associated object in a different way.
+2. Depending on your situation, instead of using a field containing an association with the relevant object, you may want to use a parameter or method call for obtaining the associated object in a different way.
 
-3.en. Delete the code that assigns the associated object to the field.
+3. Delete the code that assigns the associated object to the field.
 
-4.en. Delete the now-unused field.
+4. Delete the now-unused field.
 
 ###
 
@@ -96,12 +99,12 @@ class Customer {
 
 Set step 1
 
-#|en| We will start <i>Change Bidirectional Association to Unidirectional</i> from the place where we have stopped in the inverse refactoring.
+#|en| We will start *Change Bidirectional Association to Unidirectional*  from the place where we have stopped in the inverse refactoring.
 
 Select name of "Order"
 + Select name of "Customer"
 
-#|en| In other words, we have <code>Customer</code> and <code>Order</code> classes with a bidirectional association.
+#|en| In other words, we have `Customer` and `Order` classes with a bidirectional association.
 
 #|en| Two new methods have been added to the code since completion of the previous refactoring.
 
@@ -196,7 +199,7 @@ Select:
 + Select whole "friendOrders"
 + Select body of "addOrder"
 
-#|en| Now we can prepare for the <code>setCustomer</code> method removal. Instead calling it in customer class, we should add orders to the order collection directly.
+#|en| Now we can prepare for the `setCustomer` method removal. Instead calling it in customer class, we should add orders to the order collection directly.
 
 Select:
 ```

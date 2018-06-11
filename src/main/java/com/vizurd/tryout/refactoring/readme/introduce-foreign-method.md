@@ -2,16 +2,16 @@ introduce-foreign-method:java
 
 ###
 
-1.en. Create a new method in the client class.
+1. Create a new method in the client class.
 
 
-2.en. In this method, create a parameter to which the object of the utility class will be passed. If this object can be obtained from the client class, you do not have to create such a parameter.
+2. In this method, create a parameter to which the object of the utility class will be passed. If this object can be obtained from the client class, you do not have to create such a parameter.
 
 
-3.en. Extract the relevant code fragments to this method and replace them with method calls.
+3. Extract the relevant code fragments to this method and replace them with method calls.
 
 
-4.en. Leave a comment for the method, labeling it as <i>Foreign method</i> and requesting that the method be placed in a utility class if this becomes possible in the future.
+4. Leave a comment for the method, labeling it as *Foreign method*  and requesting that the method be placed in a utility class if this becomes possible in the future.
 
 
 
@@ -56,7 +56,7 @@ class Account {
 Set step 1
 
 
-#|en| Let's look at <i>Introduce Foreign Method</i> using the example of a bank account class.
+#|en| Let's look at *Introduce Foreign Method*  using the example of a bank account class.
 
 
 Select "Date paymentDate = new Date(previousDate.getYear(), previousDate.getMonth(), previousDate.getDate() + 7)"
@@ -66,7 +66,7 @@ Select "Date paymentDate = new Date(previousDate.getYear(), previousDate.getMont
 
 
 
-#|en| Ideally, the <code>Date</code> class would have a method for getting a date seven days in the future (something resembling <code>previousDate.nextWeek()</code>) but it does not, and, what's pretty sad, it is standard so we cannot change it.
+#|en| Ideally, the `Date` class would have a method for getting a date seven days in the future (something resembling `previousDate.nextWeek()`) but it does not, and, what's pretty sad, it is standard so we cannot change it.
 
 
 Go to the end of "Account"
@@ -89,7 +89,7 @@ Set step 2
 Go to parameters of "nextWeek"
 
 
-#|en| To make the method more universal, we will add a parameter of the <code>Date</code> class to it. Essentially, we are extending the functionality of the object passed in this parameter.
+#|en| To make the method more universal, we will add a parameter of the `Date` class to it. Essentially, we are extending the functionality of the object passed in this parameter.
 
 
 Print "Date arg"
@@ -101,7 +101,7 @@ Replace "arg"
 Go to type of "nextWeek"
 
 
-#|en| You should also declare the method static to make it accessible from other code not associated with <code>Account</code>.
+#|en| You should also declare the method static to make it accessible from other code not associated with `Account`.
 
 
 Print "static "

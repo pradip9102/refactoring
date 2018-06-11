@@ -2,19 +2,19 @@ replace-delegation-with-inheritance:java
 
 ###
 
-1.en. Make the class a subclass of the delegate class.
+1. Make the class a subclass of the delegate class.
 
 
-2.en. Place the current object in a field containing a reference to the delegate object.
+2. Place the current object in a field containing a reference to the delegate object.
 
 
-3.en. Delete the methods with simple delegation one by one. If their names were different, use <a href="/rename-method">Rename Method</a> to give all the methods a single name.
+3. Delete the methods with simple delegation one by one. If their names were different, use <a href="/rename-method">Rename Method</a> to give all the methods a single name.
 
 
-4.en. Replace all references to the delegate field with references to the current object.
+4. Replace all references to the delegate field with references to the current object.
 
 
-5.en. Remove the delegate field.
+5. Remove the delegate field.
 
 
 
@@ -83,15 +83,15 @@ class Employee extends Person {
 Set step 1
 
 
-#|en| We have an <code>Employee</code> class that delegates certain work to the <code>Person</code> class.
+#|en| We have an `Employee` class that delegates certain work to the `Person` class.
 
 
 
-#|en| Inheritance would be more appropriate here since the employee class needs practically all data from <code>Person</code>.
+#|en| Inheritance would be more appropriate here since the employee class needs practically all data from `Person`.
 
 
 
-#|en| Let's start refactoring by declaring the <code>Employee</code> as a subclass of <code>Person</code>.
+#|en| Let's start refactoring by declaring the `Employee` as a subclass of `Person`.
 
 
 Go to "class Employee|||"
@@ -108,7 +108,7 @@ Set step 2
 Select "new Person()"
 
 
-#|en| Next, force the field, which contained reference to a <code>Person</code> object, to reference its own object. We will get rid of it later, but for now it will keep the code working.
+#|en| Next, force the field, which contained reference to a `Person` object, to reference its own object. We will get rid of it later, but for now it will keep the code working.
 
 
 Print "this"
@@ -119,7 +119,7 @@ Select whole "getName" in "Employee"
 + Select whole "setName" in "Employee"
 
 
-#|en| We also should remove all simple delegate methods from <code>Employee</code>, such as <code>getName</code> and <code>setName</code>. If we forget to remove them, a stack overflow will occur due to infinite recursion.
+#|en| We also should remove all simple delegate methods from `Employee`, such as `getName` and `setName`. If we forget to remove them, a stack overflow will occur due to infinite recursion.
 
 
 Remove selected
