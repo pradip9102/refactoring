@@ -4,15 +4,11 @@ replace-parameter-with-method-call:java
 
 1. Make sure that the value-getting code does not use parameters from the current method, since they will be unavailable from inside another method. If so, moving the code is not possible.
 
-
 2. If the relevant code is more complicated than a single method or function call, use <a href="/extract-method">Extract Method</a> to isolate this code in a new method and make the call simple.
-
 
 3. In the code of the main method, replace all references to the parameter being replaced with calls to the method that gets the value.
 
-
 4. Use <a href="/remove-parameter">Remove Parameter</a> to eliminate the now-unused parameter.
-
 
 
 
@@ -76,11 +72,10 @@ class Order {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's look at this refactoring using yet another order price example.
-
 
 Select name of "getPrice"
 +Select name of "discountedPrice"
@@ -88,12 +83,10 @@ Select name of "getPrice"
 
 #|en|^ The method for getting the discount (`discountedPrice`) is currently nearly impossible to use separately from the method for getting the price (`getPrice`), since you must get the values of all parameters prior to it.
 
-
 Select parameters of "discountedPrice"
 
 
 #|en| But what if we eliminate all parameters in `discountedPrice`? Let's try.
-
 
 Select:
 ```
@@ -107,11 +100,10 @@ Select:
 
 ```
 
-Set step 2
+###### Set step 2
 
 
 #|en| To start, we extract `discountLevel` to its own method.
-
 
 Go to after "discountedPrice"
 
@@ -128,17 +120,16 @@ Print:
   }
 ```
 
-Set step 3
+###### Set step 3
 
 Select "discountLevel" in body of "discountedPrice"
 
 
 #|en| Now we can use this method instead of this parameter in the discount calculation method.
 
-
 Print "getDiscountLevel()"
 
-Set step 4
+###### Set step 4
 
 Select ", int discountLevel" in parameters of "discountedPrice"
 
@@ -171,13 +162,11 @@ Select:
 
 #|en| We can then remove parameter calculation, which is no longer used.
 
-
 Remove selected
 
 
 #C|en| Let's run the compiler and auto-tests.
 #S Everything is good! Let's continue.
-
 
 Select parameters of "discountedPrice"
 
@@ -189,7 +178,6 @@ Select "quantity * itemPrice"
 
 
 #|en| Let's extract the base price calculation to its own method.
-
 
 Go to after "getDiscountLevel"
 
@@ -206,7 +194,6 @@ Select "basePrice" in body of "discountedPrice"
 
 #|en| Now use this method in `discountedPrice`.
 
-
 Print "getBasePrice()"
 
 Wait 250ms
@@ -215,7 +202,6 @@ Select "int basePrice" in parameters of "discountedPrice"
 
 
 #|en| As before, we can now get rid of this parameter as well.
-
 
 Remove selected
 
@@ -253,7 +239,7 @@ Print "    return discountedPrice();"
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

@@ -4,9 +4,7 @@ self-encapsulate-field:java
 
 1. Create a getter (and optional setter) for the field.
 
-
 2. Find all direct invocations of the field and replace them with getter and setter calls.
-
 
 
 
@@ -62,17 +60,15 @@ class IntRange {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's look at *Self-Encapsulation*  using the example of a range class.<br/><br/>Self-encapsulation differs from regular encapsulation by requiring even its own class to access fields through getters and setters.
-
 
 Go to before "includes"
 
 
 #|en| These access methods must be created if they do not yet exist. So go ahead and create getters and setters in our class.
-
 
 Print:
 ```
@@ -91,7 +87,7 @@ Print:
   }
 ```
 
-Set step 2
+###### Set step 2
 
 Select "low" in "includes"
 + Select "high" in "includes"
@@ -101,9 +97,7 @@ Select "low" in "includes"
 #|en| Our example has several methods that use direct access to fields.
 
 
-
 #|en| To finish self-encapsulation, let's replace all references to fields in these methods with getter and setter calls.
-
 
 Select "low" in "includes"
 
@@ -140,12 +134,11 @@ Select "this.low"
 #|en| As you may have noticed, we did not touch the assignment in the constructor. It is often assumed that a setter is used after an object has already been created, so its behavior may be different than during initialization.
 
 
-
 #C|en| Let's perform the final compilation and testing.
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

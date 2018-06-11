@@ -4,15 +4,11 @@ replace-conditional-with-polymorphism:java
 
 1. If the conditional is in a method that performs other actions as well, perform <a href="/extract-method">Extract Method</a>.
 
-
 2. For each hierarchy subclass, redefine the method that contains the conditional and copy the code of the corresponding conditional branch to that location.
-
 
 3. Delete this branch from the conditional.
 
-
 4. Repeat replacement until the conditional is empty. Then delete the conditional and declare the method abstract.
-
 
 
 
@@ -146,11 +142,10 @@ class Manager extends EmployeeType {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's take a look at this refactoring in the context of code for calculating payroll for different types of employees (see <a href="/replace-type-code-with-state-strategy">Replace Type Code with State/Strategy</a>).
-
 
 
 Select body of "payAmount"
@@ -159,9 +154,7 @@ Select body of "payAmount"
 #|en| See that big conditional inside the `payAmount()` method? Let's try to get rid of it.
 
 
-
 #|en| First extract the implementation of `payAmount` to a new method in a type class.
-
 
 Go to the end of "EmployeeType"
 
@@ -190,7 +183,6 @@ Select "monthlySalary" in "EmployeeType"
 
 #|en| We need datа from the `Employee` object, so in the method we create the parameter to which the main `Employee` object will be passed.
 
-
 Go to "payAmount(|||) {" in "EmployeeType"
 
 Print "Employee employee"
@@ -212,12 +204,10 @@ Select body of "payAmount"
 
 #|en| After these actions, we can set up delegation from the `Employee` class.
 
-
 Print "    return type.payAmount(this);"
 
 
 #|en| Then start moving code to subclasses. Create `payAmount` methods in each of the subclasses and move payroll calculations there for the relevant employee types.
-
 
 Go to the end of "class Engineer"
 
@@ -254,13 +244,12 @@ Print:
   }
 ```
 
-Set step 7
+###### Set step 7
 
 Select name of "payAmount" in "EmployeeType"
 
 
 #|en| Now that the methods have been created, you can make the `payAmount` method in `EmployeeType`  abstract.
-
 
 Select:
 ```
@@ -289,7 +278,7 @@ Replace:
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

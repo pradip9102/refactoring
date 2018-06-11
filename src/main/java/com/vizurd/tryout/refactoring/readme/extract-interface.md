@@ -4,15 +4,11 @@ extract-interface:java
 
 1. Create an empty interface.
 
-
 2. Declare common operations in the interface.
-
 
 3. Declare the necessary classes as implementing the interface.
 
-
 4. Change type declarations in the client code to use the new interface.
-
 
 
 
@@ -77,11 +73,10 @@ class Employee implements Billable {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Say, we have a `TimeSheet` class that is used for payroll.
-
 
 Select "employee.getRate()"
 + Select "employee.hasSpecialSkill()"
@@ -90,9 +85,7 @@ Select "employee.getRate()"
 #|en| For this, the class must know an employee's rate of pay and any special skills.
 
 
-
 #|en| The employee has many other characteristics, in addition, to pay rate and special skills, but only the latter two are needed in this application. The fact that only this subset is needed can be emphasized by defining an interface for it.
-
 
 Go to before "Employee"
 
@@ -111,7 +104,6 @@ Go to "class Employee|||"
 
 #|en| Then we declare Employee as implementing this interface.
 
-
 Print " implements Billable"
 
 Wait 500ms
@@ -127,7 +119,6 @@ Select "|||Employee||| employee"
 
 #|en| Then we can change the declaration of the `charge` method to show that only part of the Employee behavior is used.
 
-
 Print "Billable"
 
 
@@ -138,11 +129,9 @@ Print "Billable"
 #|en| In this case, a hidden benefit appears, in the form of in-code documentation. This benefit is not worth the work if talking about just one method, but if several classes start to use the `Billable` interface, this can be rather valuable.
 
 
-
 #|en| A major payoff comes when we want to invoice cost for office equipment as well. All we need to do is implement the `Billable` interface in those classes. After that, we can include computers cost in the timesheet.
 
-
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

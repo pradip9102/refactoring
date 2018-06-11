@@ -4,21 +4,15 @@ encapsulate-collection:java
 
 1. Create methods for adding and deleting collection elements.
 
-
 2. Assign an empty collection to the field as the initial value.
-
 
 3. Find the setter calls for the collection field. Change the setter so that it uses element add/remove operations.
 
-
 4. Find all calls of the collection getter after which the collection is changed. Change the code so that it uses your new methods for adding and deleting elements from the collection.
-
 
 5. Change the getter so that it returns a read-only representation of the collection.
 
-
 6. Inspect the client code that uses the collection for code that would look better inside of the collection class itself.
-
 
 
 
@@ -131,35 +125,30 @@ System.out.print("Advanced courses: " + kent.numberOfAdvancedCourses());
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's look at *Encapsulate Collection* , using a catalog of training courses as our example.
-
 
 Select name of "Course"
 
 
 #|en| The class of courses is rather simple.
 
-
 Select name of "Person"
 
 
 #|en| Plus there is also a class of course students.
-
 
 Go to "Person kent = |||new Person();"
 
 
 #|en| With this interface, clients add courses via the following code.
 
-
 Go to the end of "class Person"
 
 
 #|en| Thus, first we need proper modification methods for this collection.
-
 
 Print:
 ```
@@ -172,7 +161,7 @@ Print:
   }
 ```
 
-Set step 2
+###### Set step 2
 
 Go to "private Set courses|||"
 
@@ -182,25 +171,22 @@ Go to "private Set courses|||"
 
 Print " = new HashSet()"
 
-Set step 3
+###### Set step 3
 
 Select name of "setCourses"
 
 
 #|en| Now look at the uses of the `setCourses` setter. If there are many clients and the setter is used intensively, replace the method body so that it uses add/remove operations.
 
-
 Select "kent.setCourses(s)"
 
 
 #|en| The complexity of this procedure depends on the way in which the collection setter is used. In the most simple case, the client initializes values by using the setter, meaning that courses do not exist prior to use of the method.
 
-
 Select body of "setCourses"
 
 
 #|en| If this is the case, change the setter body so that it uses collection's `add` method.
-
 
 Print:
 ```
@@ -216,7 +202,6 @@ Select name of "setCourses"
 
 #|en| After this modification, use <a href="/rename-method">Rename Method</a> to make your intentions obvious.
 
-
 Select "setCourses"
 
 Replace "initializeCourses"
@@ -225,9 +210,7 @@ Replace "initializeCourses"
 #|en| But in a general case, this method should first remove all existing collection items, and then add new ones.
 
 
-
 #|en| If there are no additional behaviors or checks during initialization, we can make the code even simpler by getting rid of the loop and using collection's `addAll` method.
-
 
 
 Select:
@@ -245,7 +228,6 @@ Replace:
 
 
 #|en| Remember that we cannot simply assign a value to a set even if the previous set was empty. If the client plans to modify the set after passing it, this will violate encapsulation. So we always have to create copies.
-
 
 Select:
 ```
@@ -278,10 +260,9 @@ kent.initializeCourses(s);
 
 #|en| …and get rid of the call to the initialization method completely.
 
-
 Remove selected
 
-Set step 4
+###### Set step 4
 
 
 Select "getCourses().add"
@@ -291,9 +272,7 @@ Select "getCourses().add"
 #|en| Now let's see who is using the collection's getter. Our foremost interest should go to cases when it is used to modify the collection.
 
 
-
 #|en| We need to replace such calls with add/remove calls.
-
 
 Select "getCourses().add"
 
@@ -305,7 +284,7 @@ Select "getCourses().remove"
 
 Replace "removeCourse"
 
-Set step 5
+###### Set step 5
 
 Select:
 ```
@@ -314,7 +293,6 @@ return |||courses|||;
 
 
 #|en| As the finishing touch, let's change the getter's body so that it returns a read-only value (an immutable representation of the collection).
-
 
 
 Print:
@@ -335,8 +313,7 @@ private Set |||courses|||
 
 #|en| At this point, we can consider the collection fully encapsulated. Nobody can change its elements other than by using the `Person` class' method.
 
-
-Set step 6
+###### Set step 6
 
 Select:
 ```
@@ -355,9 +332,7 @@ while (iter.hasNext()) {
 #|en| Now that we have a proper interface for the `Person` class, we can start moving the relevant code to this class. Here is an example of the code.
 
 
-
 #|en| Apply <a href="/extract-method">Extract Method</a> to the code to move it to `Person`.
-
 
 Go to the end of "class Person"
 
@@ -404,12 +379,10 @@ Select "kent.getCourses().size()"
 
 #|en| Take a loot at this code. It's quite frequently encountered.
 
-
 Go to the end of "Person"
 
 
 #|en| It can be replaced with a more readable version.
-
 
 Print:
 ```
@@ -428,7 +401,7 @@ Replace "kent.numberOfCourses()"
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

@@ -4,21 +4,16 @@ replace-type-code-with-subclasses:java
 
 1. Use <a href="/self-encapsulate-field">Self Encapsulate Field</a> to create a getter for the field that contains type code.
 
-
 2. Make the superclass constructor private. Create a static factory method with the same parameters as the superclass constructor.
-
 
 3. Create a unique subclass for each value of the coded type. In it, redefine the getter of the coded type so that it returns the corresponding value of the coded type.
 
-
 4. Delete the field with type code from the superclass. Make its getter abstract.
-
 
 5. Now that you have subclasses, you can start to move the fields and methods from the superclass to corresponding subclasses
 
 
 6. When everything movable has been moved, use <a href="/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a> in order to get rid of conditionals that use type code once and for all.
-
 
 
 
@@ -114,17 +109,15 @@ class Manager extends Employee {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's look at *Replace Type Code With Subclasses* , using an payroll class as our example. We have several types of employees, which affects their salary values.
-
 
 Select "public int |||type|||"
 
 
 #|en| We start by applying <a href="/self-encapsulate-field">Self-Encapsulate Field</a> to the employee type.
-
 
 Select "|||public||| int type"
 
@@ -145,13 +138,12 @@ Select "switch (|||type|||)"
 
 Replace "getType()"
 
-Set step 2
+###### Set step 2
 
 Select parameters of "public Employee"
 
 
 #|en| Since the `Employee` constructor uses type code as a parameter, we should replace it with a factory method.
-
 
 Go to before "public Employee"
 
@@ -169,7 +161,7 @@ Select "|||public||| Employee"
 
 Replace "private"
 
-Set step 3
+###### Set step 3
 
 Select 1st "ENGINEER"
 
@@ -192,7 +184,6 @@ Go to the end of "Engineer"
 
 #|en| …then create the method to replace the type code.
 
-
 Print:
 ```
 
@@ -205,7 +196,6 @@ Select body of "create"
 
 
 #|en| We need to change the factory method as well so that it creates the necessary object.
-
 
 Print:
 ```
@@ -221,7 +211,6 @@ Go to the end of file
 
 
 #|en| Continue these actions one by one, until all code has been replaced by subclasses.
-
 
 Print:
 ```
@@ -282,7 +271,7 @@ Select:
 
 ```
 
-Set step 4
+###### Set step 4
 
 
 #|en| Then we can eliminate the field with type code in `Employee`…
@@ -301,7 +290,6 @@ Go to:
 
 #|en| …and make `getType` an abstract method.
 
-
 Print "abstract "
 
 Select:
@@ -318,7 +306,6 @@ Go to before "Employee"
 
 #|en| This will make the `Employee` class abstract as well.
 
-
 Print "abstract "
 
 Select:
@@ -330,7 +317,6 @@ Select:
 
 
 #|en| After all these changes, we can no longer create `Employee` objects as the default implementation. So it is important to remember to get rid of the type field only after creating all subclasses.
-
 
 Replace:
 ```
@@ -346,8 +332,7 @@ Select "switch (type) {" in "create"
 
 #|en| Note that we ended up creating another big `switch` operator. Generally speaking this <a href="/smells/switch-statements">gives off a bad whiff</a> but once refactoring is done, it will be the only operator remaining in the code.
 
-
-Set step 5
+###### Set step 5
 
 Select:
 ```
@@ -361,9 +346,7 @@ Select:
 #|en| After creating the subclasses, use <a href="/push-down-method">Push Down Method</a> and <a href="/push-down-field">Push Down Field</a> on all methods and fields that relate to only specific types of employees.
 
 
-
 #|en| In our case, we will create `payAmount` methods in each of the subclasses and move payroll calculations there for the relevant types of employees.
-
 
 Select:
 ```
@@ -411,7 +394,6 @@ Select:
 
 #|en| Do the same thing with the manager class.
 
-
 Remove selected
 
 Go to the start of "Manager"
@@ -442,13 +424,12 @@ Print:
   }
 ```
 
-Set step 6
+###### Set step 6
 
 Select body of "payAmount"
 
 
 #|en| After all the code has been moved to the subclasses, you can either declare the method in the superclass abstract or else leave the default implementation there (which is what we will do).
-
 
 Print:
 ```
@@ -462,7 +443,7 @@ Print:
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

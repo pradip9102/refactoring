@@ -4,12 +4,9 @@ replace-parameter-with-explicit-methods:java
 
 1. For each variant of the method, create a separate method. Run these methods based on the value of a parameter in the main method.
 
-
 2. Find all places where the original method is called. In these places, place a call for one of the new parameter-dependent variants.
 
-
 3. When no calls to the original method remain, delete it.
-
 
 
 
@@ -68,13 +65,12 @@ if (order.items.size() > 5) {
 
 ###
 
-Set step 1
+###### Set step 1
 
 Select name of "Order"
 
 
 #|en| Let's look at this technique using an order class as an example.
-
 
 Select name of "applyDiscount"
 
@@ -82,9 +78,7 @@ Select name of "applyDiscount"
 #|en| This class has a method for applying discounts that handle both fixed discounts and percentage-based ones.
 
 
-
 #|en| Let's start refactoring by extracting each version to a separate method.
-
 
 Select "price -= discount;"
 
@@ -114,11 +108,10 @@ Print:
   }
 ```
 
-Set step 2
+###### Set step 2
 
 
 #|en| Now find all places where the original method is called, replacing them with calls to our new methods.
-
 
 Select "applyDiscount(Order.FIXED_DISCOUNT, "
 
@@ -135,11 +128,10 @@ Replace "applyPercentDiscount("
 #S Wonderful, it's all working!
 
 
-Set step 3
+###### Set step 3
 
 
 #|en| Once changes are complete, remove the original method and now-useless constants.
-
 
 Select whole "applyDiscount"
 
@@ -161,7 +153,7 @@ Remove selected
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

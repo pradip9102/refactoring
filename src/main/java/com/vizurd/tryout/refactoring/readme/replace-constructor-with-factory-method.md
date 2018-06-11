@@ -12,7 +12,6 @@ replace-constructor-with-factory-method:java
 
 
 
-
 ###
 
 ```
@@ -72,7 +71,7 @@ Employee eng = Employee.create(Employee.ENGINEER);
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Say, we have a class for creating employees…
@@ -83,12 +82,10 @@ Select parameters in "public Employee"
 
 #|en|< …in which the employee type is set via constructor's parameter.
 
-
 Select "new Employee"
 
 
 #|en| The client code calls the constructor directly.
-
 
 
 #|en| So what if we wanted to create subclasses for each type of employee?
@@ -116,19 +113,15 @@ Select "new Employee"
 #|en| We would have to rewrite it, since we cannot return anything from the `Employee` constructor other than `Employee` objects (and we need `Engineer`).
 
 
-
 #|en| And if something changes again later, we will have to create even more subclasses and may well have to adjust the constructor calls… again.
 
 
-
 #|en| The alternative is to create a <b>factory method</b> – a special static method that returns objects of different classes depending on particular parameters.
-
 
 Go to before "public Employee"
 
 
 #|en| The `Employee` class is the best place to store the factory method because it will probably survive any changes in the subclasses.
-
 
 Print:
 ```
@@ -141,34 +134,30 @@ Print:
 
 #|en| At this stage, the factory method will call the current constructor but we will soon change this.
 
-
-Set step 2
+###### Set step 2
 
 Select "eng = |||new Employee|||"
 
 
 #|en| Now find all direct calls to the constructors and replace them with calls to the factory method.
 
-
 Print "Employee.create"
 
-Set step 3
+###### Set step 3
 
 Select visibility of "public Employee"
 
 
 #|en| Once the changes are complete, you can hide the constructor from outside eyes by making it private.
 
-
 Print "private"
 
-Set step 4
+###### Set step 4
 
 Select body of "create"
 
 
 #|en| In addition, you can create a conditional in the factory method to return an object of the necessary class depending on the parameter passed.
-
 
 Print:
 ```
@@ -189,7 +178,7 @@ Print:
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

@@ -9,7 +9,6 @@ change-reference-to-value:java
 3. Check whether you can delete the factory method and make the object constructor public.
 
 
-
 ###
 
 ```
@@ -82,7 +81,7 @@ Customer john = new Customer("John Smith", new Date(1985, 1, 1));
 
 ###
 
-Set step 1
+###### Set step 1
 
 #|en| Let's look at *Change Reference to Value*  using a customer class as an example.
 
@@ -136,7 +135,7 @@ john.setBirthDate(new Date(1985, 1, 1));
 Remove selected
 
 
-Set step 2
+###### Set step 2
 
 Go to before "getname"
 
@@ -161,7 +160,7 @@ Print:
 
 #|en| Now the comparison `new Customer("John").equals(new Customer("John"))` will return `TRUE`.
 
-Set step 3
+###### Set step 3
 
 Select:
 ```
@@ -189,6 +188,6 @@ Print "new Customer("John Smith", new Date(1985, 1, 1))"
 #C|en| Let's perform the final compilation and testing.
 #S Wonderful, it's all working!
 
-Set final step
+###### Set final step
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

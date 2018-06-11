@@ -4,24 +4,17 @@ replace-type-code-with-state-strategy:java
 
 1. Use <a href="/self-encapsulate-field">Self Encapsulate Field</a> to create a getter for the field that contains type code.
 
-
 2. Create a new class that will play the role of *state*  (or *strategy* ). Create an abstract getter of the coded field in it.
-
 
 3. Create state subclasses for each value of the coded type.
 
-
 4. In the abstract state class, create a static factory method that accepts the value of the coded type as a parameter. Depending on this parameter, the factory method will create objects of various states. For this, in its code create a large conditional; it will be the only one when refactoring is complete.
-
 
 5. In the original class, change the type of the coded field to the state class. In the field's setter, call the factory state method for getting new state objects.
 
-
 6. Move the fields and methods from the superclass to the corresponding state subclasses.
 
-
 7. When everything movable has been moved, use <a href="/replace-conditional-with-polymorphism">Replace Conditional with Polymorphism</a> in order to get rid of conditionals that use type code once and for all.
-
 
 
 
@@ -132,17 +125,15 @@ class Manager extends EmployeeType {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's look at *Replace Type Code with State/Strategy*  in the context of the payroll class considered earlier. We have several types of employees; these types are used to calculate the salary amount for each particular employee.
-
 
 Select "public int |||type|||"
 
 
 #|en| Let's start by applying <a href="/self-encapsulate-field">Self-Encapsulate Field</a> to the employee type.
-
 
 Select "|||public||| int type"
 
@@ -173,14 +164,12 @@ Select whole "setType"
 
 #|en| We assume that the company is progressive and enlightened and so allows its managers to ascend to engineers. So the type code can be changed and using subclasses to eliminate type coding is not possible. This causes us to use the <a href="https://refactoring.guru/design-patterns/state">State</a> pattern.
 
-
-Set step 2
+###### Set step 2
 
 Go to the end of file
 
 
 #|en| Declare the state class (as an abstract class with an abstract method for returning type code).
-
 
 Print:
 ```
@@ -191,11 +180,10 @@ abstract class EmployeeType {
 }
 ```
 
-Set step 3
+###### Set step 3
 
 
 #|en| Now create subclasses for each type of employee.
-
 
 
 Print:
@@ -218,13 +206,12 @@ class Manager extends EmployeeType {
 }
 ```
 
-Set step 4
+###### Set step 4
 
 Go to the end of "EmployeeType"
 
 
 #|en| Create a static method in the state class. It will return an instance of the necessary subclass, depending on the value accepted.
-
 
 Print:
 ```
@@ -249,18 +236,15 @@ Select "switch (code)"
 #|en| As you can see, here we are introducing a large `switch` operator. That's not great news, but once we are done with refactoring, this operator will be the only one in the code and will be run only when a type is changed.
 
 
-
 #C|en| Let's compile and test to check for errors in the code.
 #S Everything is OK! We can keep going.
 
-
-Set step 5
+###### Set step 5
 
 Select "private |||int||| type"
 
 
 #|en| Now we need to connect the created subclasses to `Employee` by modifying the access methods for the type code and constructor.
-
 
 Print "EmployeeType"
 
@@ -286,7 +270,6 @@ Select:
 
 #|en| The setter body and constructor are replaced with a call to the factory method.
 
-
 Print "EmployeeType.newType(arg)"
 
 Select name of "setType"
@@ -294,7 +277,6 @@ Select name of "setType"
 
 
 #|en| Since access methods now return a code, not the type object itself, we should rename them to make things clear to future readers.
-
 
 Select "setType("
 
@@ -317,7 +299,6 @@ Select:
 
 
 #|en| We complete this step by moving all type code constants from `Employee` to `EmployeeType`.
-
 
 Remove selected
 
@@ -361,17 +342,15 @@ Wait 500ms
 
 Type "EmployeeType"
 
-Set step 6
+###### Set step 6
 
 
 #|en| Everything is now ready for applying <a href="/replace-conditional-with-polymorphism">Replace Conditional With Polymorphism</a>.
-
 
 Select body of "payAmount"
 
 
 #|en| First extract the implementation of `payAmount` to a new method in a type class.
-
 
 Go to the end of "EmployeeType"
 
@@ -400,7 +379,6 @@ Select "monthlySalary" in "EmployeeType"
 
 #|en| We need datа from the `Employee` object, so in the method we create the parameter to which the main `Employee` object will be passed.
 
-
 Go to "payAmount(|||) {" in "EmployeeType"
 
 Print "Employee employee"
@@ -422,12 +400,10 @@ Select body of "payAmount"
 
 #|en| After these actions, we can set up delegation from the `Employee` class.
 
-
 Print "    return type.payAmount(this);"
 
 
 #|en| Then start moving code to subclasses. Create `payAmount` methods in each of the subclasses and move payroll calculations there for the relevant employee types.
-
 
 Go to the end of "class Engineer"
 
@@ -464,13 +440,12 @@ Print:
   }
 ```
 
-Set step 7
+###### Set step 7
 
 Select name of "payAmount" in "EmployeeType"
 
 
 #|en| Now that the methods have been created, you can make the `payAmount` method in `EmployeeType`  abstract.
-
 
 Select:
 ```
@@ -499,7 +474,7 @@ Replace:
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

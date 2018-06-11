@@ -4,15 +4,11 @@ inline-class:java
 
 1. In the recipient class, create the public fields and methods present in the donor class. Methods should refer to the equivalent methods of the donor class.
 
-
 2. Replace all references to the donor class with references to the fields and methods of the recipient class.
-
 
 3. Use <a href="/move-field">move field</a> and <a href="/move-method">move field</a> for moving functionality from the original class to the recipient class. Continue doing so until nothing remains in the original class.
 
-
 4. Delete the original class.
-
 
 
 
@@ -96,23 +92,20 @@ martin.setAreaCode("781");
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's look at *Inline Class*  using the person class and its phone number as an example.
-
 
 Select name of "TelephoneNumber"
 
 
 #|en| We want to include the `TelephoneNumber` class back in the `Person` class, since it become unnecessary complex for our needs.
 
-
 Go to the end of "Person"
 
 
 #|en| We start by declaring all visible methods of the phone number class in the `Person` class.
-
 
 Print:
 ```
@@ -139,22 +132,19 @@ Select "officeTelephone" in "getAreaCode"
 
 #|en| For the first step, all these methods will delegate to the phone number object.
 
-
-Set step 2
+###### Set step 2
 
 Select "martin.getOfficeTelephone().setAreaCode("781")"
 
 
 #|en| Now find all cases where the phone number class is used in client code and replace it with calls to the delegate methods in `Person`.
 
-
 Print "martin.setAreaCode("781")"
 
-Set step 3
+###### Set step 3
 
 
 #|en| We can then proceed to <a href="/move-method">Move Method</a> and <a href="/move-field">Move Field</a> for moving all fields and methods to the `Person` class. These changes can be done one by one or, if there are not too many, all at once.
-
 
 Select:
 ```
@@ -166,7 +156,6 @@ Select:
 
 
 #|en| First move the fields.
-
 
 Remove selected
 
@@ -263,7 +252,6 @@ Select body of "getTelephoneNumber" in "TelephoneNumber"
 
 #|en| …and finally the last getter of the phone number itself.
 
-
 Wait 500ms
 
 Select body of "getTelephoneNumber" in "Person"
@@ -281,14 +269,12 @@ Remove selected
 #C|en| Now is a good time to compile and test, to make sure the code is still working correctly.
 #S All is well, so let's continue.
 
-
-Set step 4
+###### Set step 4
 
 Select whole "TelephoneNumber"
 
 
 #|en| At this point, we need only to remove the `TelephoneNumber` class from the program.
-
 
 Select:
 ```
@@ -299,7 +285,6 @@ Select:
 
 
 #|en| Start by removing its field and getter in the `Person` class.
-
 
 Remove selected
 
@@ -316,7 +301,7 @@ Remove selected
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

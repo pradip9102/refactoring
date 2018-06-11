@@ -5,25 +5,19 @@ replace-method-with-method-object:java
 1. Create a new class. Name it based on the purpose of the method that you are refactoring.
 
 
-
 2. In the new class, create a private field for storing a reference to an instance of the class in which the method was previously located.
-
 
 
 3. In addition, create a private field for each local variable and parameter of the method.
 
 
-
 4. Create a constructor that accepts all parameters of the original method and initializes the relevant private fields.
-
 
 
 5. Declare the main method and copy the code of the original method to it, replacing the local variables with private fields.
 
 
-
 6. Replace the body of the original method in the original class by creating a method object and calling its main method.
-
 
 
 
@@ -90,11 +84,10 @@ class Gamma {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| A thorough example would require an entire chapter, so we will demonstrate this refactoring on a method that does not require it (for this reason, it's better not to question the logic of the method – it was devised without any grand plan in mind).
-
 
 Select name of "gamma"
 
@@ -102,15 +95,12 @@ Select name of "gamma"
 #|en| We see that one of the class methods has many sophisticated calculations and entanglement of local variables. All this makes it hard to refactor the class.
 
 
-
 #|en| Let's convert this method to a separate class so that the local variables become fields of the class. That will isolate it and ease the further refactoring.
-
 
 Go to the end of file
 
 
 #|en| So, let's create a new class.
-
 
 Print:
 ```
@@ -120,11 +110,10 @@ class Gamma {
 }
 ```
 
-Set step 2
+###### Set step 2
 
 
 #|en| First, create an immutable field for storing the source object, in the `Gamma` class.
-
 
 Go to the end of "Gamma"
 
@@ -134,7 +123,7 @@ Print:
   private final Account account;
 ```
 
-Set step 3
+###### Set step 3
 
 
 Select 1st "importantValue1"
@@ -159,7 +148,6 @@ Select "gamma(int inputVal, int quantity, int yearToDate)"
 
 #|en| …and create fields for each of the method's parameters.
 
-
 Go to the end of "Gamma"
 
 Print:
@@ -170,13 +158,12 @@ Print:
   private int yearToDate;
 ```
 
-Set step 4
+###### Set step 4
 
 Go to the end of "Gamma"
 
 
 #|en| Create a constructor that will accept the method's parameters and store them in class fields for further use.
-
 
 Print:
 ```
@@ -193,14 +180,12 @@ Print:
 #C|en| Let's compile and test to check for errors in your code.
 #S All is well, nothing has managed to break yet.
 
-
-Set step 5
+###### Set step 5
 
 Select whole "gamma" in "Account"
 
 
 #|en| Now you can move the original method.
-
 
 Go to the end of "Gamma"
 
@@ -224,7 +209,6 @@ Select "int " in body of "compute"
 
 #|en| It's time to replace local variables with fields.
 
-
 Remove selected
 
 Select "delta()" in "compute"
@@ -232,16 +216,14 @@ Select "delta()" in "compute"
 
 #|en| Modify any calls to the `Account` methods so that they are run via the `account` field.
 
-
 Print "account.delta()"
 
-Set step 6
+###### Set step 6
 
 Select body of "int gamma"
 
 
 #|en| Then simply replace the body of the old method with a call to the method in the new class.
-
 
 Print:
 ```
@@ -262,7 +244,6 @@ Select:
 
 
 #|en| The benefit of this refactoring is that you can now easily apply <a href="/extract-method">Extract Method</a> to the `compute()` method without worrying about passing correct arguments between sub-methods.
-
 
 Go to the end of "Gamma"
 
@@ -287,7 +268,7 @@ Select in "compute":
 
 Replace "    importantThing();"
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

@@ -4,15 +4,11 @@ replace-inheritance-with-delegation:java
 
 1. Create a field in the subclass for holding the superclass. During the initial stage, place the current object in it.
 
-
 2. Change the subclass methods so that they use the superclass object instead of `this`.
-
 
 3. Remove the inheritance declaration from the subclass.
 
-
 4. Change the initialization code of the field in which the former superclass is stored by creating a new object.
-
 
 
 
@@ -112,17 +108,15 @@ class Car {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's try out one more refactoring using a `Car` class that is inherited from the `Engine` as our example.
-
 
 Select "getCV()" in "Car"
 
 
 #|en| At first, inheritance seemed a good and noble idea… But later we found that cars use only one engine's property (volume, to be precise).
-
 
 Go to the start of "Car"
 
@@ -130,9 +124,7 @@ Go to the start of "Car"
 #|en| So it would have been more efficient to delegate to the `Engine` class for getting the necessary properties or methods.
 
 
-
 #|en| Let's start refactoring by creating a field for storing a reference to an engine object.
-
 
 Go to "String model;|||"
 
@@ -147,7 +139,6 @@ Select "Engine |||engine|||"
 
 #|en| For now we will fill this field with the current object (this can be done in the constructor).
 
-
 Go to before "getName"
 
 Print:
@@ -158,7 +149,7 @@ Print:
   }
 ```
 
-Set step 2
+###### Set step 2
 
 Select "getCV()" in "Car"
 
@@ -168,23 +159,21 @@ Select "getCV()" in "Car"
 
 Print "engine.getCV()"
 
-Set step 3
+###### Set step 3
 
 Select " extends Engine"
 
 
 #|en| Now we can remove the inheritance declaration from the `Car` class.
 
-
 Remove selected
 
-Set step 4
+###### Set step 4
 
 Select "engine = |||this|||"
 
 
 #|en| All that's left to do is create a new engine object for filling the field of the associated object.
-
 
 Replace "new Engine()"
 
@@ -193,7 +182,7 @@ Replace "new Engine()"
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

@@ -4,12 +4,9 @@ parameterize-method:java
 
 1. Create a new method with a parameter and move code that is shared by all methods to it, by using <a href="/extract-method">extract method</a>.
 
-
 2. In the code of the new method, replace the special/differing value with a parameter.
 
-
 3. For each old method, find the places where it is called, replacing these calls with calls to the new method that include a parameter. Then delete the old method.
-
 
 
 
@@ -68,11 +65,10 @@ if (employee.yearsOfExperience > 5) {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Start refactoring by searching for repeating code.
-
 
 Select "salary *= 1.5"
 + Select "salary *= 1.1"
@@ -81,14 +77,12 @@ Select "salary *= 1.5"
 
 #|en| In our case, this is the code for increasing salaries, which differs only by the increase coefficient.
 
-
-Set step 2
+###### Set step 2
 
 Go to the end of "Employee"
 
 
 #|en| Let's start by creating a new method with the parameter. Later on, we will send the salary increase coefficient there.
-
 
 Print:
 ```
@@ -100,7 +94,6 @@ Print:
 
 
 #|en| Replace the repeating code with calls to our method with the correct parameter.
-
 
 Select "salary *= 1.5"
 
@@ -124,12 +117,10 @@ Select name of "tenPercentRaise"
 
 #|en| Now, let's get rid of "lazy" methods that only delegate to the method with parameter.
 
-
 Select "employee.|||fivePercentRaise()|||"
 
 
 #|en| First, find all their calls and replace them with calls to our new method with parameter.
-
 
 Print "raise(0.05)"
 
@@ -139,7 +130,6 @@ Select whole "fivePercentRaise"
 
 #|en| After the changes are complete, you can remove the methods themselves.
 
-
 Remove selected
 
 
@@ -147,7 +137,7 @@ Remove selected
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

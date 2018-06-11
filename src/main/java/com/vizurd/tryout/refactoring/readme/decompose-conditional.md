@@ -4,9 +4,7 @@ decompose-conditional:java
 
 1. Extract the conditional to a separate method via <a href="/extract-method">Extract Method</a>.
 
-
 2. Repeat the process for the `then` and `else` blocks.
-
 
 
 
@@ -66,11 +64,10 @@ class Stadium {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's look at *Decompose Conditional*  using a simple class, that calculates the cost of a stadium ticket.
-
 
 Select name of "getTicketPrice"
 + Select "SUMMER_START"
@@ -80,9 +77,7 @@ Select name of "getTicketPrice"
 #|en| The cost depends on the season (winter or summer).
 
 
-
 #|en| Our task is to make this conditional easier to understand. We can start by extracting the condition to a new method with a more obvious name.
-
 
 Go to the end of "Stadium"
 
@@ -126,17 +121,14 @@ Select "notSummer(date)" in "getTicketPrice"
 #|en| The condition became much clearer now. However, many programmers in such situations do not extract the components of the conditional, thinking about conditions as short and not worth the effort.
 
 
-
 #|en| But no matter how short the condition is, there is often a big difference between the purpose of the code and its body. Figuring this out requires looking at the code in detail. In this case, doing so is easy but even here the extracted method looks more like a comment.
 
-
-Set step 2
+###### Set step 2
 
 Select "charge = quantity * winterRate + winterServiceCharge;"
 
 
 #|en| Now we turn to the body of the conditional. First we extract everything inside `then` to a new method.
-
 
 Go to the end of "Stadium"
 
@@ -159,7 +151,6 @@ Select "charge = quantity * summerRate;"
 #|en| Then we turn our attention to `else`.
 
 
-
 Go to the end of "Stadium"
 
 Print:
@@ -179,7 +170,7 @@ Replace "charge = summerCharge(quantity);"
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

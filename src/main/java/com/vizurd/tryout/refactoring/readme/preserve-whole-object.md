@@ -4,12 +4,9 @@ preserve-whole-object:java
 
 1. Create a parameter in the method for the object from which you can get the necessary values.
 
-
 2. Now start removing the old parameters from the method one by one, replacing them with calls to the relevant methods of the parameter object. Test the program after each replacement of a parameter.
 
-
 3. Delete the getter code from the parameter object that had preceded the method call.
-
 
 
 
@@ -53,17 +50,15 @@ class HeatingPlan {
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| Let's look at this refactoring using the class that describes hotel rooms and logs their daily temperature.
-
 
 Select "plan.withinRange"
 
 
 #|en| The class should analyze room's micro climate and react with certain actions. For now, only temperature is compared with a predefined temperature plan. Then, depending on the results of the comparison, class could issue a heat or cool command, or even send an email to the house owner if the temperature is dangerously high.
-
 
 Select "low, high" in "withinPlan"
 
@@ -71,15 +66,12 @@ Select "low, high" in "withinPlan"
 #|en| Currently, we are passing only the temperature for analysis but at any time we may need to check another room parameter, such as humidity.
 
 
-
 #|en| With current implementation, we would have to add more and more parameters to the method. To avoid this, we can pass the entire room object instead of specific values. That will allow to take any room data straight from the room object, without changing signature of the method.
-
 
 Go to parameters of "withinRange"
 
 
 #|en| So for the first step, we add a parameter to the `withinRange` method.
-
 
 Print "Room room, "
 
@@ -87,11 +79,10 @@ Go to "plan.withinRange(|||"
 
 Print "this, "
 
-Set step 2
+###### Set step 2
 
 
 #|en| One by one, we should remove parameters with data, that could be retrieved from the object we pass into the method.
-
 
 Select ", int high" in parameters of "withinRange"
 
@@ -112,7 +103,6 @@ Remove selected
 
 #C|en| Compile and test, and then repeat the actions for the remaining parameter.
 #S Everything is good! Let's continue.
-
 
 Select ", int low" in parameters of "withinRange"
 
@@ -143,11 +133,10 @@ Select:
 
 ```
 
-Set step 3
+###### Set step 3
 
 
 #|en| And finally, let's remove the unused variables from `withinPlan`.
-
 
 Remove selected
 
@@ -156,7 +145,7 @@ Remove selected
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

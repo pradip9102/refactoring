@@ -4,18 +4,13 @@ extract-subclass:java
 
 1. Create a new subclass from the class of interest.
 
-
 2. If you need additional data to create objects from a subclass, create a constructor and add the necessary parameters to it. Do not forget to call the constructor's parent implementation.
-
 
 3. Find all calls to the constructor of the parent class. When the functionality of a subclass is necessary, replace the parent constructor with the subclass constructor.
 
-
 4. Move the necessary methods and fields from the parent class to the subclass. Do this via <a href="/push-down-method">Push Down Method</a> and <a href="/push-down-field">Push Down Field</a>. It is simpler to start by moving the methods first. This way, the fields remain accessible throughout the whole process: from the parent class prior to the move, and from the subclass itself after the move is complete.
 
-
 5. After the subclass is ready, find all the old fields that controlled the choice of functionality. Delete these fields by using polymorphism to replace all the operators in which the fields had been used.
-
 
 
 
@@ -129,11 +124,10 @@ int total = j1.getTotalPrice() + j2.getTotalPrice();
 
 ###
 
-Set step 1
+###### Set step 1
 
 
 #|en| We start with the `JobItem` class, which tracks the time and materials used to fix a client's car in a local garage. This class is also responsible for calculating the price client should pay.
-
 
 Select name of "getUnitPrice"
 
@@ -141,19 +135,15 @@ Select name of "getUnitPrice"
 #|en| The price usually consists of several items. First, it's the fixed cost of certain parts. Second, it's the cost of a mechanic's time, multiplied by his rate (that can be taken directly from the `Employee` class).
 
 
-
 #|en| So, the price is calculated in several ways, all of which sit in a single class. And that starts to smell as a *Large Class* .
 
 
-
 #|en| As a solution, we could extract the `LaborItem` subclass and move all code, which are associated with manual work, to that subclass. Then we could leave only fixed amounts in the original class.
-
 
 Go to after "JobItem"
 
 
 #|en| So, let's create a subclass.
-
 
 Print:
 ```
@@ -163,7 +153,7 @@ class LaborItem extends JobItem {
 }
 ```
 
-Set step 2
+###### Set step 2
 
 Select name of "LaborItem"
 
@@ -171,15 +161,12 @@ Select name of "LaborItem"
 #|en| Now we should start to push down the labor-related methods.
 
 
-
 #|en| Above all, we need a constructor because `JobItem` does not have the constructor we need, one that would accept only the employee object and number of hours spent.
-
 
 Select parameters of "public JobItem"
 
 
 #|en| For now, we will copy the signature of the parent constructor.
-
 
 Go to the start of "LaborItem"
 
@@ -196,14 +183,12 @@ Select parameters of "public LaborItem"
 
 #|en| That is enough to make the new subclass stop displaying errors. However, this constructor is unwieldy: some arguments are necessary for `LaborItem` and others are not. We will fix this a little later.
 
-
-Set step 3
+###### Set step 3
 
 Select 1st "new JobItem"
 
 
 #|en| During the next step, we need to search for references to the `JobItem` constructor and cases when the `LaborItem` constructor should be called instead.
-
 
 Print "new LaborItem"
 
@@ -213,9 +198,7 @@ Select "|||JobItem||| j1"
 #|en| At this point we will not touch the variable type, changing only the type of the constructor.
 
 
-
 #|en| That is because the new type should be used only where necessary. We do not yet have a specific interface for the subclass, so it is better to not declare any varieties.
-
 
 Select parameters of "public JobItem"
 + Select parameters of "public LaborItem"
@@ -223,12 +206,10 @@ Select parameters of "public JobItem"
 
 #|en| That is the perfect time to perform housekeeping on the lists of constructors parameters. Let's apply <a href="/remove-parameter">Remove Parameter</a> to each of them.
 
-
 Select name of "public JobItem"
 
 
 #|en| First, we need to refer to the parent class. We create a new constructor and declare the previous one protected (the subclass still needs it).
-
 
 Select visibility of "public JobItem"
 
@@ -251,7 +232,6 @@ Select "15, 10|||, false, null|||"
 
 #|en| External constructor calls should now use the new constructor.
 
-
 Remove selected
 
 Wait 500ms
@@ -260,12 +240,10 @@ Wait 500ms
 #C|en| Let's compile and test, just in case any errors appeared.
 #S Everything is OK! We can keep going.
 
-
 Select "LaborItem(int quantity, |||int unitPrice, boolean isLabor, |||Employee employee)"
 
 
 #|en| Now, we apply <a href="/remove-parameter">Remove Parameter</a> to the subclass constructor to get rid of unnecessary parameters.
-
 
 Remove selected
 
@@ -289,13 +267,12 @@ Remove selected
 
 Wait 500ms
 
-Set step 4
+###### Set step 4
 
 Select name of "JobItem"
 
 
 #|en| Subsequently we can push down parts of `JobItem` to the subclass. First look at the methods.
-
 
 Select whole of "getEmployee"
 
@@ -320,7 +297,6 @@ Select "|||private||| Employee employee;"
 
 #|en| Since the `employee` field will be pushed down to the subclass later, for now we will declare it protected.
 
-
 Print "protected"
 
 Select ", Employee employee" in "JobItem"
@@ -329,7 +305,6 @@ Select ", Employee employee" in "JobItem"
 
 
 #|en| Once the `employee` field is protected, we can clean up the constructors so that `employee` is initialized only in the subclass.
-
 
 Remove selected
 
@@ -349,7 +324,7 @@ Print:
     this.employee = employee;
 ```
 
-Set step 5
+###### Set step 5
 
 Select "private boolean isLabor;"
 
@@ -357,9 +332,7 @@ Select "private boolean isLabor;"
 #|en| The `isLabor` field is used to indicate information now implied by the hierarchy, so the field can be removed<br/><br/>The best way to do so is to first use <a href="/self-encapsulate-field">Self-Encapsulate Field</a> and then override the getter in subclasses so that it return own fixed value (such methods usually called "polymorphic constant method").
 
 
-
 #|en| So we declare `isLabor` getters in both classes.
-
 
 Go to the end of "JobItem"
 
@@ -384,7 +357,6 @@ Print:
 
 #|en| Now replace use of the field with calls to the getters.
 
-
 Select "isLabor" in "getUnitPrice"
 
 Replace "isLabor()"
@@ -405,12 +377,10 @@ Select:
 
 #|en| Remove the `isLabor` field.
 
-
 Remove selected
 
 
 #|en| After the changes, the constructors in `JobItem` are identical and, for this reason, could be put together.
-
 
 Select whole "public JobItem"
 
@@ -424,7 +394,6 @@ Select "isLabor" in "getUnitPrice"
 
 
 #|en| Now look at the uses of the `isLabor` methods. They should be refactored using <a href="/replace-conditional-with-polymorphism">Replace Conditional With Polymorphism</a>.
-
 
 Select body of "getUnitPrice"
 
@@ -448,7 +417,6 @@ Select whole "isLabor" in "JobItem"
 
 #|en| Then it becomes clear that `isLabor` methods are not used anywhere and can be safely removed from all classes.
 
-
 Remove selected
 
 Select name of "JobItem"
@@ -457,9 +425,7 @@ Select name of "JobItem"
 #|en| After pushing methods down to a subclass, you can consider moving some of the fields as well. We can apply <a href="/push-down-field">Push Down Field</a> to these fields. In some cases, this is impossible because the fields are still used in the context of superclass.
 
 
-
 #|en| In our case, everything is ready for us to move the `employee` field to `LaborItem`.
-
 
 Select:
 ```
@@ -487,15 +453,12 @@ Select:
 #C|en| Compile and test, just in case any errors appeared.
 #S Everything is OK! We can keep going.
 
-
 #|en| So extraction of `LaborItem` is complete. But one more thing remains. Since the price of spare parts (`unitPrice`) is used only in the `JobItem` class and is not needed in `LaborItem`, we can go one step further and apply <a href="/extract-subclass">Extract Subclass</a> to `JobItem` again and create a class that represents spare parts.
-
 
 Go to after "JobItem"
 
 
 #|en| Create a `PartsItem` subclass and change the client code to use the constructor of the created subclass.
-
 
 Print:
 ```
@@ -523,12 +486,10 @@ Select ", int |||unitPrice|||" in "JobItem"
 
 #|en| Before pushing down the `unitPrice` field we must first push down its initialization code, as well as the method in which it is used.
 
-
 Select "|||private||| int unitPrice"
 
 
 #|en| To avoid compilation errors, change the visibility of the field, making it accessible to the `PartsItem` class.
-
 
 Replace "protected"
 
@@ -542,7 +503,6 @@ Select:
 
 
 #|en| So, push down initialization code of the field.
-
 
 Remove selected
 
@@ -576,7 +536,6 @@ Select name of "getUnitPrice" in "JobItem"
 
 #|en| Then push down the `getUnitPrice` method.
 
-
 Select body of "getUnitPrice" in "JobItem"
 
 Remove selected
@@ -599,7 +558,6 @@ Select whole "getUnitPrice" in "JobItem"
 
 
 #|en| After that, declare the parent method as abstract.
-
 
 Print:
 ```
@@ -625,7 +583,6 @@ Select name of "JobItem"
 
 #|en| And with it, a `JobItem` class.
 
-
 Go to "|||class JobItem"
 Print " "
 Go to "||| class JobItem"
@@ -648,7 +605,6 @@ Select:
 
 #|en| Finally, we push down the field itself.
 
-
 Remove selected
 
 Go to start of "PartsItem"
@@ -669,7 +625,7 @@ Wait 500ms
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

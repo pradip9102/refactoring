@@ -4,18 +4,13 @@ duplicate-observed-data:java
 
 1. Create a domain class.
 
-
 2. Use the Observer pattern. Make the user interface class an observer of the domain class.
-
 
 3. Hide direct access to the fields of the user interface.
 
-
 4. Use setters to set the values of the fields in response to the user's activity in the interface.
 
-
 5. Move the necessary fields from the GUI class to the domain class. Change the access methods in the interface class so that they refer to the fields of the domain class.
-
 
 
 
@@ -239,13 +234,12 @@ class Interval extends Observable {
 
 ###
 
-Set step 1
+###### Set step 1
 
 Select name of "class IntervalWindow"
 
 
 #|en| Let's look at *Duplicate Observed Data*  using the class that creates a window for editing numeric intervals.
-
 
 Select 1st "lengthField"
 + Select 1st "startField"
@@ -260,7 +254,6 @@ Select name of "focusLost"
 
 #|en|V+ Recalculations of new values occur when the element loses focus. When a change occurs in `Start` or `End` text fields, `length` is calculated. When `length` changes, `End` is calculated.
 
-
 Select name of "StartField_FocusLost"
 + Select name of "EndField_FocusLost"
 + Select name of "LengthField_FocusLost"
@@ -268,19 +261,16 @@ Select name of "StartField_FocusLost"
 
 #|en|V= The specific calculations take place in utility methods for each of the fields.
 
-
 Select name of "calculateLength"
 + Select name of "calculateEnd"
 
 
 #|en| These methods call calculation of the new length (`calculateLength`) or new end value (`calculateEnd`) depending on what has changed in the window.
 
-
 Go to the end of file
 
 
 #|en| Our task is to separate all recalculations of length and end value into a separate domain class. Let's start by creating such class.
-
 
 Print:
 ```
@@ -292,7 +282,6 @@ class Interval extends Observable {
 
 
 #|en| After creation of a domain class, let's place a reference to it from the window class.
-
 
 Go to:
 ```
@@ -308,13 +297,12 @@ Print:
 
 ```
 
-Set step 2
+###### Set step 2
 
 Select name of "public IntervalWindow"
 
 
 #|en| Then we create the code for initializing this reference field and make the window class an observer of the domain class. We should place all this code in the `IntervalWindow` constructor.
-
 
 Go to the end of "public IntervalWindow"
 
@@ -332,7 +320,6 @@ Select "|||update|||(subject, null);"
 
 #|en|^ Here, the call to the `update` function guarantees that the window object (GUI) will be filled with data from the domain object. But we need some other things in order for this to work.
 
-
 Go to:
 ```
 class IntervalWindow extends Frame|||
@@ -341,7 +328,6 @@ class IntervalWindow extends Frame|||
 
 #|en| First, declare the `IntervalWindow` class as the one, which implements `Observer` interface.
 
-
 Print:
 ```
  implements Observer
@@ -349,7 +335,6 @@ Print:
 
 
 #|en| Second, create the `update()` method to provide the actual implementation.
-
 
 Go to the end of "class IntervalWindow"
 
@@ -365,8 +350,7 @@ Print:
 #C|en| Compile and test. While we have not yet made any "real" changes, mistakes can be often made in the simplest things, and it is best to keep all code checked at all times.
 #S All is well, so let's continue.
 
-
-Set step 3
+###### Set step 3
 
 Select 1st "lengthField"
 + Select 1st "startField"
@@ -393,7 +377,6 @@ Print:
 
 #|en| Then we can replace all references to `endField` with calls to the relevant methods.
 
-
 Select "endField.getText" in "class SymFocus"
 
 Wait 1000ms
@@ -406,13 +389,12 @@ Wait 1000ms
 
 Type "setEnd"
 
-Set step 4
+###### Set step 4
 
 Select name of "EndField_FocusLost"
 
 
 #|en| In our case, unlike ordinary self-encapsulation, the user can independently change the value of the `End` field in the window. So we make sure that this change is saved if it is made.
-
 
 Go to start of "EndField_FocusLost"
 
@@ -428,17 +410,14 @@ Select "setEnd(|||endField.getText()|||);"
 #|en| Note that in this call we are accessing the field directly. This is because after continuing the refactoring, `getEnd()` will be getting its value from the domain object, not the field. And in this particular case, we need the value of the field in the window (GUI).
 
 
-
 #|en| Otherwise, when the user changes the value of the field, this code would always return the old value. That's why we need a direct access.
 
-
-Set step 5
+###### Set step 5
 
 Select name of "Interval"
 
 
 #|en| Excellent! Once the `End` field is fully encapsulated, we can add the relevant field to the domain class.
-
 
 Go to start of "class Interval"
 
@@ -453,12 +432,10 @@ Select "private String end = |||"0"|||;"
 
 #|en| We should initialize the field with the same value as the field in the GUI.
 
-
 Go to the end of "class Interval"
 
 
 #|en| Then add methods for accessing the field.
-
 
 Print:
 ```
@@ -492,7 +469,6 @@ Select:
 
 #|en| …which leads us to calling the `update()` method in the window class. It does not have anything in it yet, so let's add the necessary code to make everything work.
 
-
 Go to the start of "update"
 
 Print:
@@ -509,10 +485,8 @@ Select:
 #|en| That is another place where direct access is needed, since calling a setter would lead to infinite recursion.
 
 
-
 #C|en| After finishing all the field rearrangements, we'd better compile and test.
 #S Everything is OK! We can keep going.
-
 
 Select 1st "lengthField"
 + Select 1st "startField"
@@ -566,7 +540,6 @@ Go to:
 
 #|en| Add the field to the interval class.
 
-
 Print:
 ```
 
@@ -605,7 +578,6 @@ Go to the end of "class IntervalWindow"
 
 
 #|en| Now we deal with the length field.
-
 
 Print:
 ```
@@ -650,7 +622,6 @@ Go to:
 
 #|en| Add the field to the interval class.
 
-
 Print:
 ```
 
@@ -691,14 +662,12 @@ Select name of "calculateEnd"
 
 #|en| At this point, it would be a good time to move the `calculateEnd()` and `calculateLength()` methods to the interval class.
 
-
 Select body of "setEnd"
 + Select body of "setStart"
 + Select body of "setLength"
 
 
 #|en| But to do this, you must first configure the setters of the fields of the `IntervalWindow` class to fill values in the `Interval` class.
-
 
 Select body of "setEnd"
 
@@ -728,14 +697,12 @@ Replace:
 
 #|en| We removed the value assignment in the GUI interface field because the value will still be set when the setter of the interval class is called (remember about implementation of Observer in the `update` method).
 
-
 Select body of "getEnd"
 + Select body of "getStart"
 + Select body of "getLength"
 
 
 #|en| We should do the same with getters.
-
 
 Select body of "getEnd"
 
@@ -768,7 +735,6 @@ Select name of "calculateEnd"
 
 #|en| Now we can start moving `calculateEnd()` and `calculateLength()` to the interval class.
 
-
 Select:
 ```
 
@@ -778,7 +744,6 @@ Select:
 
 
 #|en| Let's start by moving `calculateLength`.
-
 
 Remove selected
 
@@ -837,12 +802,11 @@ Select name of "Interval"
 #|en| Ultimately, we get the domain class, which contains all behaviors and calculations on the source data separate from the GUI code.
 
 
-
 #C|en| Let's perform the final compilation and testing.
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

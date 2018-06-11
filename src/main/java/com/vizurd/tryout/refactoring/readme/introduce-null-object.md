@@ -4,15 +4,11 @@ introduce-null-object:java
 
 1. From the class in question, create a subclass that will perform the role of null object.
 
-
 2. In both classes, create the method `isNull()`, which will return `true` for a null object and `false` for a real class.
-
 
 3. Find all places where the code may return `null` instead of a real object. Change the code so that it returns a null object.
 
-
 4. Find all places where the variables of the real class are compared with `null`. Replace these checks with a call for `isNull()`.
-
 
 5. <ul><li>If methods of the original class are performed in these conditionals for values not equal to `null`, redefine these methods in the null class and put the code from the `else` part of the conditional code there. Then you can delete the conditional entirely, since differing behavior will be controlled through polymorphism.</li><li>If things are more complicated and redefining the methods is "not in the cards", see whether you can simply move the operations that should be performed for values equal to `null` to new methods of the Null object. Call these methods instead of the old code in `else` as default operations.</li></ul>
 
@@ -157,19 +153,17 @@ int weeksDelinquent = customer.getHistory().getWeeksDelinquentInLastYear();
 
 ###
 
-Set step 1
+###### Set step 1
 
 Select name of "Company"
 
 
 #|en| Let's look at this refactoring, using a commercial company class as an example.
 
-
 Select name of "Customer"
 
 
 #|en| Every business has customers (`Customer`).
-
 
 Select "getName" in "Customer"
 +Select "getPlan" in "Customer"
@@ -177,7 +171,6 @@ Select "getName" in "Customer"
 
 
 #|en| Customers in turn have their own properties and behaviors.
-
 
 Go to "// Somewhere in client code"
 
@@ -191,15 +184,12 @@ Select "if (customer == null)"
 #|en| Note the conditional that verifies whether the business has the customer in question. This situation may occur if the business is new or an old customer has decided to change vendors.
 
 
-
 #|en| The code may contain many such repetitive `null` verifications, which indicates the need to introduce a null-object.
-
 
 
 #|en| First create a `null`-object class for `customer` and modify the `Customer` class so that it supports a query for `null` verification.
 
-
-Set step 2
+###### Set step 2
 
 Go to before "getName"
 
@@ -237,24 +227,22 @@ Print:
   }
 ```
 
-Set step 3
+###### Set step 3
 
 Select "return customer"
 
 
 #|en| Now we should handle all code that returns `Customer` objects. We should add the checks, which will return our `null` object instead of `null` value.
 
-
 Print "return (customer == null) ? Customer.newNull() : customer"
 
 
-Set step 4
+###### Set step 4
 
 Select "if (|||customer == null|||)"
 
 
 #|en| Then, in the remaining code, replace all checks of the type `Customer == null` with calls of `Customer.isNull()`.
-
 
 Print "customer.isNull()"
 
@@ -262,22 +250,18 @@ Print "customer.isNull()"
 #|en| This is the most complex part of the refactoring. For each source of `null` that you are replacing, you must find all `null` checks and change them. If an object is passed back and forth between methods, doing so consistently can be difficult.
 
 
-
 #C|en| After all replacements are done, compile and test carefully.
 #S Great, it all works! We can continue then.
 
-
-Set step 5
+###### Set step 5
 
 
 #|en| We do not yet gain any benefit from using `isNull` instead of plain `== null`  checks. The benefit will be visible when the code, which used to work in null cases will be moved straight to the null-object class.
-
 
 Select "customerName = "N/A""
 
 
 #|en| Let's start moving behaviors. The first thing to do is move the default customer name to the null-object class.
-
 
 Go to the end of "NullCustomer"
 
@@ -305,7 +289,6 @@ else {
 
 #|en| Then remove the check for `null` from the corresponding part of the client code.
 
-
 Print:
 ```
 String customerName = customer.getName();
@@ -313,7 +296,6 @@ String customerName = customer.getName();
 
 
 #|en| Do the same with the remaining methods for which you can think of a default behavior.
-
 
 Go to the end of "NullCustomer"
 
@@ -349,9 +331,7 @@ Select "customer.getHistory()"
 #|en| Careful review of the last bit of code could show a potential access error. It will occur when somebody will access a payment object while user object won't have any payment history.
 
 
-
 #|en| To solve the problem, you can create a null-object class for the payment history class as well.
-
 
 Go to the start of "PaymentHistory"
 
@@ -392,7 +372,6 @@ Go to the end of "NullPaymentHistory"
 
 #|en| Once the null-object has been defined, you can move default behavior to it.
 
-
 Print:
 ```
 
@@ -407,9 +386,7 @@ Select "customer.getHistory()"
 #|en| Now we can rest easy about any potential problem accessing the null-object of the payment history. But there are still other things to take care of.
 
 
-
 #|en| We can return the null-object of the payment history from the null-object of customers, fully ridding the client code of checks for `null`.
-
 
 Go to the end of "NullCustomer"
 
@@ -442,7 +419,7 @@ int weeksDelinquent = customer.getHistory().getWeeksDelinquentInLastYear();
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

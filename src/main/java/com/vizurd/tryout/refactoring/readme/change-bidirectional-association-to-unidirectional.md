@@ -97,7 +97,7 @@ class Customer {
 
 ###
 
-Set step 1
+###### Set step 1
 
 #|en| We will start *Change Bidirectional Association to Unidirectional*  from the place where we have stopped in the inverse refactoring.
 
@@ -124,7 +124,7 @@ Select "|||getCustomer()|||.getDiscount()"
 
 #|en|+ The hardest part of this refactoring technique is making sure that it is possible. Refactoring itself is easy, but we must make sure that it is safe. The problem comes down to whether any of order class' code needs a customer field. If that is the case, removing the field requires you to provide an alternative method for getting the customer object.
 
-Set step 2
+###### Set step 2
 
 #|en|^= First, we review all usages of the customer field and it's getter. Is there another way to provide the customer object or it's data? Often thу best solution means passing the customer as an argument to the methods, which use the field.
 
@@ -189,7 +189,7 @@ Select name of "getCustomer"
 
 #|en| Slow… But it works. In the context of a database, things may even become a little faster if a database query is used.
 
-Set step 3
+###### Set step 3
 
 Select:
 ```
@@ -223,7 +223,7 @@ Select whole "setCustomer"
 
 Remove selected
 
-Set step 4
+###### Set step 4
 
 Select:
 ```
@@ -239,6 +239,6 @@ Remove selected
 #C|en| Let's perform the final compilation and testing.
 #S Wonderful, it's all working!
 
-Set final step
+###### Set final step
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

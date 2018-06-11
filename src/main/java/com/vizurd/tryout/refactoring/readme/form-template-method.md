@@ -4,18 +4,13 @@ form-template-method:java
 
 1. Split algorithms in the subclasses into their constituent parts described in separate methods. <a href="/extract-method">Extract Method</a> can help with this.
 
-
 2. The resulting methods that are identical for all subclasses can be moved to a superclass via <a href="/pull-up-method">Pull Up Method</a>.
-
 
 3. The non-similar methods can be given consistent names via <a href="/rename-method">Rename Method</a>.
 
-
 4. Move the signatures of non-similar methods to a superclass as abstract ones by using <a href="/pull-up-method">Pull Up Method</a>. Leave their implementations in the subclasses.
 
-
 5. And finally, pull up the main method of the algorithm to the superclass. Now it should work with the method steps described in the superclass, both real and abstract.
-
 
 
 
@@ -119,7 +114,7 @@ class ArticleHtml extends ArticleView {
 
 ###
 
-Set step 1
+###### Set step 1
 
 Select name of "Article"
 
@@ -139,16 +134,13 @@ Select name of "htmlView"
 #|en|<= …and in HTML.
 
 
-
 #|en| Before starting the refactoring per se, we should arrange things so that these two methods appear in the subclasses of some shared parent class.
-
 
 Select whole "markdownView"
 +Select whole "htmlView"
 
 
 #|en| To do this, we create a <a href="/replace-method-with-method-object">simple method object</a> by moving both methods to it.
-
 
 Go to after "Article"
 
@@ -186,7 +178,6 @@ Select body of "markdownView"
 
 #|en| Now the bodies of the original methods can be replaced with calls to the `ArticleView` methods.
 
-
 Select body of "markdownView"
 
 Replace:
@@ -210,12 +201,10 @@ Select name of "ArticleView"
 
 #|en| Then from `ArticleView` we can extract two subclasses, `ArticleMarkdown` and `ArticleHtml`, by moving the corresponding methods to them.
 
-
 Go to after "ArticleView"
 
 
 #|en| Let's create a `ArticleMarkdown` class.
-
 
 Print:
 ```
@@ -234,7 +223,6 @@ Select whole of "markdownView" in "ArticleView"
 
 
 #|en| Move corresponding method to it.
-
 
 Remove selected
 
@@ -267,7 +255,6 @@ Go to after "ArticleMarkdown"
 
 #|en| Now let's create a `ArticleHtml` class.
 
-
 Print:
 ```
 
@@ -285,7 +272,6 @@ Select whole of "htmlView" in "ArticleView"
 
 
 #|en| And similarly move the remaining method to it.
-
 
 Remove selected
 
@@ -319,7 +305,6 @@ Select name of "markdownView" in "ArticleMarkdown"
 
 #|en| Since the methods are now located in different classes, we can give them identical names.
 
-
 Replace "view"
 
 Wait 500ms
@@ -336,19 +321,15 @@ Select name of "ArticleHtml"
 #C|en| Let's launch autotests to check for errors in the code.
 #S Everything is OK! We can keep going.
 
-
 #|en| Finally, everything is ready to start the refactoring itself.
 
 
-
 #|en| First split the `view` methods in both steps to their constituent steps. Defining the steps is rather easy in our case – these are parts of the printed article.
-
 
 Select name of "ArticleMarkdown"
 
 
 #|en| Start with the `ArticleMarkdown` class.
-
 
 Go to end of "ArticleMarkdown"
 
@@ -374,7 +355,6 @@ Select body of "view" in "ArticleMarkdown"
 
 #|en| Now we can replace parts of the `view` method with calls to the new methods.
 
-
 Print:
 ```
     return title() + intro() + body() + footer();
@@ -384,7 +364,6 @@ Select name of "ArticleHtml"
 
 
 #|en| Do all of this for the `ArticleHtml` class.
-
 
 Go to end of "ArticleHtml"
 
@@ -410,19 +389,17 @@ Select body of "view" in "ArticleHtml"
 
 #|en| Now we can replace parts of the `view` method with calls to the new methods.
 
-
 Print:
 ```
     return title() + intro() + body() + footer();
 ```
 
-Set step 4
+###### Set step 4
 
 Go to type "ArticleView"
 
 
 #|en| As you can see, the two classes have many identical steps. We should move the identical steps as abstract methods to the superclass.
-
 
 Print "abstract "
 
@@ -458,11 +435,10 @@ Wait 500ms
 Select whole of "view" in "ArticleMarkdown"
 + Select whole of "view" in "ArticleHtml"
 
-Set step 5
+###### Set step 5
 
 
 #|en| Now we can freely extract the identical `view` methods to the superclass.
-
 
 Remove selected
 
@@ -481,7 +457,7 @@ Print:
 #S Wonderful, it's all working!
 
 
-Set final step
+###### Set final step
 
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

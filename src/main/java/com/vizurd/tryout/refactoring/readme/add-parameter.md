@@ -11,7 +11,6 @@ add-parameter:java
 4. Delete the old method. Deletion is not possible if the old method is part of the public interface. If that is the case, mark the old method as deprecated.
 
 
-
 ###
 
 ```
@@ -64,7 +63,7 @@ appointments = calendar.findAppointments(today, null);
 
 ###
 
-Set step 1
+###### Set step 1
 
 #|en| Let's say we have a `Calendar` class that stores records about planned meetings.
 
@@ -74,7 +73,7 @@ Select name of "findAppointments"
 
 #|en| It would be great if this method could filter visitors by their names as well.
 
-Set step 2
+###### Set step 2
 
 #|en| We could simply add a new parameter to the method signature, but that would cause a large risk of breaking some existing code that has this method's calls.
 
@@ -118,7 +117,7 @@ Print:
     findAppointments(date, null);
 ```
 
-Set step 3
+###### Set step 3
 
 Select name of "findAppointments"
 
@@ -132,7 +131,7 @@ Go to "calendar.findAppointments(today|||);"
 
 Print ", null"
 
-Set step 4
+###### Set step 4
 
 Select whole "findAppointments"
 
@@ -143,6 +142,6 @@ Remove selected
 #C|en| Let's perform the final compilation and testing.
 #S Wonderful, it's all working!
 
-Set final step
+###### Set final step
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.

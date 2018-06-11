@@ -13,7 +13,6 @@ change-unidirectional-association-to-bidirectional:java
 5. If the old methods for controlling the association were in the non-dominant class, implement a control algorithm in the dominant class and delegate execution to them from the non-dominant class.
 
 
-
 ###
 
 ```
@@ -73,7 +72,7 @@ class Customer {
 
 ###
 
-Set step 1
+###### Set step 1
 
 #|en| Let's consider *Replace Unidirectional Association with Bidirectional*  using the example of two classes: `Customer` and `Order`.
 
@@ -98,7 +97,7 @@ Print:
   private Set orders = new HashSet();
 ```
 
-Set step 2
+###### Set step 2
 
 Select name of "Order"
 + Select name of "Customer"
@@ -107,7 +106,7 @@ Select name of "Order"
 
 #|en| By the way, here's how to decide this:<ul><li>If both objects are reference objects and the association is one-to-many, the “control” object will be the one that contains one reference. So if one client has many orders, the association is controlled by the order.</li><li>If one object is a component of the other (whole–part association), the “whole” object should control the association.</li><li>If both objects are reference objects, and the association is many-to-many: you can select either the order class or client class as the control class.</li></ul>
 
-Set step 3
+###### Set step 3
 
 Go to the end of "Customer"
 
@@ -123,7 +122,7 @@ Print:
   }
 ```
 
-Set step 4
+###### Set step 4
 
 Select name of "setCustomer"
 
@@ -166,7 +165,7 @@ Go to:
 ```
 #|en|< The basic pattern is always the same, however: first tell the other object to remove its pointer to you, set your pointer to the new object, and then tell the new object to add a pointer to you.
 
-Set step 5
+###### Set step 5
 
 Go to the end of "Customer"
 
@@ -183,6 +182,6 @@ Print:
 #C|en| Let's perform the final compilation and testing.
 #S Wonderful, it's all working!
 
-Set final step
+###### Set final step
 
 #|en|Q The refactoring is complete! You can compare the old and new code if you like.
