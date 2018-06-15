@@ -1,2 +1,2 @@
 # refactoring
-Project to practice refactoring.
+Project to code refactoring.

@@ -1,4 +1,4 @@
-package com.vizurd.tryout.refactoring.practice;
+package com.vizurd.tryout.refactoring.code;
 
 import java.time.LocalDate;
 
